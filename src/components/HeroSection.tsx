@@ -1,44 +1,118 @@
-import React from "react";
-import Link from "next/link";
+"use client";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import GlobeWrapper from "./GlobeWrapper";
 
-const HeroSection = () => {
+const HeroSection: React.FC = () => {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const renderParticles = () => {
+    if (dimensions.width === 0) return null;
+
+    return [...Array(5)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
+        initial={{
+          x: Math.random() * dimensions.width,
+          y: Math.random() * dimensions.height,
+        }}
+        animate={{
+          x: Math.random() * dimensions.width,
+          y: Math.random() * dimensions.height,
+          opacity: [0, 0.5, 0],
+          scale: [1, 1.5, 1],
+        }}
+        transition={{
+          duration: 5 + Math.random() * 3,
+          repeat: Infinity,
+          delay: i * 0.8,
+          ease: "easeInOut",
+        }}
+      />
+    ));
+  };
+
   return (
-    <section className="pt-24 pb-16 bg-gray-100 text-black">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-5xl font-bold mb-4">
-              <span className="block">ACT NOW</span>
-              <span className="block">DREAM BIG</span>
-              <span className="block">ACHIEVE MORE</span>
-            </h1>
-            <p className="text-xl mb-8">B-SCHOOLS | GMAT | IELTS | CAREER</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn-primary text-center">
-                PRENOTA UNA CALL GRATUITA
-              </Link>
-              <Link
-                href="/services"
-                className="bg-[#d9c498] text-primary font-bold py-2 px-6 rounded hover:bg-[#1b3f60]transition-all text-center"
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-gray-900 to-blue-900">
+      <div className="absolute inset-0 flex flex-col pt-20">
+        <div className="text-center py-8 relative">
+          {/* Animated background elements */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <AnimatePresence>
+            <motion.div
+              className="relative z-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.h1
+                className="text-5xl md:text-7xl text-white font-bold mb-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
               >
-                SCOPRI I NOSTRI SERVIZI
-              </Link>
-            </div>
-          </div>
-          <div className="md:w-1/2 relative">
-            <div className="aspect-w-16 aspect-h-9 w-full h-full relative">
-              {/* Interactive globe/map visualization would go here */}
-              <div className="w-full h-64 md:h-96 bg-blue-700 rounded-lg opacity-30 animate-pulse">
-                <div className="flex items-center justify-center h-full">
-                  <p className="text-white text-center">
-                    Mappamondo interattivo
-                    <br />
-                    (Visualizzazione delle Business Schools)
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+                <motion.span className="relative inline-block">
+                  ADMISSION HUB
+                  <motion.span
+                    className="absolute -bottom-2 left-0 w-full h-1 bg-[#d9c498]"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                      ease: "easeOut",
+                    }}
+                  />
+                </motion.span>
+              </motion.h1>
+
+              <motion.p
+                className="text-xl md:text-2xl text-blue-100"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="inline-block">Reach the goal</span>
+              </motion.p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Floating particles */}
+          {renderParticles()}
+        </div>
+
+        <div className="flex-1 relative">
+          <GlobeWrapper />
         </div>
       </div>
     </section>
