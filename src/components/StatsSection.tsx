@@ -1,32 +1,25 @@
+// components/StatsSection.tsx
 import React from "react";
-import { FaCheck, FaUsers, FaClock, FaChartLine } from "react-icons/fa";
 
 const StatsSection = () => {
-  const stats = [
-    { number: "99.3%", label: "SUCCESS RATE", icon: <FaCheck /> },
-    { number: "50+", label: "STUDENTI/ANNO", icon: <FaUsers /> },
-    { number: "7", label: "ANNI DI ESPERIENZA", icon: <FaClock /> },
-    { number: "10.000", label: "ORE DI CONSULENZA", icon: <FaChartLine /> },
-  ];
-
   return (
-    <section className="py-16 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <h2 className="section-title text-center text-gray-900 mb-12">
-          I Nostri Risultati
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="flex justify-center text-4xl mb-4 text-gray-900">
-                {stat.icon}
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </div>
-          ))}
+    <section className="bg-white border-b py-8 w-full">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-blue-600">99.3%</h2>
+          <p className="text-gray-600">SUCCESS RATE</p>
+        </div>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-blue-600">50+</h2>
+          <p className="text-gray-600">STUDENTI/ANNO</p>
+        </div>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-blue-600">7</h2>
+          <p className="text-gray-600">ANNI DI ESPERIENZA</p>
+        </div>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-blue-600">10,000</h2>
+          <p className="text-gray-600">ORE DI CONSULENZA</p>
         </div>
       </div>
     </section>
