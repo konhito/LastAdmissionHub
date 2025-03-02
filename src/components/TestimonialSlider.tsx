@@ -13,13 +13,11 @@ const testimonials = [
     name: "John Doe",
     role: "Student",
   },
-  // Add more testimonials as needed
 ];
 
 const TestimonialSlider = () => {
   const [current, setCurrent] = useState(0);
 
-  // Auto-advance slides
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % testimonials.length);
@@ -36,7 +34,7 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="relative overflow-hidden max-w-2xl mx-auto my-8">
+    <div className="relative overflow-hidden max-w-2xl mx-auto my-8 text-gray-900">
       <div className="bg-white rounded-lg shadow-lg p-6">
         <FaQuoteLeft className="text-blue-500 text-3xl mb-4" />
         <p className="text-gray-700 mb-4">{testimonials[current].text}</p>

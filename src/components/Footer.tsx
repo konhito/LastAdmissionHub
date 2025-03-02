@@ -91,7 +91,7 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Contatti</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/contact" className="hover:underline">
+                <Link href="/contact" className="hover:underline ">
                   Prenota una Call
                 </Link>
               </li>
