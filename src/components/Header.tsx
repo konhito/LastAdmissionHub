@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed w-full bg-white shadow-md z-50">
+    <header className="fixed w-full bg-[#1b3f60] shadow-md z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <div className="relative w-10 h-10 mr-2">
@@ -58,7 +58,10 @@ const Header = () => {
         </nav>
 
         <Link href="/contact" className="hidden md:block btn-primary">
-          CALL GRATUITA
+          <button className="bg-[#d9c498] rounded px-3 py-2">
+            {" "}
+            CALL GRATUITA
+          </button>
         </Link>
 
         {/* Mobile Menu Button */}

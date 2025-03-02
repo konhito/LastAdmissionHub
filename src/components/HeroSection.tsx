@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-primary to-secondary text-white">
+    <section className="pt-24 pb-16 bg-gray-100 text-black">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
@@ -19,7 +19,7 @@ const HeroSection = () => {
               </Link>
               <Link
                 href="/services"
-                className="bg-white text-primary font-bold py-2 px-6 rounded hover:bg-gray-100 transition-all text-center"
+                className="bg-[#d9c498] text-primary font-bold py-2 px-6 rounded hover:bg-[#1b3f60]transition-all text-center"
               >
                 SCOPRI I NOSTRI SERVIZI
               </Link>
