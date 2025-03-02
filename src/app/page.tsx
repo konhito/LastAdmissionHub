@@ -1,10 +1,9 @@
 import React from "react";
-import Image from "next/image"; // Import the Next.js Image component
+import Image from "next/image";
 import first from "@/public/first.jpg";
 import second from "@/public/second.jpg";
 import third from "@/public/third.jpg";
 
-// Importing other components
 import HeroSection from "@/components/HeroSection";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import TeamSection from "@/components/TeamSection";
@@ -22,7 +21,7 @@ export default function Home() {
           alt="First image"
           layout="responsive"
           width={1920}
-          height={600} // Adjust the height as needed
+          height={400}
           className="full-width-image"
         />
       </div>
@@ -32,7 +31,7 @@ export default function Home() {
           alt="Second image"
           layout="responsive"
           width={1920}
-          height={600} // Adjust the height as needed
+          height={400}
           className="full-width-image"
         />
       </div>
@@ -42,7 +41,7 @@ export default function Home() {
           alt="Third image"
           layout="responsive"
           width={1920}
-          height={600} // Adjust the height as needed
+          height={400}
           className="full-width-image"
         />
       </div>

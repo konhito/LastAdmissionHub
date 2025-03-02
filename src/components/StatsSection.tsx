@@ -12,14 +12,16 @@ const StatsSection = () => {
   return (
     <section className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="section-title text-center mb-12">I Nostri Risultati</h2>
+        <h2 className="section-title text-center text-gray-900 mb-12">
+          I Nostri Risultati
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="flex justify-center mb-4 text-primary">
+              <div className="flex justify-center text-4xl mb-4 text-gray-900">
                 {stat.icon}
               </div>
-              <div className="text-4xl font-bold text-primary mb-2">
+              <div className="text-4xl font-bold text-gray-900 mb-2">
                 {stat.number}
               </div>
               <div className="text-sm text-gray-600">{stat.label}</div>
