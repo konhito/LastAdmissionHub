@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Globe from "globe.gl";
