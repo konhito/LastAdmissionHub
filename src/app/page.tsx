@@ -4,6 +4,7 @@ import first from "@/public/first.jpg";
 import second from "@/public/second.jpg";
 import third from "@/public/third.jpg";
 import forth from "@/public/home1.jpg";
+import fifth from "@/public/image.png";
 
 import HeroSection from "@/components/HeroSection";
 import TestimonialSlider from "@/components/TestimonialSlider";
@@ -60,6 +61,18 @@ export default function Home() {
 
       <StatsSection />
       <TeamSection />
+      <div className="flex flex-col  my-3 items-center w-full max-w-5xl mx-auto mb-12">
+        <div className="mb-6 ">
+          <Image
+            src={fifth}
+            alt="First image"
+            layout="responsive"
+            width={1920}
+            height={400}
+            className="rounded-lg shadow-md"
+          />
+        </div>
+      </div>
       <BlogSection />
       <TestimonialSlider />
       <div className="w-full bg-black">
