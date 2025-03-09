@@ -23,7 +23,6 @@ const Header = () => {
       ],
     },
     { title: "Career", href: "/career" },
-    { title: "Consulting", href: "/consulting" },
     { title: "Blog", href: "/blog" },
     { title: "Contact", href: "/contact", isButton: true },
   ];
