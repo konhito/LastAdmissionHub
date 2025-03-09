@@ -1,14 +1,48 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import admiFirst from "@/public/ietsFir.jpg";
 import admiSec from "@/public/ieltsSec.jpg";
 import CallToAction from "@/components/CallToAction";
 import ietts6 from "@/public/iets6.jpg";
 import iets7 from "@/public/iets7.jpg";
-
 import { User, Users, BookOpen } from "lucide-react";
 
+const tutors = [
+  { id: 1, name: "Tutor 1", description: "Descrizione 1" },
+  { id: 2, name: "Tutor 2", description: "Descrizione 2" },
+  { id: 3, name: "Tutor 3", description: "Descrizione 3" },
+  { id: 4, name: "Tutor 4", description: "Descrizione 4" },
+  { id: 5, name: "Tutor 5", description: "Descrizione 5" },
+];
+
+const stats = [
+  { label: "SUCCESS RATE", value: 99.3 },
+  { label: "STUDENTI/ANNO", value: 50 },
+  { label: "ANNI DI ESPERIENZA", value: 7 },
+  { label: "ORE DI CONSULENZA", value: 10000 },
+];
+
 export default function HomePage() {
+  const [animatedValues, setAnimatedValues] = useState(stats.map(() => 0));
+
+  useEffect(() => {
+    const intervals = stats.map((stat, index) => {
+      let current = 0;
+      const step = Math.max(stat.value / 100, 1);
+      return setInterval(() => {
+        current += step;
+        setAnimatedValues((prev) => {
+          const newValues = [...prev];
+          newValues[index] = Math.min(current, stat.value);
+          return newValues;
+        });
+        if (current >= stat.value) clearInterval(intervals[index]);
+      }, 20);
+    });
+    return () => intervals.forEach(clearInterval);
+  }, []);
+
   const cards = [
     {
       icon: <User size={50} className="text-[#0B3555]" />,
@@ -23,9 +57,9 @@ export default function HomePage() {
       title: "MATERIALE ESCLUSIVO",
     },
   ];
+
   return (
     <main className="bg-white text-gray-800 min-h-screen flex flex-col items-center ">
-      {/* Images Section */}
       <div className="w-full max-w-5xl mb-12">
         <Image
           src={admiFirst}
@@ -33,29 +67,21 @@ export default function HomePage() {
           className="rounded-lg shadow-md mb-6 mt-20"
         />
         <section className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-600">99.3%</h2>
-            <p className="text-gray-600">SUCCESS RATE</p>
-          </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-600">50+</h2>
-            <p className="text-gray-600">STUDENTI/ANNO</p>
-          </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-600">7</h2>
-            <p className="text-gray-600">ANNI DI ESPERIENZA</p>
-          </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-600">10,000</h2>
-            <p className="text-gray-600">ORE DI CONSULENZA</p>
-          </div>
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <h2 className="text-3xl font-bold text-blue-600">
+                {Math.round(animatedValues[index])}
+              </h2>
+              <p className="text-gray-600">{stat.label}</p>
+            </div>
+          ))}
         </section>
 
         <div className="flex justify-center rounded mb-2 items-center gap-20 p-8 bg-[#0B3555] ">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="w-64 h-64 bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4"
+              className="w-64 h-64 bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4 transition-transform duration-300 hover:rotate-6"
             >
               {card.icon}
               <p className="mt-4">{card.title}</p>
@@ -80,18 +106,32 @@ export default function HomePage() {
         />
       </div>
       <div className="flex flex-col items-center justify-center my-2 mb-20 bg-white">
-        {/* Title */}
         <h1 className="text-3xl font-bold text-[#153B5C] mb-6">
           Incontra i nostri Tutors
         </h1>
-
-        {/* Button */}
         <button className="bg-[#FF5252] text-black text-lg font-light px-8 py-4 rounded-lg">
           vedi tutoring gmat
         </button>
       </div>
 
-      <div className="w-full bg-[#1c3f60]  py-12">
+      <div className="flex flex-col items-center bg-white p-10">
+        <h2 className="text-3xl font-bold text-[#0F355F] mb-6 tracking-wide">
+          Incontra i nostri Tutors
+        </h2>
+        <div className="flex justify-center gap-6">
+          {tutors.map((tutor) => (
+            <div
+              key={tutor.id}
+              className="w-40 h-56 bg-[#EADDC4] flex flex-col justify-center items-center text-[#0F355F] font-bold text-center rounded-md shadow-md uppercase"
+            >
+              <span>{tutor.name}</span>
+              <span>{tutor.description}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full bg-[#1c3f60] py-12">
         <div className="max-w-5xl mx-auto">
           <CallToAction />
         </div>
