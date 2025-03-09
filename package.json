@@ -13,6 +13,7 @@
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.4.7",
     "globe.gl": "^2.40.0",
+    "lucide-react": "^0.479.0",
     "next": "15.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
