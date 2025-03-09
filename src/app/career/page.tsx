@@ -78,7 +78,7 @@ export default function HomePage() {
   return (
     <main className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
       {/* Images Section */}
-      <div className="w-full max-w-7xl mb-2">
+      <div className="w-full max-w-5xl mb-2">
         <Image
           src={admiFirst}
           alt="Admission Portal"
@@ -152,7 +152,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#1c3f60] mb-8">
             Servizi a supporto
           </h2>
-          <div className="flex justify-center items-center gap-30 flex-wrap">
+          <div className="flex justify-center items-center gap-20 flex-wrap">
             {services.map((service, index) => (
               <div key={index} className="group perspective">
                 <div className="relative w-64 h-64 transform-style-preserve-3d transition-transform duration-500 ">
