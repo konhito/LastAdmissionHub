@@ -3,6 +3,7 @@ import Image from "next/image";
 import first from "@/public/first.jpg";
 import second from "@/public/second.jpg";
 import third from "@/public/third.jpg";
+import forth from "@/public/home1.jpg";
 
 import HeroSection from "@/components/HeroSection";
 import TestimonialSlider from "@/components/TestimonialSlider";
@@ -16,6 +17,15 @@ export default function Home() {
     <div className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
       <HeroSection />
       <div className="flex flex-col  my-3 items-center w-full max-w-5xl mx-auto mb-12">
+        <div className="mb-6  max-w-7xl">
+          <Image
+            src={forth}
+            alt="Second image"
+            width={1920}
+            height={600}
+            className="rounded-lg shadow-md"
+          />
+        </div>
         <div className="mb-6 ">
           <Image
             src={first}
