@@ -25,6 +25,7 @@ const stats = [
 
 export default function HomePage() {
   const [animatedValues, setAnimatedValues] = useState(stats.map(() => 0));
+  const [flippedCard, setFlippedCard] = useState(null);
 
   useEffect(() => {
     const intervals = stats.map((stat, index) => {
@@ -47,14 +48,18 @@ export default function HomePage() {
     {
       icon: <User size={50} className="text-[#0B3555]" />,
       title: "TUTORS MADRELINGUA",
+      description:
+        "Insegnanti madrelingua qualificati con esperienza internazionale",
     },
     {
       icon: <Users size={50} className="text-[#0B3555]" />,
       title: "BUDDY PROGRAM",
+      description: "Supporto personalizzato per raggiungere i tuoi obiettivi",
     },
     {
       icon: <BookOpen size={50} className="text-[#0B3555]" />,
       title: "MATERIALE ESCLUSIVO",
+      description: "Accesso a risorse didattiche esclusive e aggiornate",
     },
   ];
 
@@ -81,10 +86,26 @@ export default function HomePage() {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="w-64 h-64 bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4 transition-transform duration-300 hover:rotate-6"
+              className="relative w-64 h-64 perspective-1000"
+              onMouseEnter={() => setFlippedCard(index)}
+              onMouseLeave={() => setFlippedCard(null)}
             >
-              {card.icon}
-              <p className="mt-4">{card.title}</p>
+              <div
+                className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
+                  flippedCard === index ? "rotate-y-180" : ""
+                }`}
+              >
+                {/* Front of card */}
+                <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4 backface-hidden">
+                  {card.icon}
+                  <p className="mt-4">{card.title}</p>
+                </div>
+
+                {/* Back of card */}
+                <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center p-4 backface-hidden rotate-y-180">
+                  <p className="text-sm">{card.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

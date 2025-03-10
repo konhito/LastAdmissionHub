@@ -79,12 +79,21 @@ export default function HomePage() {
 
         <div className="flex justify-center gap-25 p-8 w-full">
           {cards.map((card, index) => (
-            <div
-              key={index}
-              className="w-64 h-64 bg-[#1A3756] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-4 transition-transform duration-300 hover:rotate-6"
-            >
-              {card.icon}
-              <p className="mt-4">{card.title}</p>
+            <div key={index} className="perspective">
+              <div className="w-64 h-64 relative transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180">
+                {/* Front of card */}
+                <div className="absolute w-full h-full bg-[#1A3756] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-4 backface-hidden">
+                  {card.icon}
+                  <p className="mt-4">{card.title}</p>
+                </div>
+                {/* Back of card */}
+                <div className="absolute w-full h-full bg-[#0F355F] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-4 backface-hidden rotate-y-180">
+                  <p>{card.title}</p>
+                  <p className="mt-2 text-sm font-normal">
+                    Clicca per saperne di più
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -136,6 +145,25 @@ export default function HomePage() {
           <CallToAction />
         </div>
       </div>
+
+      {/* Add CSS for 3D flip effect */}
+      <style jsx global>{`
+        .perspective {
+          perspective: 1000px;
+        }
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+        .hover\:rotate-y-180:hover {
+          transform: rotateY(180deg);
+        }
+      `}</style>
     </main>
   );
 }
