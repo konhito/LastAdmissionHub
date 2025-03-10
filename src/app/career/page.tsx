@@ -65,14 +65,18 @@ export default function HomePage() {
     {
       icon: <FaPuzzlePiece size={40} className="text-blue-300" />,
       title: "APPROCCIO PERSONALIZZATO",
+      description: "Ogni percorso è costruito sulle tue esigenze specifiche.",
     },
     {
       icon: <FaGlobe size={40} className="text-blue-300" />,
-      title: "NETWORK ESCLUSIVO",
+      title: "MENTOR DEDICATO",
+      description: "Un professionista ti seguirà in ogni fase del percorso.",
     },
     {
       icon: <FaDesktop size={40} className="text-blue-300" />,
-      title: "PIATTAFORMA ALL IN ONE",
+      title: "STRUMENTI INNOVATIVI",
+      description:
+        "Utilizziamo le tecnologie più avanzate per la tua formazione.",
     },
   ];
 
@@ -88,12 +92,21 @@ export default function HomePage() {
 
         <div className="flex justify-center gap-20 p-8 w-full">
           {cards.map((card, index) => (
-            <div
-              key={index}
-              className="w-90 h-70  bg-[#1A3756] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-8"
-            >
-              {card.icon}
-              <p className="mt-4">{card.title}</p>
+            <div key={index} className="w-90 h-70 perspective">
+              <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
+                {/* Front Side */}
+                <div className="absolute inset-0 bg-[#1A3756] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-8 backface-hidden">
+                  {card.icon}
+                  <p className="mt-4">{card.title}</p>
+                </div>
+
+                {/* Back Side */}
+                <div className="absolute inset-0 bg-[#C2A87F] flex items-center justify-center rounded-lg shadow-lg backface-hidden rotate-y-180">
+                  <span className="text-[#1c3f60] text-center px-4 font-medium">
+                    {card.description}
+                  </span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
