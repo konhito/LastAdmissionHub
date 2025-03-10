@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import admiFirst from "@/public/car1.jpg";
@@ -50,7 +51,7 @@ export default function HomePage() {
     {
       number: "4",
       icon: <FaSearch size={40} />,
-      title: "RICERCA OPPORTUNITA’",
+      title: "RICERCA OPPORTUNITA'",
       progress: 80,
     },
     {
@@ -154,8 +155,8 @@ export default function HomePage() {
           </h2>
           <div className="flex justify-center items-center gap-20 flex-wrap">
             {services.map((service, index) => (
-              <div key={index} className="group perspective">
-                <div className="relative w-64 h-64 transform-style-preserve-3d transition-transform duration-500 ">
+              <div key={index} className="relative w-64 h-64 perspective">
+                <div className="relative w-full h-full transition-transform duration-500 transform-style preserve-3d hover:rotate-y-180">
                   {/* Front Side */}
                   <div className="absolute inset-0 bg-[#d6bf8a] flex items-center justify-center rounded-lg shadow-lg backface-hidden">
                     <span className="text-lg font-bold text-[#1c3f60] text-center px-4">
@@ -164,7 +165,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Back Side */}
-                  <div className="absolute inset-0 bg-[#1c3f60] flex items-center justify-center rounded-lg shadow-lg rotate-y-180 backface-hidden">
+                  <div className="absolute inset-0 bg-[#1c3f60] flex items-center justify-center rounded-lg shadow-lg backface-hidden rotate-y-180">
                     <span className="text-white text-center px-4">
                       {service.description}
                     </span>
@@ -182,6 +183,29 @@ export default function HomePage() {
           <CallToAction />
         </div>
       </div>
+
+      {/* Add the CSS for 3D transformations */}
+      <style jsx global>{`
+        .perspective {
+          perspective: 1000px;
+        }
+
+        .preserve-3d {
+          transform-style: preserve-3d;
+        }
+
+        .backface-hidden {
+          backface-visibility: hidden;
+        }
+
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+
+        .hover\:rotate-y-180:hover {
+          transform: rotateY(180deg);
+        }
+      `}</style>
     </main>
   );
 }
