@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import admiFirst from "@/public/car1.jpg";
 
 import CallToAction from "@/components/CallToAction";
 
@@ -84,11 +82,18 @@ export default function HomePage() {
     <main className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
       {/* Images Section */}
       <div className="w-full max-w-5xl mb-2">
-        <Image
-          src={admiFirst}
-          alt="Admission Portal"
-          className="rounded-lg shadow-md mb-6 mt-20"
-        />
+        <div className="w-full bg-slate-200  mb-6 mt-20 rounded py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="flex flex-col items-center text-center">
+              <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
+                The Career Portal{" "}
+              </h1>
+              <h2 className="text-xl md:text-2xl text-gray-700 italic">
+                Le opportunità ideali per il tuo profilo{" "}
+              </h2>
+            </div>
+          </div>
+        </div>
 
         <div className="flex justify-center gap-20 p-8 w-full">
           {cards.map((card, index) => (
@@ -162,7 +167,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="bg-[#d9ebfb] py-12 px-4 text-center">
+        <div className="bg-[#d9ebfb] rounded mb-3 py-12 px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1c3f60] mb-8">
             Servizi a supporto
           </h2>
@@ -221,4 +226,4 @@ export default function HomePage() {
       `}</style>
     </main>
   );
-} 
+}
