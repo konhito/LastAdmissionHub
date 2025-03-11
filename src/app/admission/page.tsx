@@ -1,7 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import admiFirst from "@/public/admiFirst.jpg";
-import admiSec from "@/public/admiSec.jpg";
 import CallToAction from "@/components/CallToAction";
 
 import {
@@ -51,11 +48,18 @@ export default function HomePage() {
     <main className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
       {/* Images Section */}
       <div className="w-full max-w-5xl mb-12">
-        <Image
-          src={admiFirst}
-          alt="Admission Portal"
-          className="rounded-lg shadow-md mb-3 mt-20"
-        />
+        <div className="w-full bg-slate-200  mb-6 mt-20 rounded py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="flex flex-col items-center text-center">
+              <h1 className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
+                The Admission Portal
+              </h1>
+              <h2 className="text-xl md:text-2xl text-gray-700 italic">
+                Un sostegno a 360 gradi per eccellere{" "}
+              </h2>
+            </div>
+          </div>
+        </div>
         <div className="w-full rounded mb-3 bg-[#1c3f60] py-12 flex justify-center items-center">
           <h2 className="text-white text-xl text-center">
             Testo sui nostri servizi
@@ -89,11 +93,49 @@ export default function HomePage() {
           </div>
         </div>
 
-        <Image
-          src={admiSec}
-          alt="Admission Portal"
-          className="rounded-lg shadow-md mt-2"
-        />
+        <div className="w-full flex mt-3">
+          <div className="w-1/2 bg-[#d6ebfa] p-12 rounded-l-lg">
+            <h2 className="text-4xl font-bold text-[#1e3a5f] mb-12 text-center">
+              Un percorso
+              <br />
+              completo:
+            </h2>
+
+            <div className="flex flex-col gap-6 items-center">
+              <button className="w-full max-w-md py-3 bg-[#00395a] text-white font-bold rounded-full text-center">
+                TUTORING GMAT
+              </button>
+
+              <button className="w-full max-w-md py-3 bg-[#00395a] text-white font-bold rounded-full text-center">
+                TUTORING IELTS
+              </button>
+
+              <button className="w-full max-w-md py-3 bg-[#00395a] text-white font-bold rounded-full text-center">
+                PERCORSO MASTERMIND
+              </button>
+            </div>
+          </div>
+
+          <div className="w-1/2 bg-white mt-3 p-12 rounded-r-lg shadow-sm">
+            <h2 className="text-4xl font-bold text-[#1e3a5f] mb-12 text-center">
+              Altre <br /> risorse:
+            </h2>
+
+            <div className="flex flex-col gap-6 items-center">
+              <button className="w-full max-w-md py-3 bg-[#00395a] text-white font-bold rounded-full text-center">
+                IL NOSTRO BLOG
+              </button>
+
+              <button className="w-full max-w-md py-3 bg-[#00395a] text-white font-bold rounded-full text-center">
+                ACADEMYPRO
+              </button>
+
+              <button className="w-full max-w-md py-3 bg-[#00395a] text-white font-bold rounded-full text-center">
+                YOUTUBE
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="w-full bg-[#1c3f60] py-12">
