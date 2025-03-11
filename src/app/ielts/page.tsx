@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
+import CallToAction from "@/components/CallToAction";
+
 import { CheckCircle } from "lucide-react";
 
 import { User, Users, BookOpen } from "lucide-react";
