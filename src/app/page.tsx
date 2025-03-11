@@ -1,7 +1,5 @@
-import React from "react";
-import Image from "next/image";
-
-import fifth from "@/public/image.png";
+"use client";
+import React, { useEffect, useState } from "react";
 
 import HeroSection from "@/components/HeroSection";
 import TestimonialSlider from "@/components/TestimonialSlider";
@@ -17,6 +15,42 @@ const montserrat = Montserrat({
 });
 
 export default function Home() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Business school logos
+  const logos = [
+    { name: "HEC Paris", color: "#003366" },
+    { name: "ESSEC Business School", color: "#000000" },
+    { name: "London Business School", color: "#003366" },
+    { name: "LSE", color: "#E4003B" },
+    { name: "Imperial College Business School", color: "#003C71" },
+    { name: "SDA Bocconi", color: "#00205C" },
+    { name: "INSEAD", color: "#00843D" },
+    { name: "Skema Business School", color: "#E94E1B" },
+    { name: "ESCP Business School", color: "#4B2A85" },
+    { name: "Luiss Business School", color: "#003366" },
+    { name: "IE Business School", color: "#0065BD" },
+    { name: "Harvard Business School", color: "#A51C30" },
+  ];
+
+  useEffect(() => {
+    let animationId;
+
+    const step = () => {
+      setScrollPosition((prevPosition) => {
+        // Reset position when it's moved enough to complete the loop
+        if (prevPosition <= -100) {
+          return 0;
+        }
+        // Move left by a much smaller increment for slower, smoother movement
+        return prevPosition - 0.05;
+      });
+      animationId = requestAnimationFrame(step);
+    };
+
+    animationId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
   return (
     <div className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
       <HeroSection />
@@ -134,14 +168,44 @@ export default function Home() {
       <TeamSection />
       <div className="flex flex-col  my-3 items-center w-full max-w-5xl mx-auto mb-12">
         <div className="mb-6 ">
-          <Image
-            src={fifth}
-            alt="First image"
-            layout="responsive"
-            width={1920}
-            height={400}
-            className="rounded-lg shadow-md"
-          />
+          <div className="w-full overflow-hidden bg-white py-8">
+            <div
+              className="flex items-center"
+              style={{ transform: `translateX(${scrollPosition}%)` }}
+            >
+              {/* First set of logos */}
+              {logos.map((logo, index) => (
+                <div
+                  key={`logo-${index}`}
+                  className="flex-shrink-0 mx-6 flex items-center justify-center h-16 bg-white rounded shadow-sm px-4 border border-gray-100"
+                  style={{ minWidth: "180px" }}
+                >
+                  <div
+                    className="font-semibold text-sm"
+                    style={{ color: logo.color }}
+                  >
+                    {logo.name}
+                  </div>
+                </div>
+              ))}
+
+              {/* Duplicate set to create seamless loop */}
+              {logos.map((logo, index) => (
+                <div
+                  key={`logo-dup-${index}`}
+                  className="flex-shrink-0 mx-6 flex items-center justify-center h-16 bg-white rounded shadow-sm px-4 border border-gray-100"
+                  style={{ minWidth: "180px" }}
+                >
+                  <div
+                    className="font-semibold text-sm"
+                    style={{ color: logo.color }}
+                  >
+                    {logo.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <BlogSection />
