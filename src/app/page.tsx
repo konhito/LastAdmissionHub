@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import forth from "@/public/home1.jpg";
+
 import fifth from "@/public/image.png";
 
 import HeroSection from "@/components/HeroSection";
@@ -9,22 +9,33 @@ import TeamSection from "@/components/TeamSection";
 import BlogSection from "@/components/BlogSection";
 import CallToAction from "@/components/CallToAction";
 import StatsSection from "@/components/StatsSection";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
+});
 
 export default function Home() {
   return (
     <div className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
       <HeroSection />
-      <div className="flex flex-col  my-3 items-center w-full max-w-5xl mx-auto mb-12">
-        <div className="mb-6  max-w-7xl">
-          <Image
-            src={forth}
-            alt="Second image"
-            width={1920}
-            height={600}
-            className="rounded-lg shadow-md"
-          />
+      <div className="flex flex-col   my-3 items-center w-full max-w-5xl mx-auto mb-12">
+        <div className="relative w-full h-[90vh] bg-slate-800 border-4  rounded-lg flex items-center justify-center">
+          <div
+            className={`text-center text-white px-4 ${montserrat.className}`}
+          >
+            <h1 className="text-5xl md:text-7xl font-extrabold">DREAM BIG</h1>
+            <h2 className="text-4xl md:text-6xl font-bold my-4">ACT NOW</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold">
+              ACHIEVE MORE
+            </h3>
+            <p className="text-base md:text-lg mt-6 tracking-widest">
+              B-SCHOOLS | GMAT | IELTS | CAREER
+            </p>
+          </div>
         </div>
-        <div className="mb-3 ">
+        <div className="mb-3 mt-2">
           <div className="w-full bg-[#f0e6d2] p-8 rounded-lg flex items-center justify-between">
             <div className="flex items-center">
               <div className="relative">
