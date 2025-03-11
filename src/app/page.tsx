@@ -166,48 +166,46 @@ export default function Home() {
 
       <StatsSection />
       <TeamSection />
-      <div className="flex flex-col  my-3 items-center w-full max-w-5xl mx-auto mb-12">
-        <div className="mb-6 ">
-          <div className="w-full overflow-hidden bg-white py-8">
-            <div
-              className="flex items-center"
-              style={{ transform: `translateX(${scrollPosition}%)` }}
-            >
-              {/* First set of logos */}
-              {logos.map((logo, index) => (
-                <div
-                  key={`logo-${index}`}
-                  className="flex-shrink-0 mx-6 flex items-center justify-center h-16 bg-white rounded shadow-sm px-4 border border-gray-100"
-                  style={{ minWidth: "180px" }}
-                >
-                  <div
-                    className="font-semibold text-sm"
-                    style={{ color: logo.color }}
-                  >
-                    {logo.name}
-                  </div>
-                </div>
-              ))}
 
-              {/* Duplicate set to create seamless loop */}
-              {logos.map((logo, index) => (
-                <div
-                  key={`logo-dup-${index}`}
-                  className="flex-shrink-0 mx-6 flex items-center justify-center h-16 bg-white rounded shadow-sm px-4 border border-gray-100"
-                  style={{ minWidth: "180px" }}
-                >
-                  <div
-                    className="font-semibold text-sm"
-                    style={{ color: logo.color }}
-                  >
-                    {logo.name}
-                  </div>
-                </div>
-              ))}
+      <div className="w-full overflow-hidden bg-white py-8">
+        <div
+          className="flex items-center"
+          style={{ transform: `translateX(${scrollPosition}%)` }}
+        >
+          {/* First set of logos */}
+          {logos.map((logo, index) => (
+            <div
+              key={`logo-${index}`}
+              className="flex-shrink-0 mx-6 flex items-center justify-center h-16 bg-white rounded shadow-sm px-4 border border-gray-100"
+              style={{ minWidth: "100px" }}
+            >
+              <div
+                className="font-semibold text-sm"
+                style={{ color: logo.color }}
+              >
+                {logo.name}
+              </div>
             </div>
-          </div>
+          ))}
+
+          {/* Duplicate set to create seamless loop */}
+          {logos.map((logo, index) => (
+            <div
+              key={`logo-dup-${index}`}
+              className="flex-shrink-0 mx-6 flex items-center justify-center h-16 bg-white rounded shadow-sm px-4 border border-gray-100"
+              style={{ minWidth: "100px" }}
+            >
+              <div
+                className="font-semibold text-sm"
+                style={{ color: logo.color }}
+              >
+                {logo.name}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
       <BlogSection />
       <TestimonialSlider />
       <div className="w-full bg-black">
