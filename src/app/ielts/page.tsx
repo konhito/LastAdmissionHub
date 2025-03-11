@@ -1,11 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import admiFirst from "@/public/ietsFir.jpg";
-import admiSec from "@/public/ieltsSec.jpg";
-import CallToAction from "@/components/CallToAction";
-import ietts6 from "@/public/iets6.jpg";
-import iets7 from "@/public/iets7.jpg";
+
 import { CheckCircle } from "lucide-react";
 
 import { User, Users, BookOpen } from "lucide-react";
