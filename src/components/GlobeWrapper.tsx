@@ -1,8 +1,13 @@
 "use client";
-import dynamic from 'next/dynamic';
-import React from 'react';
+import dynamic from "next/dynamic";
+import React from "react";
+import { BusinessSchool } from "@/types/globe";
 
-const Globe = dynamic(() => import('./Globe'), {
+export interface GlobeWrapperProps {
+  onPinClick?: (pin: BusinessSchool) => void;
+}
+
+const Globe = dynamic<GlobeWrapperProps>(() => import("./Globe"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-[70vh] flex items-center justify-center">
@@ -11,8 +16,8 @@ const Globe = dynamic(() => import('./Globe'), {
   ),
 });
 
-const GlobeWrapper: React.FC = () => {
-  return <Globe />;
+const GlobeWrapper: React.FC<GlobeWrapperProps> = ({ onPinClick }) => {
+  return <Globe onPinClick={onPinClick} />;
 };
 
 export default GlobeWrapper;
