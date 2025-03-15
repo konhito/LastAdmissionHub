@@ -1,28 +1,86 @@
-// components/StatsSection.tsx
-import React from "react";
+"use client";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useCounter } from "@/hooks/useCounter";
 
-const StatsSection = () => {
+interface StatItemProps {
+  end: number;
+  label: string;
+  prefix?: string;
+  suffix?: string;
+  delay?: number;
+  inView: boolean;
+}
+
+const StatItem: React.FC<StatItemProps> = ({
+  end,
+  label,
+  prefix = "",
+  suffix = "",
+  delay = 0,
+  inView,
+}) => {
+  const count = useCounter({
+    end,
+    delay: delay * 200,
+    duration: 2000,
+    shouldStart: inView,
+  });
+
   return (
-    <section className="bg-white  py-8 w-full">
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
-        <div className="text-center p-6 rounded-xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-3xl font-bold text-blue-600">99.3%</h2>
-          <p className="text-gray-600">SUCCESS RATE</p>
-        </div>
-        <div className="text-center p-6 rounded-xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-3xl font-bold text-blue-600">50+</h2>
-          <p className="text-gray-600">STUDENTI/ANNO</p>
-        </div>
-        <div className="text-center p-6 rounded-xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-3xl font-bold text-blue-600">7</h2>
-          <p className="text-gray-600">ANNI DI ESPERIENZA</p>
-        </div>
-        <div className="text-center p-6 rounded-xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-3xl font-bold text-blue-600">10,000</h2>
-          <p className="text-gray-600">ORE DI CONSULENZA</p>
+    <motion.div
+      className="text-center p-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: delay * 0.2 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-[#1b3f60] mb-2">
+        {prefix}
+        {inView ? count : 0}
+        {suffix}
+      </h2>
+      <p className="text-gray-600 text-lg">{label}</p>
+    </motion.div>
+  );
+};
+
+const StatsSection: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.5 });
+
+  return (
+    <div ref={sectionRef} className="w-full bg-gray-50 py-16">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <StatItem
+            end={99.3}
+            label="SUCCESS RATE"
+            suffix="%"
+            delay={0}
+            inView={isInView}
+          />
+          <StatItem
+            end={50}
+            label="STUDENTI/ANNO"
+            prefix="+"
+            delay={1}
+            inView={isInView}
+          />
+          <StatItem
+            end={7}
+            label="ANNI DI ESPERIENZA"
+            delay={2}
+            inView={isInView}
+          />
+          <StatItem
+            end={10000}
+            label="ORE DI CONSULENZA"
+            delay={3}
+            inView={isInView}
+          />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
