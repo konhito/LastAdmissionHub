@@ -49,7 +49,7 @@ const StatsSection: React.FC = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.5 });
 
   return (
-    <div ref={sectionRef} className="w-full bg-white py-16">
+    <div ref={sectionRef} className="w-full rounded bg-white py-16">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <StatItem
