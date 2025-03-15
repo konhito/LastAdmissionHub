@@ -119,7 +119,7 @@ const InteractiveGlobe: React.FC = () => {
       <div ref={globeRef} className="w-full h-full" />
 
       {selectedSchool && (
-        <div className="absolute top-4 left-4 bg-white/80 p-4 rounded-lg shadow-lg backdrop-blur-sm">
+        <div className="absolute top-30 left-4 bg-white/80 p-4 rounded-lg shadow-lg backdrop-blur-sm">
           <h3 className="text-lg font-bold text-gray-800">
             {selectedSchool.name}
           </h3>
