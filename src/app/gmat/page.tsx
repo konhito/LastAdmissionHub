@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { User, Users, BookOpen, CheckCircle } from "lucide-react";
-import { FaPuzzlePiece, FaGlobe, FaDesktop } from "react-icons/fa";
+// import { FaPuzzlePiece, FaGlobe, FaDesktop } from "react-icons/fa";
 import CallToAction from "@/components/CallToAction";
 
 const stats = [
@@ -69,20 +69,20 @@ export default function GmatPage() {
     },
   ];
 
-  const cards = [
-    {
-      icon: <FaPuzzlePiece size={40} className="text-blue-300" />,
-      title: "APPROCCIO PERSONALIZZATO",
-    },
-    {
-      icon: <FaGlobe size={40} className="text-blue-300" />,
-      title: "NETWORK ESCLUSIVO",
-    },
-    {
-      icon: <FaDesktop size={40} className="text-blue-300" />,
-      title: "PIATTAFORMA ALL IN ONE",
-    },
-  ];
+  // const cards = [
+  //   {
+  //     icon: <FaPuzzlePiece size={40} className="text-blue-300" />,
+  //     title: "APPROCCIO PERSONALIZZATO",
+  //   },
+  //   {
+  //     icon: <FaGlobe size={40} className="text-blue-300" />,
+  //     title: "NETWORK ESCLUSIVO",
+  //   },
+  //   {
+  //     icon: <FaDesktop size={40} className="text-blue-300" />,
+  //     title: "PIATTAFORMA ALL IN ONE",
+  //   },
+  // ];
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
