@@ -10,10 +10,8 @@ import {
   Award,
   Users,
 } from "lucide-react";
-// import { useInView } from "framer-motion";
-import { useRef } from "react";
 
-// Add these animation variants at the top of your component
+// Keep only the essential animation variants
 const fadeInUpVariant = {
   hidden: {
     opacity: 0,
@@ -24,11 +22,27 @@ const fadeInUpVariant = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.17, 0.55, 0.55, 1],
     },
   },
 };
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+// Simplify viewport options
+const viewportOptions = {
+  once: true,
+  margin: "-100px",
+};
+
+// Remove all refs since we're not using useInView anymore
 export default function HomePage() {
   const cards = [
     {
@@ -63,30 +77,16 @@ export default function HomePage() {
     },
   ];
 
-  const heroRef = useRef(null);
-  const servicesRef = useRef(null);
-  const cardsRef = useRef(null);
-  const resourcesRef = useRef(null);
-  const ctaRef = useRef(null);
-
-  // const isHeroInView = useInView(heroRef, { once: true });
-  // const isServicesInView = useInView(servicesRef, { once: true });
-  // const isCardsInView = useInView(cardsRef, { once: true });
-  // const isResourcesInView = useInView(resourcesRef, { once: true });
-  // const isCtaInView = useInView(ctaRef, { once: true });
-
   return (
     <motion.main className="bg-white text-gray-800 min-h-screen flex flex-col">
-      {/* Main content div and remove gaps between sections */}
       <motion.div className="w-full">
-        {/* Hero Section - Remove mt-20 */}
+        {/* Update sections to use simpler animations */}
         <motion.div
-          ref={heroRef}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-gradient-to-r from-gray-900 to-blue-900 py-16 md:py-24 relative overflow-hidden" // Removed mt-20
+          className="w-full bg-[#1c3f60] py-16 md:py-24 relative overflow-hidden"
         >
           <motion.div
             className="absolute inset-0 opacity-20"
@@ -125,12 +125,11 @@ export default function HomePage() {
 
         {/* Services Banner - Remove mb-3 */}
         <motion.div
-          ref={servicesRef}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-gradient-to-r from-[#1c3f60] to-blue-900 py-12 flex justify-center items-center"
+          className="w-full bg-blue-900 py-12 flex justify-center items-center"
         >
           <h2 className="text-white text-xl text-center">
             Testo sui nostri servizi
@@ -139,21 +138,27 @@ export default function HomePage() {
 
         {/* Cards Section - Remove padding top */}
         <motion.div
-          ref={cardsRef}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full pb-8 bg-gradient-to-br from-[#FFF3DB] to-[#FFE5C4]"
+          className="w-full bg-[#FFE5C4] py-16"
         >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-bold text-center text-[#0B3555] mb-6">
               Application Toolkit
             </h2>
-            <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOptions}
+            >
               {cards.map((card, index) => (
                 <motion.div
                   key={index}
+                  variants={fadeInUpVariant}
                   className="relative w-full h-64 group perspective"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
@@ -177,12 +182,11 @@ export default function HomePage() {
 
         {/* Resources Section - Remove mt-6 */}
         <motion.div
-          ref={resourcesRef}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full"
+          className="w-full bg-white py-16"
         >
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex gap-6 flex-col md:flex-row">
@@ -208,6 +212,10 @@ export default function HomePage() {
                       className="w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md hover:shadow-xl transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      variants={fadeInUpVariant}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportOptions}
                     >
                       {text}
                     </motion.button>
@@ -233,6 +241,10 @@ export default function HomePage() {
                       className="w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md hover:shadow-xl transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      variants={fadeInUpVariant}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={viewportOptions}
                     >
                       {text}
                     </motion.button>
@@ -246,12 +258,11 @@ export default function HomePage() {
 
       {/* Call to Action Section - Contained Width */}
       <motion.div
-        ref={ctaRef}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={viewportOptions}
         variants={fadeInUpVariant}
-        className="w-full bg-gradient-to-r from-[#1c3f60] to-[#2a5a8a] py-20"
+        className="w-full bg-[#1c3f60] py-20"
       >
         <motion.div className="max-w-5xl mx-auto px-4">
           <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-12">
