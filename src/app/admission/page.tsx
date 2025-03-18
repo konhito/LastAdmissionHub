@@ -80,14 +80,15 @@ export default function HomePage() {
   return (
     <motion.main className="bg-white text-gray-800 min-h-screen flex flex-col">
       <motion.div className="w-full">
-        {/* Update sections to use simpler animations */}
+        {/* Update the Hero section with larger text and height */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-[#1c3f60] py-16 md:py-24 relative overflow-hidden"
+          className="w-full bg-[#1c3f60] min-h-[95vh] relative overflow-hidden flex items-center" // Added min-height and flex
         >
+          {/* Background pattern - keep as is */}
           <motion.div
             className="absolute inset-0 opacity-20"
             animate={{
@@ -103,17 +104,19 @@ export default function HomePage() {
               backgroundSize: "cover",
             }}
           />
-          <div className="container mx-auto px-4 md:px-8 relative z-10">
+
+          {/* Hero content - updated text sizes */}
+          <div className="container mx-auto px-4 md:px-8 relative z-10 mt-16">
             <div className="flex flex-col items-center text-center">
               <motion.h1
-                className="text-4xl md:text-5xl font-bold text-white mb-4"
+                className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8" // Increased text size
                 animate={{ scale: [0.95, 1] }}
                 transition={{ duration: 0.5 }}
               >
                 The Admission Portal
               </motion.h1>
               <motion.h2
-                className="text-xl md:text-2xl text-gray-200 italic"
+                className="text-2xl md:text-4xl text-gray-200 italic max-w-3xl" // Increased subtitle size
                 animate={{ opacity: [0, 1] }}
                 transition={{ delay: 0.2 }}
               >
@@ -121,28 +124,38 @@ export default function HomePage() {
               </motion.h2>
             </div>
           </div>
+
+          {/* Shadow effect at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-[#1c3f60] shadow-[0_-40px_40px_rgba(0,0,0,0.1)]" />
         </motion.div>
 
-        {/* Services Banner - Remove mb-3 */}
+        {/* Update the Services Banner with white background */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-blue-900 py-12 flex justify-center items-center"
+          className="w-full bg-white py-24 -mt-8 relative z-10"
         >
-          <h2 className="text-white text-xl text-center">
-            Testo sui nostri servizi
-          </h2>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-[#1c3f60] text-3xl font-bold mb-8">
+              {" "}
+              {/* Updated text color and styling */}
+              Testo sui nostri servizi
+            </h2>
+            <p className="text-gray-600 text-xl leading-relaxed">
+              Offriamo un supporto completo per il tuo percorso di ammissione
+            </p>
+          </div>
         </motion.div>
 
-        {/* Cards Section - Remove padding top */}
+        {/* Update the Cards Section - remove gradient */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-[#FFE5C4] py-16"
+          className="w-full bg-white py-24 relative z-20"
         >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-bold text-center text-[#0B3555] mb-6">
