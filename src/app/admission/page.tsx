@@ -149,7 +149,7 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Update the Cards Section - remove gradient */}
+        {/* Update the Cards Section with shorter height */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -172,19 +172,21 @@ export default function HomePage() {
                 <motion.div
                   key={index}
                   variants={fadeInUpVariant}
-                  className="relative w-full h-64 group perspective"
+                  className="relative w-full h-48 group perspective" // Reduced from h-64 to h-48
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   <div className="relative w-full h-full transform transition-transform duration-500 preserve-3d">
                     {/* Front Side */}
-                    <div className="absolute w-full h-full bg-[#0B3555] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-4 backface-hidden">
+                    <div className="absolute w-full h-full bg-[#0B3555] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 backface-hidden">
                       {card.icon}
-                      <p className="mt-4">{card.title}</p>
+                      <p className="mt-2 text-sm">{card.title}</p>{" "}
+                      {/* Reduced margin and text size */}
                     </div>
-                    {/* Back Side */}
-                    <div className="absolute w-full h-full bg-[#FF5252] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-4 rotate-y-180 backface-hidden">
-                      <p>{card.description}</p>
+                    
+                    <div className="absolute w-full h-full bg-[#FF5252] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 rotate-y-180 backface-hidden">
+                      <p className="text-sm">{card.description}</p>{" "}
+                     
                     </div>
                   </div>
                 </motion.div>
