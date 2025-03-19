@@ -2,6 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CallToAction from "@/components/CallToAction";
+import Image from "next/image";
+import admissionimag from "@/public/admissionimag.jpg";
 import {
   Briefcase,
   FileText,
@@ -86,11 +88,25 @@ export default function HomePage() {
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-[#1c3f60] min-h-[95vh] relative overflow-hidden flex items-center" // Added min-height and flex
+          className="w-full min-h-[95vh] relative overflow-hidden flex items-center" // Removed bg-[#1c3f60]
         >
-          {/* Background pattern - keep as is */}
+          {/* Background Image with darker overlay */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={admissionimag}
+              alt="Admission Background"
+              fill
+              className="object-cover"
+              priority
+              quality={100}
+            />
+            <div className="absolute inset-0 bg-black/50" />{" "}
+            {/* Darker overlay for readability */}
+          </div>
+
+          {/* Background pattern */}
           <motion.div
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0 opacity-20 z-10"
             animate={{
               backgroundPosition: ["0% 0%", "100% 100%"],
             }}
@@ -106,7 +122,7 @@ export default function HomePage() {
           />
 
           {/* Hero content - updated text sizes */}
-          <div className="container mx-auto px-4 md:px-8 relative z-10 mt-16">
+          <div className="container mx-auto px-4 md:px-8 relative z-20">
             <div className="flex flex-col items-center text-center">
               <motion.h1
                 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8" // Increased text size
@@ -126,7 +142,7 @@ export default function HomePage() {
           </div>
 
           {/* Shadow effect at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-[#1c3f60] shadow-[0_-40px_40px_rgba(0,0,0,0.1)]" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
         </motion.div>
 
         {/* Update the Services Banner with white background */}
@@ -183,10 +199,9 @@ export default function HomePage() {
                       <p className="mt-2 text-sm">{card.title}</p>{" "}
                       {/* Reduced margin and text size */}
                     </div>
-                    
+
                     <div className="absolute w-full h-full bg-[#FF5252] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 rotate-y-180 backface-hidden">
                       <p className="text-sm">{card.description}</p>{" "}
-                     
                     </div>
                   </div>
                 </motion.div>
@@ -280,7 +295,7 @@ export default function HomePage() {
         className="w-full bg-[#1c3f60] py-20"
       >
         <motion.div className="max-w-5xl mx-auto px-4">
-          <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-12">
+          <div className="rounded-2xl  backdrop-blur-lg  border-white/20 p-12">
             <CallToAction />
           </div>
         </motion.div>
