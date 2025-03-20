@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CallToAction from "@/components/CallToAction";
 import Image from "next/image";
-import admissionimag from "@/public/admissionimag.jpg";
+import admissionimag from "@/public/admissionimag.jpg"; // You'll need to update this image path
 import {
   Briefcase,
   FileText,
@@ -44,7 +44,6 @@ const viewportOptions = {
   margin: "-100px",
 };
 
-// Remove all refs since we're not using useInView anymore
 export default function HomePage() {
   const cards = [
     {
@@ -59,7 +58,7 @@ export default function HomePage() {
     },
     {
       icon: <Users size={40} className="text-white" />,
-      title: "SKILLS REFINEMENT ERICERCA STAGE EOPPORTUNITA’",
+      title: "SKILLS REFINEMENT ERICERCA STAGE EOPPORTUNITA'",
       description: "Ricerca stage e opportunità lavorative.",
     },
     {
@@ -82,67 +81,47 @@ export default function HomePage() {
   return (
     <motion.main className="bg-white text-gray-800 min-h-screen flex flex-col">
       <motion.div className="w-full">
-        {/* Update the Hero section with larger text and height */}
+        {/* Updated Hero section to match the reference image */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full min-h-[95vh] relative overflow-hidden flex items-center" // Removed bg-[#1c3f60]
+          className="w-full min-h-screen relative overflow-hidden flex items-center justify-center"
         >
-          {/* Background Image with darker overlay */}
+          {/* Background Image with lighter overlay to match reference */}
           <div className="absolute inset-0 z-0">
             <Image
               src={admissionimag}
               alt="Admission Background"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
-              quality={100}
+              quality={90}
             />
-            <div className="absolute inset-0 bg-black/50" />{" "}
-            {/* Darker overlay for readability */}
+            <div className="absolute inset-0 bg-gray-100/50" />{" "}
+            {/* Lighter overlay to match reference */}
           </div>
 
-          {/* Background pattern */}
-          <motion.div
-            className="absolute inset-0 opacity-20 z-10"
-            animate={{
-              backgroundPosition: ["0% 0%", "100% 100%"],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-            style={{
-              backgroundImage: "url('/grid-pattern.svg')",
-              backgroundSize: "cover",
-            }}
-          />
-
-          {/* Hero content - updated text sizes */}
-          <div className="container mx-auto px-4 md:px-8 relative z-20">
+          {/* Hero content - centered text layout with navy blue text */}
+          <div className="container mx-auto px-4 relative z-20">
             <div className="flex flex-col items-center text-center">
               <motion.h1
-                className="text-6xl md:text-8xl lg:text-7xl font-bold text-[#152f48] mb-8"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1c3f60] mb-6 leading-tight"
                 animate={{ scale: [0.95, 1] }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 The Admission Portal
               </motion.h1>
               <motion.h2
-                className="text-2xl md:text-4xl text-[#1b3f60]  italic max-w-3xl" // Increased subtitle size
-                animate={{ opacity: [0, 1] }}
-                transition={{ delay: 0.2 }}
+                className="text-xl md:text-2xl lg:text-5xl text-[#1c3f60] font-normal max-w-4xl leading-relaxed"
+                animate={{ opacity: [0, 1], y: [20, 0] }}
+                transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
               >
                 Un sostegno a 360 gradi per eccellere
               </motion.h2>
             </div>
           </div>
-
-          {/* Shadow effect at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent z-10" />
         </motion.div>
 
         {/* Update the Services Banner with white background */}
@@ -165,7 +144,8 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Update the Cards Section with shorter height */}
+        {/* Rest of the component remains unchanged */}
+        {/* Cards Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -295,7 +275,7 @@ export default function HomePage() {
         className="w-full bg-[#1c3f60] py-20"
       >
         <motion.div className="max-w-5xl mx-auto px-4">
-          <div className="rounded-2xl  backdrop-blur-lg  border-white/20 p-12">
+          <div className="rounded-2xl backdrop-blur-lg border-white/20 p-12">
             <CallToAction />
           </div>
         </motion.div>
