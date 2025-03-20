@@ -125,14 +125,14 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-8 relative z-20">
             <div className="flex flex-col items-center text-center">
               <motion.h1
-                className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8" // Increased text size
+                className="text-6xl md:text-8xl lg:text-7xl font-bold text-[#152f48] mb-8"
                 animate={{ scale: [0.95, 1] }}
                 transition={{ duration: 0.5 }}
               >
                 The Admission Portal
               </motion.h1>
               <motion.h2
-                className="text-2xl md:text-4xl text-gray-200 italic max-w-3xl" // Increased subtitle size
+                className="text-2xl md:text-4xl text-[#1b3f60]  italic max-w-3xl" // Increased subtitle size
                 animate={{ opacity: [0, 1] }}
                 transition={{ delay: 0.2 }}
               >

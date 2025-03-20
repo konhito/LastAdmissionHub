@@ -315,7 +315,7 @@ export default function Home() {
         >
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
-              className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-12"
+              className="rounded-2xl  p-12"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
