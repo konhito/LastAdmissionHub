@@ -8,7 +8,7 @@ import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png";
 import assets3 from "@/public/asset2.png";
 
-// Keep only the essential animation variants
+// Update the animation variant back to original
 const fadeInUpVariant = {
   hidden: {
     opacity: 0,
@@ -19,8 +19,15 @@ const fadeInUpVariant = {
     y: 0,
     transition: {
       duration: 0.8,
+      ease: "easeOut",
     },
   },
+};
+
+// Reset viewport options to original
+const viewportOptions = {
+  once: true,
+  margin: "-100px",
 };
 
 const staggerContainer = {
@@ -31,12 +38,6 @@ const staggerContainer = {
       staggerChildren: 0.2,
     },
   },
-};
-
-// Simplify viewport options
-const viewportOptions = {
-  once: true,
-  margin: "-100px",
 };
 
 export default function HomePage() {
@@ -105,15 +106,20 @@ export default function HomePage() {
   };
 
   return (
-    <motion.main className="bg-white text-gray-800 min-h-screen flex flex-col">
-      <motion.div className="w-full">
+    <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen flex flex-col">
+      <motion.div
+        className="w-full"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUpVariant}
+      >
         {/* Updated Hero section to match the reference image */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full min-h-screen relative overflow-hidden flex items-center justify-center"
+          className="w-full min-h-screen relative overflow-hidden flex items-center justify-center bg-[#1c3f60]" // Added bg color
         >
           {/* Background Image with lighter overlay to match reference */}
           <div className="absolute inset-0 z-0">
@@ -393,9 +399,9 @@ export default function HomePage() {
 
               {/* Testimonial Content */}
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 60 }}
                 key={currentTestimonial}
                 className="flex flex-col items-center text-center px-16"
               >
@@ -464,7 +470,7 @@ export default function HomePage() {
 
       {/* Call to Action Section - Contained Width */}
       <motion.div
-        initial="hidden"
+        initial={{ opacity: 0, y: 60 }}
         whileInView="visible"
         viewport={viewportOptions}
         variants={fadeInUpVariant}
