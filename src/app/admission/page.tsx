@@ -68,6 +68,42 @@ export default function HomePage() {
     },
   ];
 
+  // Testimonial data
+  const testimonials = [
+    {
+      name: "Nome e Cognome",
+      university: "Università",
+      stars: 5,
+      review: "Recensione",
+    },
+    {
+      name: "Altro Nome",
+      university: "Altra Università",
+      stars: 5,
+      review: "Altra recensione positiva",
+    },
+    {
+      name: "Terzo Nome",
+      university: "Terza Università",
+      stars: 5,
+      review: "Terza recensione positiva",
+    },
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
   return (
     <motion.main className="bg-white text-gray-800 min-h-screen flex flex-col">
       <motion.div className="w-full">
@@ -139,7 +175,7 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* UPDATED: Application Toolkit Section */}
+        {/* Application Toolkit Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -162,23 +198,23 @@ export default function HomePage() {
                 <motion.div
                   key={index}
                   variants={fadeInUpVariant}
-                  className="w-full relative" // Make the card container relative
+                  className="w-full relative h-64"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 z-0">
+                  {/* Background Image with increased opacity */}
+                  <div className="absolute inset-0 z-10">
                     <Image
                       src={assets3}
                       alt=""
                       fill
-                      className="object-cover opacity-20 rounded-lg" // Reduced opacity and rounded corners
+                      className="object-contain rounded-lg opacity-100" // Changed to object-contain and full opacity
                       style={{ objectPosition: "center" }}
                     />
                   </div>
-                  <div className="bg-[#1e3a5f] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-10 h-full relative z-10">
-                    {" "}
-                    {/* Position content above image */}
+
+                  {/* Card Content */}
+                  <div className="absolute inset-0 bg-[#1e3a5f]/90 rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-10 z-20">
                     <h3 className="text-xl font-bold mt-2 px-4 leading-tight">
                       {card.title}
                     </h3>
@@ -287,6 +323,139 @@ export default function HomePage() {
                     </motion.button>
                   ))}
                 </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Testimonial Section - "Dicono di Noi" */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeInUpVariant}
+          className="w-full bg-white py-20"
+        >
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-6xl font-bold text-center text-[#1e3a5f] mb-16">
+              Dicono di Noi
+            </h2>
+
+            <div className="relative max-w-3xl mx-auto">
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevTestimonial}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-[#1e3a5f] bg-transparent border-none cursor-pointer"
+                aria-label="Previous testimonial"
+              >
+                <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 19L8 12L15 5"
+                      stroke="#1e3a5f"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+
+              <button
+                onClick={nextTestimonial}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-[#1e3a5f] bg-transparent border-none cursor-pointer"
+                aria-label="Next testimonial"
+              >
+                <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 5L16 12L9 19"
+                      stroke="#1e3a5f"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+
+              {/* Testimonial Content */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                key={currentTestimonial}
+                className="flex flex-col items-center text-center px-16"
+              >
+                {/* Profile Image */}
+                <div className="w-32 h-32 rounded-full bg-[#dceeff] mb-4 flex items-center justify-center overflow-hidden">
+                  <svg
+                    width="70"
+                    height="70"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+                      fill="#6796c3"
+                    />
+                    <path
+                      d="M12 13C7.58172 13 4 16.5817 4 21H20C20 16.5817 16.4183 13 12 13Z"
+                      fill="#6796c3"
+                    />
+                  </svg>
+                </div>
+
+                {/* Name and University */}
+                <h3 className="text-xl font-bold text-[#1e3a5f]">
+                  {testimonials[currentTestimonial].name}
+                </h3>
+                <p className="text-md text-[#1e3a5f] mb-4">
+                  {testimonials[currentTestimonial].university}
+                </p>
+
+                {/* Star Rating */}
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(testimonials[currentTestimonial].stars)].map(
+                    (_, i) => (
+                      <svg
+                        key={i}
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="#ffc107"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                      </svg>
+                    )
+                  )}
+                </div>
+
+                {/* Review Text */}
+                <p className="text-xl text-[#1e3a5f]">
+                  {testimonials[currentTestimonial].review}
+                </p>
+
+                {/* Dots Indicator */}
+                <div className="flex space-x-2 mt-16">
+                  <div className="w-2 h-2 rounded-full bg-[#1e3a5f]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#1e3a5f]"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#1e3a5f]"></div>
+                </div>
               </motion.div>
             </div>
           </div>
