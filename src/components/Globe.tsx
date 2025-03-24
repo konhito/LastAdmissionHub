@@ -36,7 +36,7 @@ const InteractiveGlobe: React.FC = () => {
       .pointsData(schools)
       .pointAltitude(0.07)
       .pointColor((d: BusinessSchool) => (d.selected ? "#ff0000" : "#ffffff"))
-      .pointRadius(0.25)
+      .pointRadius(0.5)
       .onPointClick(handlePointClick);
 
     const globe = globeInstanceRef.current;
@@ -45,7 +45,7 @@ const InteractiveGlobe: React.FC = () => {
     globe.controls().enableZoom = true;
     globe.controls().autoRotate = true;
     globe.controls().autoRotateSpeed = 0.5;
-    globe.pointOfView({ altitude: 2.5 });
+    globe.pointOfView({ altitude: 1.5 });
 
     // Improve atmosphere appearance
     const atmosphereMaterial = globe.globeMaterial();
@@ -116,7 +116,7 @@ const InteractiveGlobe: React.FC = () => {
 
   return (
     <div className="relative w-full h-screen">
-      <div ref={globeRef} className="w-full h-full" />
+      <div ref={globeRef} className="w-full mt-10 h-full" />
 
       {selectedSchool && (
         <div className="absolute top-30 left-4 bg-white/80 p-4 rounded-lg shadow-lg backdrop-blur-sm">

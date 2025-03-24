@@ -39,7 +39,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPinClick }) => {
                     });
                   }}
                   className="bg-[#d9c498] text-white px-8 py-4 rounded-full shadow-lg
-                           hover:bg-opacity-90 transition-all duration-300"
+                      hover:bg-opacity-90 transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

@@ -4,7 +4,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import TeamSection from "@/components/TeamSection";
-import BlogSection from "@/components/BlogSection";
+// import BlogSection from "@/components/BlogSection";
 import CallToAction from "@/components/CallToAction";
 
 // import StatsSection from "@/components/StatsSection";
@@ -244,6 +244,22 @@ export default function Home() {
           </div>
         </motion.section>
 
+        <motion.section
+          className="py-20 bg-[#14365a]"
+          variants={fadeInUpVariant}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              className="rounded-2xl  p-12"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <CallToAction />
+            </motion.div>
+          </div>
+        </motion.section>
+
         {/* Team Section - Modern Cards */}
         <motion.section
           className=""
@@ -290,13 +306,13 @@ export default function Home() {
         </motion.section>
 
         {/* Blog Section - Modern Grid */}
-        <motion.section
+        {/* <motion.section
           className="py-20 px-4 bg-gray-50"
           variants={fadeInUpVariant}
           viewport={{ once: true }}
         >
           <BlogSection />
-        </motion.section>
+        </motion.section> */}
 
         {/* Testimonials - Modern Slider */}
         <motion.section
@@ -308,21 +324,6 @@ export default function Home() {
         </motion.section>
 
         {/* Call to Action - Modern Design */}
-        <motion.section
-          className="py-20 bg-gradient-to-r from-gray-900 to-blue-900"
-          variants={fadeInUpVariant}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              className="rounded-2xl  p-12"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <CallToAction />
-            </motion.div>
-          </div>
-        </motion.section>
       </motion.div>
     </>
   );

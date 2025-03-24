@@ -13,7 +13,7 @@ const Header = () => {
 
   const navigationItems = [
     {
-      title: "Application Prep",
+      title: "APPLICATION PREP",
       href: "#",
       isDropdown: true,
       dropdownItems: [
@@ -22,9 +22,9 @@ const Header = () => {
         { title: "IELTS", href: "/ielts" },
       ],
     },
-    { title: "Career", href: "/career" },
-    { title: "Masterming", href: "/mastermind" },
-    { title: "Contact", href: "/contact", isButton: true },
+    { title: "CAREER PORTAL", href: "/career" },
+    { title: "MASTERMIND", href: "/mastermind" },
+    { title: "CALL GRATUITA", href: "/contact", isButton: true },
   ];
 
   const handleNavigation = (href: string) => {
