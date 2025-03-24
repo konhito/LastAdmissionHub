@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#18334c] mb-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f204a] mb-4">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">

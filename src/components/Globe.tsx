@@ -10,7 +10,7 @@ const useIsomorphicLayoutEffect =
 
 interface BusinessSchool {
   lat: number;
-  lng: number;
+  lng: string;
   name: string;
   selected?: boolean;
 }
@@ -31,8 +31,8 @@ const InteractiveGlobe: React.FC = () => {
       .globeImageUrl(
         "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
       )
-      .bumpImageUrl("//unpkg.com/three-globe/example/img/earth-topology.png")
-      .backgroundImageUrl("//unpkg.com/three-globe/example/img/night-sky.png")
+      .backgroundColor("#1c3f60") // Set background color
+      .atmosphereColor("#1c3f60") // Match atmosphere color
       .pointsData(schools)
       .pointAltitude(0.07)
       .pointColor((d: BusinessSchool) => (d.selected ? "#ff0000" : "#ffffff"))
@@ -41,23 +41,36 @@ const InteractiveGlobe: React.FC = () => {
 
     const globe = globeInstanceRef.current;
 
-    // Configure globe appearance
+    // Configure initial view
     globe.controls().enableZoom = true;
     globe.controls().autoRotate = true;
     globe.controls().autoRotateSpeed = 0.5;
-    globe.pointOfView({ altitude: 1.5 });
 
-    // Improve atmosphere appearance
-    const atmosphereMaterial = globe.globeMaterial();
-    atmosphereMaterial.shininess = 0.1;
+    // Set closer zoom and position to show half globe
+    globe.pointOfView({
+      lat: 30, // Adjust latitude to show desired region
+      lng: 0, // Center longitude
+      altitude: 1.8, // Closer zoom (smaller number = closer zoom)
+    });
+
+    // Limit zoom range
+    globe.controls().minDistance = 200;
+    globe.controls().maxDistance = 400;
+
+    // Adjust camera FOV for wider view
+    globe.camera().fov = 45;
+    globe.camera().updateProjectionMatrix();
+
+    // Make globe appear larger
+    globe.width(window.innerWidth);
+    globe.height(window.innerHeight * 1.2); // Slightly taller than viewport
 
     // Handle window resize
     const handleResize = () => {
       globe.width(window.innerWidth);
-      globe.height(window.innerHeight);
+      globe.height(window.innerHeight * 1.2);
     };
     window.addEventListener("resize", handleResize);
-    handleResize();
 
     return () => {
       if (globe) {
@@ -115,9 +128,13 @@ const InteractiveGlobe: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-screen">
-      <div ref={globeRef} className="w-full mt-10 h-full" />
-
+    <div className="relative w-full h-screen overflow-hidden bg-[#1c3f60]">
+      {" "}
+      
+      <div
+        ref={globeRef}
+        className="w-full h-[120vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      />
       {selectedSchool && (
         <div className="absolute top-30 left-4 bg-white/80 p-4 rounded-lg shadow-lg backdrop-blur-sm">
           <h3 className="text-lg font-bold text-gray-800">
@@ -125,7 +142,6 @@ const InteractiveGlobe: React.FC = () => {
           </h3>
         </div>
       )}
-
       {showScrollButton && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
