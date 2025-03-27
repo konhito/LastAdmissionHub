@@ -8,6 +8,9 @@ import TeamSection from "@/components/TeamSection";
 import CallToAction from "@/components/CallToAction";
 import Image from "next/image";
 import asset1 from "@/public/asset1 (2).svg"; // Make sure this matches your file extension
+import firstone from "@/public/First_sec_1.svg";
+import secondone from "@/public/asset3.svg";
+import thirdone from "@/public/asset4.svg";
 
 // import StatsSection from "@/components/StatsSection";
 import { Montserrat, Libre_Franklin } from "next/font/google";
@@ -182,7 +185,7 @@ export default function Home() {
         </motion.section>
 
         <motion.section className="py-0">
-          <div className="w-full bg-[#f0e6d2]">
+          <div className="w-full bg-[#e2c8a4]">
             <div className="max-w-7xl mx-auto px-4 py-16">
               <motion.div
                 variants={fadeInUpVariant}
@@ -195,22 +198,14 @@ export default function Home() {
                   animate="animate"
                   initial="initial"
                 >
-                  <div className="w-64 h-64 bg-[#d6ebfa] rounded-full flex items-center justify-center">
-                    <svg
-                      width="80"
-                      height="80"
-                      viewBox="0 0 80 80"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M30 55C35 45 50 50 45 30C40 10 65 15 70 35"
-                        stroke="#1e3a5f"
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
+                  <Image
+                    src={firstone}
+                    alt="Strategy Illustration"
+                    width={580}
+                    height={580}
+                    className="object-contain"
+                    priority
+                  />
                 </motion.div>
 
                 {/* Text content */}
@@ -230,13 +225,70 @@ export default function Home() {
           </div>
 
           {/* Second Card - Full Width */}
-          <div className="w-full bg-[#d6ebfa]">
+          <div className="w-full bg-white">
             <div className="max-w-7xl mx-auto px-4 py-16">
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
                 className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-[400px]"
               >
+                {/* Text content */}
+                <div className="max-w-2xl text-center md:text-left">
+                  <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+                    Un lavoro di squadra
+                  </h2>
+                  <p className="text-[#1e3a5f] text-lg">
+                    Il nostro team lavora con te, non solo per te. Collaboriamo
+                    strettamente per assicurarti il supporto e le risorse
+                    necessarie a superare ogni sfida accademica, inclusi GMAT e
+                    IELTS.
+                  </p>
+                </div>
+
+                {/* Replace SVG circles with secondone image */}
+                <motion.div
+                  className="flex-shrink-0"
+                  variants={floatingAnimation}
+                  animate="animate"
+                  initial="initial"
+                >
+                  <Image
+                    src={secondone}
+                    alt="Team Collaboration Illustration"
+                    width={580}
+                    height={580}
+                    className="object-contain"
+                    priority
+                  />
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Third Card - Duplicated from Una strategia personalizzata */}
+          <div className="w-full bg-[#d2e6f5]">
+            <div className="max-w-7xl mx-auto px-4 py-16">
+              <motion.div
+                variants={fadeInUpVariant}
+                viewport={{ once: true }}
+                className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-[400px]"
+              >
+                <motion.div
+                  className="flex-shrink-0"
+                  variants={floatingAnimation}
+                  animate="animate"
+                  initial="initial"
+                >
+                  <Image
+                    src={thirdone}
+                    alt="Strategy Illustration"
+                    width={580}
+                    height={580}
+                    className="object-contain"
+                    priority
+                  />
+                </motion.div>
+
                 {/* Text content */}
                 <div className="max-w-2xl text-center md:text-left">
                   <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
@@ -250,33 +302,6 @@ export default function Home() {
                     e dei colloqui.
                   </p>
                 </div>
-
-                {/* Floating circles */}
-                <motion.div
-                  className="flex-shrink-0"
-                  variants={floatingAnimation}
-                  animate="animate"
-                  initial="initial"
-                >
-                  <div className="relative">
-                    <div className="w-32 h-32 bg-[#1e3a5f] rounded-full flex items-center justify-center">
-                      <div className="flex space-x-3">
-                        <div className="w-4 h-4 bg-white rounded-full"></div>
-                        <div className="w-4 h-4 bg-white rounded-full"></div>
-                        <div className="w-4 h-4 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-                    <div className="absolute -bottom-5 -left-8">
-                      <div className="w-32 h-32 bg-[#e6d4a5] rounded-full transform rotate-12 flex items-center justify-center">
-                        <div className="flex space-x-3">
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>
