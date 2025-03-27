@@ -121,14 +121,14 @@ export default function Home() {
         {/* Dream Big Section - Full Width */}
         <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60]">
           {/* Background Image Layer */}
-          <div className="absolute inset-x-0 bottom-0 h-[60%] z-0">
+          <div className="absolute inset-x-0 bottom-0 h-[50%] z-0">
             {" "}
             {/* Reduced height for half visibility */}
             <Image
               src={asset1}
               alt="Dream Big Background"
               fill
-              className="object-fill object-bottom opacity-90"
+              className="object-cover object-top opacity-90"
               priority
               quality={100}
             />
@@ -159,8 +159,6 @@ export default function Home() {
                     style={
                       {
                         WebkitTextStroke: "2px white",
-                        // Remove the invalid textStroke property
-                        // Use CSS custom property for better cross-browser support
                         "--text-stroke": "2px white",
                       } as React.CSSProperties
                     }
