@@ -6,13 +6,20 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import TeamSection from "@/components/TeamSection";
 // import BlogSection from "@/components/BlogSection";
 import CallToAction from "@/components/CallToAction";
+import Image from "next/image";
+import asset1 from "@/public/asset1 (2).svg"; // Make sure this matches your file extension
 
 // import StatsSection from "@/components/StatsSection";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Libre_Franklin } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "700", "800"],
+});
+
+const libreFranklin = Libre_Franklin({
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
 });
 
 export default function Home() {
@@ -112,27 +119,63 @@ export default function Home() {
         <HeroSection />
 
         {/* Dream Big Section - Full Width */}
-        <motion.section className="w-full py-24 bg-gradient-to-b from-gray-900 to-blue-900">
+        <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60]">
+          {/* Background Image Layer */}
+          <div className="absolute inset-x-0 bottom-0 h-[60%] z-0">
+            {" "}
+            {/* Reduced height for half visibility */}
+            <Image
+              src={asset1}
+              alt="Dream Big Background"
+              fill
+              className="object-fill object-bottom opacity-90"
+              priority
+              quality={100}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1c3f60] via-[#1c3f60]/60 to-transparent" />
+          </div>
+
+          {/* Content Layer */}
           <motion.div
-            className="max-w-7xl mx-auto"
+            className="max-w-7xl mx-auto relative z-10 px-4"
             variants={fadeInUpVariant}
             viewport={{ once: true }}
           >
-            <div className="backdrop-blur-lg bg-white/10 p-12 rounded-2xl border border-white/20 shadow-2xl">
+            <div className="text-white ml-auto md:w-1/2 text-right">
+              {" "}
+              {/* Added ml-auto and text-right */}
               <motion.div
-                className={`text-center text-white ${montserrat.className}`}
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-6xl md:text-8xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-                  DREAM BIG
-                </h1>
-                <h2 className="text-4xl md:text-6xl font-bold my-4">ACT NOW</h2>
-                <h3 className="text-3xl md:text-5xl font-extrabold">
-                  ACHIEVE MORE
-                </h3>
-                <p className="text-base md:text-lg mt-6 tracking-widest">
+                {/* Title Group with Libre Franklin */}
+                <div className={libreFranklin.className}>
+                  <h1 className="text-6xl md:text-8xl font-black leading-tight">
+                    DREAM BIG
+                  </h1>
+                  <h2
+                    className="text-4xl md:text-6xl font-bold my-4 text-transparent bg-clip-text"
+                    style={
+                      {
+                        WebkitTextStroke: "2px white",
+                        // Remove the invalid textStroke property
+                        // Use CSS custom property for better cross-browser support
+                        "--text-stroke": "2px white",
+                      } as React.CSSProperties
+                    }
+                  >
+                    ACT NOW
+                  </h2>
+                  <h3 className="text-6xl md:text-7xl font-black leading-tight">
+                    ACHIEVE MORE
+                  </h3>
+                </div>
+
+                {/* Subtitle with Montserrat */}
+                <p
+                  className={`${montserrat.className} text-base md:text-lg mt-6 tracking-widest font-medium`}
+                >
                   B-SCHOOLS | GMAT | IELTS | CAREER
                 </p>
               </motion.div>
@@ -140,9 +183,7 @@ export default function Home() {
           </motion.div>
         </motion.section>
 
-        {/* Strategy Section - Both Cards Full Width */}
         <motion.section className="py-0">
-          {/* First Card - Full Width */}
           <div className="w-full bg-[#f0e6d2]">
             <div className="max-w-7xl mx-auto px-4 py-16">
               <motion.div
@@ -150,7 +191,6 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-[400px]"
               >
-                {/* Icon */}
                 <motion.div
                   className="flex-shrink-0"
                   variants={floatingAnimation}
