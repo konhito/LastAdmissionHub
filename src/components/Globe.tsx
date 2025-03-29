@@ -130,14 +130,16 @@ const InteractiveGlobe: React.FC = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#1c3f60]">
       {" "}
-      
       <div
         ref={globeRef}
         className="w-full h-[120vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       />
       {selectedSchool && (
-        <div className="absolute top-30 left-4 bg-white/80 p-4 rounded-lg shadow-lg backdrop-blur-sm">
-          <h3 className="text-lg font-bold text-gray-800">
+        <div
+          className="absolute top-30 left-4 bg-[#e2c8a4] p-4 rounded-lg shadow-lg transition-opacity duration-300 hover:opacity-0"
+          onMouseLeave={() => setSelectedSchool(null)}
+        >
+          <h3 className="text-lg font-bold text-[#1c3f60]">
             {selectedSchool.name}
           </h3>
         </div>
@@ -145,8 +147,7 @@ const InteractiveGlobe: React.FC = () => {
       {showScrollButton && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
-            className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg
-                       hover:bg-blue-700 transition-all duration-300 flex items-center gap-2"
+            className="text-white flex flex-col items-center gap-2"
             onClick={() => {
               window.scrollTo({
                 top: window.innerHeight,
@@ -154,9 +155,9 @@ const InteractiveGlobe: React.FC = () => {
               });
             }}
           >
-            <span>Explore This School</span>
+            <span className="text-2xl">Raggiungi l&apos;obiettivo</span>
             <svg
-              className="w-5 h-5"
+              className="w-20 h-20"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -164,8 +165,8 @@ const InteractiveGlobe: React.FC = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                strokeWidth={1}
+                d="M3 8l9 9 9-9"
               />
             </svg>
           </button>

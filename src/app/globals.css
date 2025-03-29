@@ -67,3 +67,8 @@ body {
 .hover\:bg-blue-700:hover {
   background-color: #1d4ed8;
 }
+
+.logo-text {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}

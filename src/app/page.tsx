@@ -121,21 +121,17 @@ export default function Home() {
       >
         <HeroSection />
 
-        {/* Dream Big Section - Full Width */}
         <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60]">
-          {/* Background Image Layer */}
-          <div className="absolute inset-x-0 bottom-0 h-[80%] z-0">
-            {" "}
-            {/* Reduced height for half visibility */}
+          <div className="absolute inset-x-0 bottom-20 h-[80%] z-0">
             <Image
               src={asset1}
               alt="Dream Big Background"
               fill
-              className="object-cover object-top opacity-90"
+              className="object-cover object-top"
               priority
               quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1c3f60] via-[#1c3f60]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1c3f60] via-[#1c3f60]/30 to-transparent" />
           </div>
 
           {/* Content Layer */}
@@ -154,11 +150,11 @@ export default function Home() {
               >
                 {/* Title Group with Libre Franklin */}
                 <div className={libreFranklin.className}>
-                  <h1 className="text-6xl md:text-8xl font-black leading-tight">
+                  <h1 className="text-6xl md:text-7xl font-black leading-tight">
                     DREAM BIG
                   </h1>
                   <h2
-                    className="text-4xl md:text-6xl font-bold my-4 text-transparent bg-clip-text"
+                    className="text-4xl md:text-7xl font-bold my-4 text-transparent bg-clip-text"
                     style={
                       {
                         WebkitTextStroke: "2px white",

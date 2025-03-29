@@ -20,10 +20,11 @@ const Header = () => {
         { title: "Admission", href: "/admission" },
         { title: "GMAT", href: "/gmat" },
         { title: "IELTS", href: "/ielts" },
+        { title: "ELITE PATH", href: "/mastermind" },
       ],
     },
     { title: "CAREER PORTAL", href: "/career" },
-    { title: "MASTERMIND", href: "/mastermind" },
+    { title: "CONTACTS", href: "/CONTACTS" },
     { title: "CALL GRATUITA", href: "/contact", isButton: true },
   ];
 
@@ -34,7 +35,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f204a] mb-4">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-600 bg-[#1c3f5e] mb-4">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -45,7 +46,9 @@ const Header = () => {
               height={40}
               className="w-10 h-10"
             />
-            <span className="text-white text-2xl font-bold">AdmissionHub</span>
+            <span className="text-white text-2xl font-bold logo-text">
+              AdmissionHub
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -92,7 +95,7 @@ const Header = () => {
                 <button
                   key={item.title}
                   onClick={() => handleNavigation(item.href)}
-                  className="bg-[#d9c498] text-white px-6 py-2 rounded hover:opacity-90 transition-colors"
+                  className="bg-[#e2c8a4] font-bold text-[#1c3f60] px-6 py-2 rounded hover:opacity-90 transition-colors"
                 >
                   {item.title}
                 </button>
