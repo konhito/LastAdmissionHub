@@ -25,6 +25,15 @@ const libreFranklin = Libre_Franklin({
   weight: ["400", "700", "800", "900"],
 });
 
+const sectionStyles = {
+  wrapper: "w-full py-12",
+  container: "max-w-7xl mx-auto px-4",
+  content: `flex flex-col md:flex-row items-center justify-between gap-12 min-h-[300px] rounded-lg p-8`,
+  textContainer: "max-w-2xl text-left", // Changed from text-center
+  heading: `${montserrat.className} text-5xl font-bold text-[#1e3a5f] mb-6`,
+  paragraph: `${montserrat.className} text-xl text-[#1e3a5f] leading-relaxed`, // Removed mx-auto
+};
+
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -181,12 +190,13 @@ export default function Home() {
         </motion.section>
 
         <motion.section className="py-0">
-          <div className="w-full bg-[#e2c8a4]">
-            <div className="max-w-7xl mx-auto px-4 py-16">
+          {/* First section */}
+          <div className={sectionStyles.wrapper + " bg-[#e2c8a4]"}>
+            <div className={sectionStyles.container}>
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-[400px]"
+                className={sectionStyles.content}
               >
                 <motion.div
                   className="flex-shrink-0"
@@ -203,13 +213,11 @@ export default function Home() {
                     priority
                   />
                 </motion.div>
-
-                {/* Text content */}
-                <div className="max-w-2xl text-center md:text-left">
-                  <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+                <div className={sectionStyles.textContainer}>
+                  <h2 className={sectionStyles.heading}>
                     Una strategia personalizzata
                   </h2>
-                  <p className="text-[#1e3a5f] text-lg">
+                  <p className={sectionStyles.paragraph}>
                     Ogni percorso è unico. Con The Admission Hub, riceverai una
                     strategia su misura che tiene conto delle tue esigenze e
                     aspirazioni, garantendo un approccio vincente per le tue
@@ -220,28 +228,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Second Card - Full Width */}
-          <div className="w-full bg-white">
-            <div className="max-w-7xl mx-auto px-4 py-16">
+          {/* Second section */}
+          <div className={sectionStyles.wrapper + " bg-white"}>
+            <div className={sectionStyles.container}>
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-[400px]"
+                className={sectionStyles.content}
               >
-                {/* Text content */}
-                <div className="max-w-2xl text-center md:text-left">
-                  <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+                <div className={sectionStyles.textContainer}>
+                  <h2 className={sectionStyles.heading}>
                     Un lavoro di squadra
                   </h2>
-                  <p className="text-[#1e3a5f] text-lg">
+                  <p className={sectionStyles.paragraph}>
                     Il nostro team lavora con te, non solo per te. Collaboriamo
                     strettamente per assicurarti il supporto e le risorse
                     necessarie a superare ogni sfida accademica, inclusi GMAT e
                     IELTS.
                   </p>
                 </div>
-
-                {/* Replace SVG circles with secondone image */}
                 <motion.div
                   className="flex-shrink-0"
                   variants={floatingAnimation}
@@ -261,13 +266,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Third Card - Duplicated from Una strategia personalizzata */}
-          <div className="w-full bg-[#d2e6f5]">
-            <div className="max-w-7xl mx-auto px-4 py-16">
+          {/* Third section */}
+          <div className={sectionStyles.wrapper + " bg-[#d2e6f5]"}>
+            <div className={sectionStyles.container}>
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-[400px]"
+                className={sectionStyles.content}
               >
                 <motion.div
                   className="flex-shrink-0"
@@ -277,20 +282,18 @@ export default function Home() {
                 >
                   <Image
                     src={thirdone}
-                    alt="Strategy Illustration"
+                    alt="Support Illustration"
                     width={580}
                     height={580}
                     className="object-contain"
                     priority
                   />
                 </motion.div>
-
-                {/* Text content */}
-                <div className="max-w-2xl text-center md:text-left">
-                  <h2 className="text-4xl font-bold text-[#1e3a5f] mb-4">
+                <div className={sectionStyles.textContainer}>
+                  <h2 className={sectionStyles.heading}>
                     Un supporto costante
                   </h2>
-                  <p className="text-[#1e3a5f] text-lg">
+                  <p className={sectionStyles.paragraph}>
                     Forniamo supporto ad ogni fase del tuo percorso. Il nostro
                     team dedicato ti guida attraverso l&apos;intero processo
                     delle application: dalla scelta delle scuole giuste, alla
