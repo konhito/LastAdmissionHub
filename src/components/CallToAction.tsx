@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CallToAction = () => {
   return (
-    <section className="py-16">
+    <section className="py-8">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-6 text-white">
           Fai il primo passo verso i tuoi obiettivi
@@ -14,7 +14,7 @@ const CallToAction = () => {
         </p>
         <Link
           href="/contact"
-          className="bg-[#d9c498] text-primary font-bold py-3 px-8 rounded-lg transition-all inline-block hover:scale-105"
+          className="bg-[#d9c498] text-primary text-xl font-bold py-4 px-16 rounded-lg transition-all inline-block hover:scale-105"
         >
           PRENOTA UNA CALL GRATUITA
         </Link>

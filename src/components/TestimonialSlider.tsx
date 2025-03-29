@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
+import StarRating from "./StarRating";
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,7 +15,7 @@ export default function TestimonialSlider() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 8000); // Change slide every 5 seconds
 
     return () => clearInterval(timer);
   }, []);
@@ -113,8 +114,8 @@ export default function TestimonialSlider() {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
+              x: { type: "spring", stiffness: 200, damping: 30 },
+              opacity: { duration: 0.6 },
             }}
             // Add min-height and proper spacing
             className="flex flex-col items-center gap-6 relative w-full min-h-[400px]"
@@ -159,13 +160,17 @@ export default function TestimonialSlider() {
 
               {/* Feedback Text with Slide Effect - Fixed height container */}
               <motion.div
-                className="flex-1 flex items-center justify-center px-4"
+                className="flex-1 flex flex-col items-center justify-center px-4"
                 variants={textVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
+                <StarRating
+                  rating={testimonial.rating || 4.7}
+                  className="mb-4"
+                />
                 <p className="text-gray-100 text-center text-lg max-h-[200px] overflow-y-auto">
                   &quot;{testimonial.feedback}&quot;
                 </p>

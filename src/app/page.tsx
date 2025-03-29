@@ -84,7 +84,7 @@ export default function Home() {
     },
   };
 
-  // Updated useEffect for infinite loop animation
+  // Updated useEffect for faster animation
   useEffect(() => {
     const animate = () => {
       setScrollPosition((prev) => {
@@ -92,8 +92,8 @@ export default function Home() {
         if (prev <= -100) {
           return 0;
         }
-        // Smooth continuous movement
-        return prev - 0.02;
+        // Increased speed from 0.01 to 0.05
+        return prev - 0.05;
       });
       requestAnimationFrame(animate);
     };
@@ -311,9 +311,9 @@ export default function Home() {
           variants={fadeInUpVariant}
           viewport={{ once: true }}
         >
-          <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-5xl mx-auto px-0">
             <motion.div
-              className="rounded-2xl  p-12"
+              className="rounded-2xl  p-1"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -334,29 +334,27 @@ export default function Home() {
         </motion.section>
 
         {/* Logo Carousel - Infinite Loop */}
-        <motion.section className="py-16 w-full overflow-hidden">
-          <div className="relative w-full">
-            {/* Reduced gradient overlays width */}
-            <div className="absolute left-0 top-0 w-[15%] h-full bg-gradient-to-r from-white to-transparent z-10" />
-            <div className="absolute right-0 top-0 w-[15%] h-full bg-gradient-to-l from-white to-transparent z-10" />
+        <motion.section className="py-8 w-full overflow-hidden">
+          <div className="relative w-full max-w-7xl mx-auto">
+            {/* Updated gradient overlays with increased width and opacity */}
+            <div className="absolute left-0 top-0 w-[40%] h-full bg-gradient-to-r from-white via-white to-transparent z-10" />
+            <div className="absolute right-0 top-0 w-[40%] h-full bg-gradient-to-l from-white via-white to-transparent z-10" />
 
             <motion.div
               className="flex items-center justify-start"
               style={{
                 transform: `translateX(${scrollPosition}%)`,
-                transition: "transform 0.05s linear",
+                transition: "transform 0.005s linear", // Reduced from 0.01s for smoother movement
               }}
             >
-              {/* Triple the logos for smoother infinite loop */}
               {[...logos, ...logos, ...logos].map((logo, index) => (
                 <div
                   key={`logo-${index}`}
-                  className="flex-shrink-0 mx-8 flex items-center justify-center h-20 
-                   hover:scale-110 transition-transform duration-300"
+                  className="flex-shrink-0 mx-8 flex items-center justify-center h-16" // Reduced from h-20
                   style={{ minWidth: "180px" }}
                 >
                   <div
-                    className="font-semibold text-lg"
+                    className={`${montserrat.className} font-semibold text-xl`} // Increased from text-lg
                     style={{ color: logo.color }}
                   >
                     {logo.name}
@@ -367,14 +365,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* Blog Section - Modern Grid */}
-        {/* <motion.section
-          className="py-20 px-4 bg-gray-50"
-          variants={fadeInUpVariant}
-          viewport={{ once: true }}
-        >
-          <BlogSection />
-        </motion.section> */}
+       
 
         {/* Testimonials - Modern Slider */}
         <motion.section
