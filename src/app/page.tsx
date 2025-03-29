@@ -130,40 +130,46 @@ export default function Home() {
       >
         <HeroSection />
 
-        <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60]">
-          <div className="absolute inset-x-0 bottom-20 h-[80%] z-0">
+        <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen">
+          {/* Background Image Layer - Updated positioning and size */}
+          <div className="absolute bottom-0 left-0 right-0 w-full  h-[100%] z-0">
             <Image
               src={asset1}
               alt="Dream Big Background"
               fill
-              className="object-cover object-top"
+              className="object-cover object-bottom scale-150 transform translate-y-[30%]"
+              style={{
+                objectPosition: "50% 50%",
+              }}
               priority
               quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1c3f60] via-[#1c3f60]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#1c3f60] via-[#1c3f60]/30 to-transparent" />
           </div>
 
-          {/* Content Layer */}
+          {/* Content Layer - Updated positioning */}
           <motion.div
-            className="max-w-7xl mx-auto relative z-10 px-4"
+            className="max-w-7xl mx-auto relative z-10 px-4 h-full flex flex-col justify-end"
             variants={fadeInUpVariant}
             viewport={{ once: true }}
           >
-            <div className="text-white ml-auto md:w-1/2 text-right">
+            <div className="text-white md:w-1/2 ml-auto pb-24">
               {" "}
-              {/* Added ml-auto and text-right */}
+              {/* Added ml-auto and pb-24 */}
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
                 {/* Title Group with Libre Franklin */}
-                <div className={libreFranklin.className}>
-                  <h1 className="text-6xl md:text-7xl font-black leading-tight">
+                <div className={`${libreFranklin.className} text-right pt-30`}>
+                  {" "}
+                  {/* Added text-right */}
+                  <h1 className="text-6xl md:text-7xl font-black leading-tight mb-4">
                     DREAM BIG
                   </h1>
                   <h2
-                    className="text-4xl md:text-7xl font-bold my-4 text-transparent bg-clip-text"
+                    className="text-4xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text"
                     style={
                       {
                         WebkitTextStroke: "2px white",
@@ -180,7 +186,7 @@ export default function Home() {
 
                 {/* Subtitle with Montserrat */}
                 <p
-                  className={`${montserrat.className} text-base md:text-lg mt-6 tracking-widest font-medium`}
+                  className={`${montserrat.className} text-base md:text-lg mt-8 tracking-widest font-medium text-right`}
                 >
                   B-SCHOOLS | GMAT | IELTS | CAREER
                 </p>
