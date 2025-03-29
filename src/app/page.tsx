@@ -336,15 +336,15 @@ export default function Home() {
         {/* Logo Carousel - Infinite Loop */}
         <motion.section className="py-8 w-full overflow-hidden">
           <div className="relative w-full max-w-7xl mx-auto">
-            {/* Updated gradient overlays with increased width and opacity */}
-            <div className="absolute left-0 top-0 w-[40%] h-full bg-gradient-to-r from-white via-white to-transparent z-10" />
-            <div className="absolute right-0 top-0 w-[40%] h-full bg-gradient-to-l from-white via-white to-transparent z-10" />
+            {/* Updated gradient overlays to extend from edges */}
+            <div className="absolute left-0 top-0 w-[25%] h-full bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="absolute right-0 top-0 w-[25%] h-full bg-gradient-to-l from-white to-transparent z-10" />
 
             <motion.div
               className="flex items-center justify-start"
               style={{
                 transform: `translateX(${scrollPosition}%)`,
-                transition: "transform 0.005s linear", // Reduced from 0.01s for smoother movement
+                transition: "transform 0.005s linear",
               }}
             >
               {[...logos, ...logos, ...logos].map((logo, index) => (
@@ -364,8 +364,6 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
-
-       
 
         {/* Testimonials - Modern Slider */}
         <motion.section
