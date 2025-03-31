@@ -20,10 +20,7 @@ const Footer = () => {
                 className="w-10 h-10"
               />
               <div className="flex flex-col">
-                <span className="text-xs text-[#d9c498]">The</span>
-                <span className="font-bold text-xl uppercase">
-                  Admission Hub
-                </span>
+                <span className="font-bold text-xl ">TheAdmissionHub</span>
               </div>
             </Link>
             <p className="text-sm text-gray-300 mt-4">
@@ -156,9 +153,6 @@ const Footer = () => {
                   Chi Siamo
                 </Link>
               </li>
-              <li className="pt-4 text-sm text-gray-400">
-                P.IVA: [Number to be provided]
-              </li>
             </ul>
           </div>
         </div>
@@ -167,6 +161,9 @@ const Footer = () => {
           <p>
             &copy; {new Date().getFullYear()} The Admission Hub. Tutti i diritti
             riservati.
+          </p>
+          <p className="pt-4 text-sm text-gray-400">
+            P.IVA: [Number to be provided]
           </p>
         </div>
       </div>
