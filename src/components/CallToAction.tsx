@@ -14,7 +14,7 @@ const CallToAction = () => {
         </p>
         <Link
           href="/contact"
-          className="bg-[#d9c498] text-[#1c3f60] text-xl font-bold py-4 px-16 rounded-lg transition-all inline-block hover:scale-105"
+          className="bg-[#d9c498] text-[#1c3f60] text-2xl font-bold py-4 px-16 rounded-lg transition-all inline-block hover:scale-105"
         >
           PRENOTA UNA CALL GRATUITA
         </Link>
