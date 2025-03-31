@@ -1,10 +1,52 @@
-export const businessSchools = [
-  { lat: 42.3601, lng: -71.0589, name: "Harvard Business School" },
+interface BusinessSchool {
+  name: string;
+  country: string;
+  lat: number;
+  lng: number;
+  salary: number;
+  rank: number;
+}
+
+export const businessSchools: BusinessSchool[] = [
   {
-    lat: 37.7749,
-    lng: -122.4194,
-    name: "Stanford Graduate School of Business",
+    name: "Wharton School",
+    country: "US",
+    lat: 39.9526,
+    lng: -75.1652,
+    salary: 241522,
+    rank: 1,
   },
-  { lat: 51.5074, lng: -0.1278, name: "London Business School" },
-  { lat: 48.8566, lng: 2.3522, name: "INSEAD" },
-] as const;
+  {
+    name: "Columbia Business School",
+    country: "US",
+    lat: 40.8075,
+    lng: -73.9626,
+    salary: 242747,
+    rank: 2,
+  },
+  {
+    name: "IESE Business School",
+    country: "Spain",
+    lat: 41.3851,
+    lng: 2.1734,
+    salary: 198584,
+    rank: 3,
+  },
+  // ... continue with all schools
+  {
+    name: "Eada Business School Barcelona",
+    country: "Spain",
+    lat: 41.3874,
+    lng: 2.1686,
+    salary: 101700,
+    rank: 100,
+  },
+];
+
+// Helper function to get color based on rank
+export const getRankColor = (rank: number): string => {
+  if (rank <= 10) return "#FFD700"; // Gold
+  if (rank <= 25) return "#C0C0C0"; // Silver
+  if (rank <= 50) return "#CD7F32"; // Bronze
+  return "#1c3f5e"; // Default blue
+};

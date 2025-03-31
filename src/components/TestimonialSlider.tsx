@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
@@ -9,16 +9,43 @@ export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const testimonial = testimonials[currentIndex];
+  const SLIDE_INTERVAL = 5000; // Define constant for slide interval
 
-  // Add auto-slide functionality
-  useEffect(() => {
-    const timer = setInterval(() => {
+  // Initialize timerRef with null
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Function to start/reset timer
+  const resetTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Change slide every 5 seconds
+    }, SLIDE_INTERVAL);
+  };
 
-    return () => clearInterval(timer);
+  // Initial timer setup
+  useEffect(() => {
+    resetTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, []);
+
+  // Update navigate function to reset timer
+  const navigate = (direction: number) => {
+    setDirection(direction);
+    setCurrentIndex((prevIndex) => {
+      let newIndex = prevIndex + direction;
+      if (newIndex >= testimonials.length) newIndex = 0;
+      if (newIndex < 0) newIndex = testimonials.length - 1;
+      return newIndex;
+    });
+    resetTimer(); // Reset timer when manually navigating
+  };
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -47,16 +74,6 @@ export default function TestimonialSlider() {
     enter: { opacity: 0, y: 20 },
     center: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -20 },
-  };
-
-  const navigate = (direction: number) => {
-    setDirection(direction);
-    setCurrentIndex((prevIndex) => {
-      let newIndex = prevIndex + direction;
-      if (newIndex >= testimonials.length) newIndex = 0;
-      if (newIndex < 0) newIndex = testimonials.length - 1;
-      return newIndex;
-    });
   };
 
   return (

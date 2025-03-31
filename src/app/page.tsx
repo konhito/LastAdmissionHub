@@ -343,8 +343,6 @@ export default function Home() {
         <motion.section className="py-8 w-full overflow-hidden">
           <div className="relative w-full max-w-7xl mx-auto">
             {/* Updated gradient overlays to extend from edges */}
-            <div className="absolute left-0 top-0 w-[25%] h-full bg-gradient-to-r from-white to-transparent z-10" />
-            <div className="absolute right-0 top-0 w-[25%] h-full bg-gradient-to-l from-white to-transparent z-10" />
 
             <motion.div
               className="flex items-center justify-start"
