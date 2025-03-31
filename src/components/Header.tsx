@@ -2,9 +2,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Montserrat } from "next/font/google";
 import logo from "@/public/logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+
+// Initialize Montserrat font
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -46,8 +53,10 @@ const Header = () => {
               height={40}
               className="w-10 h-10"
             />
-            <span className="text-white text-2xl font-bold logo-text">
-              AdmissionHub
+            <span
+              className={`${montserrat.className} text-2xl font-bold text-white`}
+            >
+              TheAdmissionHub
             </span>
           </Link>
 
