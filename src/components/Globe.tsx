@@ -19,10 +19,36 @@ const InteractiveGlobe: React.FC = () => {
   const globeRef = useRef<HTMLDivElement | null>(null);
   const globeInstanceRef = useRef<any>(null);
   const [showScrollButton, setShowScrollButton] = useState(false);
-  const [selectedSchool, setSelectedSchool] = useState<BusinessSchool | null>(
-    null
-  );
   const [schools, setSchools] = useState<BusinessSchool[]>(businessSchools);
+  const [hasScrolledDown, setHasScrolledDown] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = (e: WheelEvent) => {
+      if (hasScrolledDown) {
+        if (e.deltaY < 0) {
+          e.preventDefault();
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth",
+          });
+        }
+      }
+    };
+
+    const handleScrollChange = () => {
+      if (window.scrollY >= window.innerHeight) {
+        setHasScrolledDown(true);
+      }
+    };
+
+    window.addEventListener("wheel", handleScroll, { passive: false });
+    window.addEventListener("scroll", handleScrollChange);
+
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("scroll", handleScrollChange);
+    };
+  }, [hasScrolledDown]);
 
   useIsomorphicLayoutEffect(() => {
     if (!globeRef.current) return;
@@ -111,7 +137,6 @@ const InteractiveGlobe: React.FC = () => {
     }));
 
     setSchools(updatedSchools);
-    setSelectedSchool(point);
     setShowScrollButton(true);
 
     if (globeInstanceRef.current) {
@@ -127,33 +152,28 @@ const InteractiveGlobe: React.FC = () => {
     }
   };
 
+  const handleScrollButtonClick = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+    setHasScrolledDown(true);
+    if (globeInstanceRef.current) {
+      globeInstanceRef.current.controls().enabled = false;
+    }
+  };
+
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#1c3f60]">
-      {" "}
       <div
         ref={globeRef}
         className="w-full h-[120vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       />
-      {selectedSchool && (
-        <div
-          className="absolute top-30 left-4 bg-[#e2c8a4] p-4 rounded-lg shadow-lg transition-opacity duration-300 hover:opacity-0"
-          onMouseLeave={() => setSelectedSchool(null)}
-        >
-          <h3 className="text-lg font-bold text-[#1c3f60]">
-            {selectedSchool.name}
-          </h3>
-        </div>
-      )}
       {showScrollButton && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <button
             className="text-white flex flex-col items-center gap-2"
-            onClick={() => {
-              window.scrollTo({
-                top: window.innerHeight,
-                behavior: "smooth",
-              });
-            }}
+            onClick={handleScrollButtonClick}
           >
             <span className="text-2xl">Raggiungi l&apos;obiettivo</span>
             <svg
