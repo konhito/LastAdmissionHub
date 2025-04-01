@@ -20,35 +20,34 @@ const InteractiveGlobe: React.FC = () => {
   const globeInstanceRef = useRef<any>(null);
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [schools, setSchools] = useState<BusinessSchool[]>(businessSchools);
-  const [hasScrolledDown, setHasScrolledDown] = useState(false);
 
+  // Add a new useEffect to prevent scrolling past the Dream Big section
   useEffect(() => {
-    const handleScroll = (e: WheelEvent) => {
-      if (hasScrolledDown) {
-        if (e.deltaY < 0) {
-          e.preventDefault();
-          window.scrollTo({
-            top: window.innerHeight,
-            behavior: "smooth",
-          });
-        }
+    let lastScrollY = window.scrollY;
+    let isScrollingUp = false;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      isScrollingUp = currentScrollY < lastScrollY;
+
+      // If scrolling up and near the Dream Big section
+      if (
+        isScrollingUp &&
+        currentScrollY < window.innerHeight &&
+        currentScrollY > 0
+      ) {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: "instant",
+        });
       }
+
+      lastScrollY = currentScrollY;
     };
 
-    const handleScrollChange = () => {
-      if (window.scrollY >= window.innerHeight) {
-        setHasScrolledDown(true);
-      }
-    };
-
-    window.addEventListener("wheel", handleScroll, { passive: false });
-    window.addEventListener("scroll", handleScrollChange);
-
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("scroll", handleScrollChange);
-    };
-  }, [hasScrolledDown]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (!globeRef.current) return;
@@ -157,10 +156,6 @@ const InteractiveGlobe: React.FC = () => {
       top: window.innerHeight,
       behavior: "smooth",
     });
-    setHasScrolledDown(true);
-    if (globeInstanceRef.current) {
-      globeInstanceRef.current.controls().enabled = false;
-    }
   };
 
   return (
