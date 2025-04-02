@@ -5,7 +5,7 @@ const CallToAction = () => {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-6 text-white">
+        <h2 className="text-5xl font-bold mb-6 text-white">
           Fai il primo passo verso i tuoi obiettivi
         </h2>
         <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-200">

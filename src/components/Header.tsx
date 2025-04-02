@@ -7,7 +7,6 @@ import logo from "@/public/logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
-// Initialize Montserrat font
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -54,9 +53,9 @@ const Header = () => {
               className="w-10 h-10"
             />
             <span
-              className={`${montserrat.className} text-2xl font-bold text-white`}
+              className={`${montserrat.className} text-2xl font-semibold text-white`}
             >
-              TheAdmissionHub
+              The AdmissionHub
             </span>
           </Link>
 

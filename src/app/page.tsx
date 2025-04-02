@@ -42,6 +42,7 @@ export default function Home() {
     restDelta: 0.001,
   });
 
+  const [hideGlobe, setHideGlobe] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   // Business school logos
@@ -84,22 +85,37 @@ export default function Home() {
     },
   };
 
-  // Updated useEffect for faster animation
   useEffect(() => {
-    const animate = () => {
-      setScrollPosition((prev) => {
-        // Reset position when reaching the end
-        if (prev <= -100) {
-          return 0;
-        }
-        // Increased speed from 0.01 to 0.05
-        return prev - 0.05;
-      });
-      requestAnimationFrame(animate);
+    const handleScroll = () => {
+      if (!hideGlobe && window.scrollY > window.innerHeight * 0.1) {
+        setHideGlobe(true);
+      }
     };
 
-    const animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hideGlobe]);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let position = scrollPosition;
+
+    const animate = () => {
+      position -= 0.1; // Adjust speed as needed
+      if (position <= -100) {
+        position = 0;
+      }
+      setScrollPosition(position);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
   }, []);
 
   const floatingAnimation = {
@@ -128,9 +144,19 @@ export default function Home() {
         animate="visible"
         variants={staggerContainer}
       >
-        <HeroSection />
+        {/* Keep background, only hide globe content */}
+        <div className="relative bg-[#1c3f60] min-h-screen">
+          <div
+            className={`transition-opacity duration-500 absolute inset-0 ${
+              hideGlobe ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
+            <HeroSection />
+          </div>
+        </div>
 
-        <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen">
+        {/* Dream Big section - remove the margin adjustment */}
+        <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen dream-big-section">
           {/* Background Image Layer - Updated positioning and size */}
           <div className="absolute bottom-0 left-0 right-0 w-full  h-[100%] z-0">
             <Image

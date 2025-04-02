@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
 import StarRating from "./StarRating";
 
+const IMAGE_SIZE = 128; // Increased from 96
+
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -139,7 +141,7 @@ export default function TestimonialSlider() {
           >
             {/* Profile Image with Fade Effect */}
             <motion.div
-              className="w-24 h-24 mx-auto relative"
+              className="w-32 h-32 mx-auto relative" // Increased from w-24 h-24
               variants={imageVariants}
               initial="enter"
               animate="center"
@@ -150,10 +152,10 @@ export default function TestimonialSlider() {
                 <Image
                   src={testimonial.image}
                   alt={testimonial.name}
-                  width={96}
-                  height={96}
-                  className="object-cover"
-                  unoptimized
+                  width={IMAGE_SIZE}
+                  height={IMAGE_SIZE}
+                  className="object-cover w-full h-full scale-125" // Added scale-125 for better coverage
+                  priority
                 />
               </div>
             </motion.div>

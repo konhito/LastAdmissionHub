@@ -16,8 +16,8 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, className = "" }) => {
           {index < fullStars
             ? "★"
             : hasHalfStar && index === fullStars
-            ? "☆"
-            : "☆"}
+            ? "★"
+            : "★"}
         </span>
       ))}
     </div>
