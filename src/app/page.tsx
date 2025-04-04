@@ -89,7 +89,13 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       if (showGlobeSection && window.scrollY > window.innerHeight * 0.1) {
-        setShowGlobeSection(false); // Remove the section completely
+        // First, trigger the fade out animation
+        setHideGlobe(true);
+
+        // Wait for animation to complete before removing the section
+        setTimeout(() => {
+          setShowGlobeSection(false);
+        }, 500); // Match this with your animation duration
       }
     };
 
@@ -145,9 +151,13 @@ export default function Home() {
         animate="visible"
         variants={staggerContainer}
       >
-        {/* Conditionally render the entire globe section */}
+        {/* Globe section with fade out animation */}
         {showGlobeSection && (
-          <div className="relative bg-[#1c3f60] min-h-screen">
+          <div
+            className={`relative bg-[#1c3f60] min-h-screen transition-opacity duration-500 ${
+              hideGlobe ? "opacity-0" : "opacity-100"
+            }`}
+          >
             <HeroSection />
           </div>
         )}
@@ -156,7 +166,7 @@ export default function Home() {
         <motion.section
           className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen dream-big-section"
           initial={{ opacity: 0 }}
-          animate={{ opacity: showGlobeSection ? 0 : 1 }}
+          animate={{ opacity: hideGlobe ? 1 : 0 }}
           transition={{ duration: 0.5 }}
         >
           {/* Background Image Layer - Updated positioning and size */}
