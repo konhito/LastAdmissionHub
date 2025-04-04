@@ -22,32 +22,32 @@ const InteractiveGlobe: React.FC = () => {
   const [schools, setSchools] = useState<BusinessSchool[]>(businessSchools);
 
   // Add a new useEffect to prevent scrolling past the Dream Big section
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let isScrollingUp = false;
+  // useEffect(() => {
+  //   let lastScrollY = window.scrollY;
+  //   let isScrollingUp = false;
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      isScrollingUp = currentScrollY < lastScrollY;
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+  //     isScrollingUp = currentScrollY < lastScrollY;
 
-      // If scrolling up and near the Dream Big section
-      if (
-        isScrollingUp &&
-        currentScrollY < window.innerHeight &&
-        currentScrollY > 0
-      ) {
-        window.scrollTo({
-          top: window.innerHeight,
-          behavior: "instant",
-        });
-      }
+  //     // If scrolling up and near the Dream Big section
+  //     if (
+  //       isScrollingUp &&
+  //       currentScrollY < window.innerHeight &&
+  //       currentScrollY > 0
+  //     ) {
+  //       window.scrollTo({
+  //         top: window.innerHeight,
+  //         behavior: "instant",
+  //       });
+  //     }
 
-      lastScrollY = currentScrollY;
-    };
+  //     lastScrollY = currentScrollY;
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (!globeRef.current) return;

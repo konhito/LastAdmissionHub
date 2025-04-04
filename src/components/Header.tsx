@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
@@ -15,6 +15,9 @@ const montserrat = Montserrat({
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const router = useRouter();
 
   const navigationItems = [
@@ -40,6 +43,29 @@ const Header = () => {
     router.push(href);
   };
 
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 300); // 300ms delay before closing
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
+  }, []);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-600 bg-[#1c3f5e] mb-4">
       <nav className="container mx-auto px-4 py-4">
@@ -63,11 +89,14 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-8">
             {navigationItems.map((item) =>
               item.isDropdown ? (
-                <div key={item.title} className="relative">
-                  <button
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="text-white hover:text-blue-200 flex items-center gap-1"
-                  >
+                <div
+                  key={item.title}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button className="text-white hover:text-blue-200 flex items-center gap-1">
                     {item.title}
                     <svg
                       className={`w-4 h-4 transition-transform ${
@@ -86,7 +115,11 @@ const Header = () => {
                     </svg>
                   </button>
                   {isDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 rounded-lg bg-white shadow-lg py-2 animate-fadeIn">
+                    <div
+                      className="absolute top-full left-0 mt-2 w-48 rounded-lg bg-white shadow-lg py-2 animate-fadeIn"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       {item.dropdownItems?.map((dropItem) => (
                         <button
                           key={dropItem.title}

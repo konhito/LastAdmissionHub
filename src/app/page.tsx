@@ -44,6 +44,7 @@ export default function Home() {
 
   const [hideGlobe, setHideGlobe] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [showGlobeSection, setShowGlobeSection] = useState(true);
 
   // Business school logos
   const logos = [
@@ -87,14 +88,14 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!hideGlobe && window.scrollY > window.innerHeight * 0.1) {
-        setHideGlobe(true);
+      if (showGlobeSection && window.scrollY > window.innerHeight * 0.1) {
+        setShowGlobeSection(false); // Remove the section completely
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [hideGlobe]);
+  }, [showGlobeSection]);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -144,19 +145,20 @@ export default function Home() {
         animate="visible"
         variants={staggerContainer}
       >
-        {/* Keep background, only hide globe content */}
-        <div className="relative bg-[#1c3f60] min-h-screen">
-          <div
-            className={`transition-opacity duration-500 absolute inset-0 ${
-              hideGlobe ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
-          >
+        {/* Conditionally render the entire globe section */}
+        {showGlobeSection && (
+          <div className="relative bg-[#1c3f60] min-h-screen">
             <HeroSection />
           </div>
-        </div>
+        )}
 
-        {/* Dream Big section - remove the margin adjustment */}
-        <motion.section className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen dream-big-section">
+        {/* Dream Big section */}
+        <motion.section
+          className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen dream-big-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showGlobeSection ? 0 : 1 }}
+          transition={{ duration: 0.5 }}
+        >
           {/* Background Image Layer - Updated positioning and size */}
           <div className="absolute bottom-0 left-0 right-0 w-full  h-[100%] z-0">
             <Image
