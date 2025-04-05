@@ -11,6 +11,13 @@ import asset1 from "@/public/asset1 (2).svg"; // Make sure this matches your fil
 import firstone from "@/public/First_sec_1.svg";
 import secondone from "@/public/asset3.svg";
 import thirdone from "@/public/asset4.svg";
+import hecLogo from "@/public/logos/HECparis.png";
+import essecLogo from "@/public/logos/essec.png";
+import imperialLogo from "@/public/logos/ImperialBusinessCollegeSchool.png";
+import insedLogo from "@/public/logos/INSEAD.png";
+import lbsLogo from "@/public/logos/LondonBusinessSchool.png";
+import lseLogo from "@/public/logos/LSE.png";
+import bocconiLogo from "@/public/logos/SDAbocconi.png";
 
 // import StatsSection from "@/components/StatsSection";
 import { Montserrat, Libre_Franklin } from "next/font/google";
@@ -48,18 +55,13 @@ export default function Home() {
 
   // Business school logos
   const logos = [
-    { name: "HEC Paris", color: "#003366" },
-    { name: "ESSEC Business School", color: "#000000" },
-    { name: "London Business School", color: "#003366" },
-    { name: "LSE", color: "#E4003B" },
-    { name: "Imperial College Business School", color: "#003C71" },
-    { name: "SDA Bocconi", color: "#00205C" },
-    { name: "INSEAD", color: "#00843D" },
-    { name: "Skema Business School", color: "#E94E1B" },
-    { name: "ESCP Business School", color: "#4B2A85" },
-    { name: "Luiss Business School", color: "#003366" },
-    { name: "IE Business School", color: "#0065BD" },
-    { name: "Harvard Business School", color: "#A51C30" },
+    { name: "HEC Paris", image: hecLogo },
+    { name: "ESSEC Business School", image: essecLogo },
+    { name: "Imperial College Business School", image: imperialLogo },
+    { name: "INSEAD", image: insedLogo },
+    { name: "London Business School", image: lbsLogo },
+    { name: "LSE", image: lseLogo },
+    { name: "SDA Bocconi", image: bocconiLogo },
   ];
 
   // Modern animation variants
@@ -378,10 +380,8 @@ export default function Home() {
         </motion.section>
 
         {/* Logo Carousel - Infinite Loop */}
-        <motion.section className="py-8 w-full overflow-hidden">
+        <motion.section className="py-8 w-full overflow-hidden bg-white">
           <div className="relative w-full max-w-7xl mx-auto">
-            {/* Updated gradient overlays to extend from edges */}
-
             <motion.div
               className="flex items-center justify-start"
               style={{
@@ -392,15 +392,17 @@ export default function Home() {
               {[...logos, ...logos, ...logos].map((logo, index) => (
                 <div
                   key={`logo-${index}`}
-                  className="flex-shrink-0 mx-8 flex items-center justify-center h-16" // Reduced from h-20
+                  className="flex-shrink-0 mx-8 flex items-center justify-center"
                   style={{ minWidth: "180px" }}
                 >
-                  <div
-                    className={`${montserrat.className} font-semibold text-xl`} // Increased from text-lg
-                    style={{ color: logo.color }}
-                  >
-                    {logo.name}
-                  </div>
+                  <Image
+                    src={logo.image}
+                    alt={logo.name}
+                    width={120}
+                    height={60}
+                    className="object-contain h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300"
+                    priority
+                  />
                 </div>
               ))}
             </motion.div>
