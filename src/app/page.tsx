@@ -264,10 +264,18 @@ export default function Home() {
                     Una strategia personalizzata
                   </h2>
                   <p className={sectionStyles.paragraph}>
-                    Ogni percorso è unico. Con The Admission Hub, riceverai una
-                    strategia su misura che tiene conto delle tue esigenze e
-                    aspirazioni, garantendo un approccio vincente per le tue
-                    application nelle Business Schools.
+                    Ogni percorso è unico.
+                  </p>
+                  <p className={sectionStyles.paragraph}>
+                    Con The Admission Hub riceverai un piano costruito sul tuo
+                    profilo e sulle tue ambizioni. Ti guideremo nella scelta
+                    delle università, nella preparazione al GMAT e IELTS, e
+                    nella creazione di una candidatura solida e coerente.
+                  </p>
+                  <p className={sectionStyles.paragraph}>
+                    Otterrai un supporto completo per valorizzare il tuo profilo
+                    e massimizzare le possibilità di entrare in una Business
+                    School.
                   </p>
                 </div>
               </motion.div>
@@ -287,10 +295,15 @@ export default function Home() {
                     Un lavoro di squadra
                   </h2>
                   <p className={sectionStyles.paragraph}>
-                    Il nostro team lavora con te, non solo per te. Collaboriamo
-                    strettamente per assicurarti il supporto e le risorse
-                    necessarie a superare ogni sfida accademica, inclusi GMAT e
-                    IELTS.
+                    Ti offriamo molto più di un semplice supporto: il tuo
+                    obiettivo è il nostro scopo. Lo affrontiamo con competenza,
+                    metodo e una strategia costruita su misura.
+                  </p>
+                  <p className={sectionStyles.paragraph}>
+                    Il nostro team riunisce competenze complementari: tutor
+                    specializzati nei test di ammissione, mentor dalle top
+                    Business School internazionali e professionisti della
+                    formazione accademica e professionale
                   </p>
                 </div>
                 <motion.div
@@ -340,11 +353,16 @@ export default function Home() {
                     Un supporto costante
                   </h2>
                   <p className={sectionStyles.paragraph}>
-                    Forniamo supporto ad ogni fase del tuo percorso. Il nostro
-                    team dedicato ti guida attraverso l&apos;intero processo
-                    delle application: dalla scelta delle scuole giuste, alla
-                    preparazione dei test, fino alla preparazione dei curriculum
-                    e dei colloqui.
+                    Gestire un’application per un MBA o un Master richiede
+                    attenzione ai dettagli, rispetto di deadline precise e
+                    coerenza tra tutti gli elementi del profilo. Ti
+                    accompagniamo nel tuo percorso, adattando strategie e
+                    tecniche ai requisiti delle Business School internazionali e
+                    alle tue possibilità di successo.
+                  </p>
+                  <p className={sectionStyles.paragraph}>
+                    Perché una candidatura efficace non si costruisce una volta
+                    sola: è un processo strategico.
                   </p>
                 </div>
               </motion.div>
