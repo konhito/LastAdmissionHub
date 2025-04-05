@@ -400,7 +400,7 @@ export default function Home() {
                     alt={logo.name}
                     width={120}
                     height={60}
-                    className="object-contain h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="object-contain h-16 w-auto"
                     priority
                   />
                 </div>
