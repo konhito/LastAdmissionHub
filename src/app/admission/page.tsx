@@ -7,6 +7,7 @@ import admissionimag from "@/public/admissionimag.jpg";
 import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png";
 import assets3 from "@/public/asset2.png";
+import TestimonialSlider from "@/components/TestimonialSlider";
 
 // Update the animation variant back to original
 const fadeInUpVariant = {
@@ -72,42 +73,6 @@ export default function HomePage() {
       description: "Borse di studio e percorsi formativi.",
     },
   ];
-
-  // Testimonial data
-  const testimonials = [
-    {
-      name: "Nome e Cognome",
-      university: "Università",
-      stars: 5,
-      review: "Recensione",
-    },
-    {
-      name: "Altro Nome",
-      university: "Altra Università",
-      stars: 5,
-      review: "Altra recensione positiva",
-    },
-    {
-      name: "Terzo Nome",
-      university: "Terza Università",
-      stars: 5,
-      review: "Terza recensione positiva",
-    },
-  ];
-
-  const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
-  };
 
   return (
     <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen flex flex-col">
@@ -186,7 +151,7 @@ export default function HomePage() {
         </motion.div>
 
         {/* Application Toolkit Section */}
-        <div className="w-full bg-[#f7efd6] py-24 relative z-20">
+        <div className="w-full bg-[#e2c8a4] py-24 relative z-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -343,139 +308,14 @@ export default function HomePage() {
         </div>
 
         {/* Testimonial Section - "Dicono di Noi" */}
-        <div className="w-full bg-white py-20">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            variants={fadeInUpVariant}
-            className="w-full"
-          >
-            <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-6xl font-bold text-center text-[#1e3a5f] mb-16">
-                Dicono di Noi
-              </h2>
 
-              <div className="relative max-w-3xl mx-auto">
-                {/* Navigation Arrows */}
-                <button
-                  onClick={prevTestimonial}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-[#1e3a5f] bg-transparent border-none cursor-pointer"
-                  aria-label="Previous testimonial"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15 19L8 12L15 5"
-                        stroke="#1e3a5f"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </button>
-
-                <button
-                  onClick={nextTestimonial}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-[#1e3a5f] bg-transparent border-none cursor-pointer"
-                  aria-label="Next testimonial"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-md">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M9 5L16 12L9 19"
-                        stroke="#1e3a5f"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </button>
-
-                {/* Testimonial Content */}
-                <motion.div
-                  initial={{ opacity: 0, y: 60 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 60 }}
-                  key={currentTestimonial}
-                  className="flex flex-col items-center text-center px-16"
-                >
-                  {/* Profile Image */}
-                  <div className="w-32 h-32 rounded-full bg-[#dceeff] mb-4 flex items-center justify-center overflow-hidden">
-                    <svg
-                      width="70"
-                      height="70"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
-                        fill="#6796c3"
-                      />
-                      <path
-                        d="M12 13C7.58172 13 4 16.5817 4 21H20C20 16.5817 16.4183 13 12 13Z"
-                        fill="#6796c3"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Name and University */}
-                  <h3 className="text-xl font-bold text-[#1e3a5f]">
-                    {testimonials[currentTestimonial].name}
-                  </h3>
-                  <p className="text-md text-[#1e3a5f] mb-4">
-                    {testimonials[currentTestimonial].university}
-                  </p>
-
-                  {/* Star Rating */}
-                  <div className="flex space-x-1 mb-4">
-                    {[...Array(testimonials[currentTestimonial].stars)].map(
-                      (_, i) => (
-                        <svg
-                          key={i}
-                          width="32"
-                          height="32"
-                          viewBox="0 0 24 24"
-                          fill="#ffc107"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                        </svg>
-                      )
-                    )}
-                  </div>
-
-                  {/* Review Text */}
-                  <p className="text-xl text-[#1e3a5f]">
-                    {testimonials[currentTestimonial].review}
-                  </p>
-
-                  {/* Dots Indicator */}
-                  <div className="flex space-x-2 mt-16">
-                    <div className="w-2 h-2 rounded-full bg-[#1e3a5f]"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#1e3a5f]"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#1e3a5f]"></div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        <motion.section
+          className="py-20 bg-white"
+          variants={fadeInUpVariant}
+          viewport={{ once: true }}
+        >
+          <TestimonialSlider />
+        </motion.section>
       </motion.div>
 
       {/* Call to Action Section - Contained Width */}
@@ -487,7 +327,7 @@ export default function HomePage() {
         className="w-full bg-[#1c3f60] py-20"
       >
         <motion.div className="max-w-5xl mx-auto px-4">
-          <div className="rounded-2xl backdrop-blur-lg border-white/20 p-12">
+          <div className="rounded-2xl backdrop-blur-lg border-white/20 ">
             <CallToAction />
           </div>
         </motion.div>

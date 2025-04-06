@@ -228,7 +228,7 @@ export default function Home() {
                 <p
                   className={`${montserrat.className} text-base md:text-lg mt-8 tracking-widest font-medium text-right`}
                 >
-                  B-SCHOOLS | GMAT | IELTS | CAREER
+                  AMMISSIONI | GMAT | IELTS | CAREER
                 </p>
               </motion.div>
             </div>
