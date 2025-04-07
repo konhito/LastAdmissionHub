@@ -6,7 +6,7 @@ import Image from "next/image";
 import admissionimag from "@/public/admissionimag.jpg";
 import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png";
-import assets3 from "@/public/asset2.png";
+
 import TestimonialSlider from "@/components/TestimonialSlider";
 
 // Update the animation variant back to original
@@ -88,9 +88,9 @@ export default function HomePage() {
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full min-h-screen relative overflow-hidden flex items-center justify-center bg-[#1c3f60]" // Added bg color
+          className="w-full min-h-[80vh] md:min-h-screen relative overflow-hidden flex items-center justify-center bg-[#1c3f60]"
         >
-          {/* Background Image with lighter overlay to match reference */}
+          {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
               src={admissionimag}
@@ -100,22 +100,21 @@ export default function HomePage() {
               priority
               quality={90}
             />
-            <div className="absolute inset-0 bg-gray-100/50" />{" "}
-            {/* Lighter overlay to match reference */}
+            <div className="absolute inset-0 bg-gray-100/50" />
           </div>
 
-          {/* Hero content - centered text layout with navy blue text */}
+          {/* Hero content */}
           <div className="container mx-auto px-4 relative z-20">
             <div className="flex flex-col items-center text-center">
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1c3f60] mb-6 leading-tight"
+                className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-[#1c3f60] mb-4 md:mb-6 leading-tight"
                 animate={{ scale: [0.95, 1] }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 The Admission Portal
               </motion.h1>
               <motion.h2
-                className="text-xl md:text-2xl lg:text-5xl text-[#1c3f60] font-normal max-w-4xl leading-relaxed"
+                className="text-lg sm:text-xl md:text-2xl lg:text-5xl text-[#1c3f60] font-normal max-w-4xl leading-relaxed px-4"
                 animate={{ opacity: [0, 1], y: [20, 0] }}
                 transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
               >
@@ -151,7 +150,7 @@ export default function HomePage() {
         </motion.div>
 
         {/* Application Toolkit Section */}
-        <div className="w-full bg-[#e2c8a4] py-24 relative z-20">
+        <div className="w-full bg-[#e2c8a4] py-12 md:py-24 relative z-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -160,11 +159,11 @@ export default function HomePage() {
             className="w-full"
           >
             <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-4xl font-bold text-center text-[#1e3a5f] mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1e3a5f] mb-8 md:mb-16">
                 Application Toolkit
               </h2>
               <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -174,24 +173,12 @@ export default function HomePage() {
                   <motion.div
                     key={index}
                     variants={fadeInUpVariant}
-                    className="w-full relative h-64"
+                    className="w-full relative h-48 md:h-64"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/* Background Image with increased opacity */}
-                    <div className="absolute inset-0 z-10">
-                      <Image
-                        src={assets3}
-                        alt=""
-                        fill
-                        className="object-contain rounded-lg opacity-100" // Changed to object-contain and full opacity
-                        style={{ objectPosition: "center" }}
-                      />
-                    </div>
-
-                    {/* Card Content */}
-                    <div className="absolute inset-0 bg-[#1e3a5f]/90 rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-10 z-20">
-                      <h3 className="text-xl font-bold mt-2 px-4 leading-tight">
+                    <div className="absolute inset-0 bg-[#1e3a5f]/90 rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-10 z-20">
+                      <h3 className="text-base md:text-xl font-bold mt-2 px-2 md:px-4 leading-tight">
                         {card.title}
                       </h3>
                     </div>

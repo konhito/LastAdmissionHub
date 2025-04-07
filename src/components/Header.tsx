@@ -163,16 +163,16 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Updated Styling */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white px-4 pt-2 pb-4 shadow-lg">
+        <div className="md:hidden bg-[#1c3f5e] px-4 pt-2 pb-4 shadow-lg border-t border-gray-600">
           <nav className="flex flex-col space-y-3">
             {navigationItems.map((item) =>
               item.isDropdown ? (
                 <div key={item.title}>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="font-medium py-2 w-full text-left flex items-center justify-between"
+                    className="font-medium py-2 w-full text-left flex items-center justify-between text-white hover:text-blue-200 transition-colors"
                   >
                     {item.title}
                     <svg
@@ -192,12 +192,12 @@ const Header = () => {
                     </svg>
                   </button>
                   {isDropdownOpen && (
-                    <div className="pl-4 space-y-2">
+                    <div className="pl-4 space-y-2 mt-2 border-l border-gray-600">
                       {item.dropdownItems?.map((dropItem) => (
                         <button
                           key={dropItem.title}
                           onClick={() => handleNavigation(dropItem.href)}
-                          className="block w-full text-left py-2 text-gray-600 hover:text-blue-600"
+                          className="block w-full text-left py-2 text-gray-300 hover:text-blue-200 transition-colors"
                         >
                           {dropItem.title}
                         </button>
@@ -211,8 +211,8 @@ const Header = () => {
                   onClick={() => handleNavigation(item.href)}
                   className={`w-full text-left ${
                     item.isButton
-                      ? "bg-[#d9c498] text-white px-6 py-2 rounded-full text-center hover:bg-blue-700"
-                      : "font-medium py-2 hover:text-blue-600"
+                      ? "bg-[#e2c8a4] text-[#1c3f60] px-6 py-2 rounded font-bold hover:opacity-90"
+                      : "font-medium py-2 text-white hover:text-blue-200"
                   } transition-colors`}
                 >
                   {item.title}
