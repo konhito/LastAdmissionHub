@@ -137,32 +137,26 @@ export default function GmatPage() {
             </div>
           </motion.div>
 
-          {/* Stats Section - Keep consistent spacing */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            variants={fadeInUpVariant}
-            className="w-full bg-[#1c3f60]"
-          >
-            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+          {/* Stats Section */}
+          <div className="w-full bg-[#1c3f60]">
+            <div className="max-w-7xl mx-auto px-4 py-8 md:py-16">
               <motion.section
-                className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
                 variants={fadeInUp}
               >
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
-                    className="text-center p-6 backdrop-blur-sm bg-white/10 rounded-xl relative overflow-hidden"
+                    className="text-center p-3 md:p-6 backdrop-blur-sm bg-white/10 rounded-xl relative overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="relative z-10">
-                      <h2 className="text-3xl font-bold text-white mb-2">
+                      <h2 className="text-xl md:text-3xl font-bold text-white mb-2">
                         {Math.round(animatedValues[index])}
                         {stat.label === "SUCCESS RATE" && "%"}
                       </h2>
-                      <p className="text-gray-200 uppercase tracking-wider">
+                      <p className="text-xs md:text-base text-gray-200 uppercase tracking-wider">
                         {stat.label}
                       </p>
                     </div>
@@ -170,7 +164,7 @@ export default function GmatPage() {
                 ))}
               </motion.section>
             </div>
-          </motion.div>
+          </div>
 
           {/* Content Sections - Full width */}
           <div className="w-full bg-white">
@@ -221,104 +215,107 @@ export default function GmatPage() {
                   </div>
 
                   {/* Table - Full width */}
-                  <div className="mt-8 overflow-x-auto mb-5 w-full">
-                    <div className="flex justify-between border-b border-blue-800/20 text-center">
-                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-left w-1/5">
-                        Pacchetti
+                  <div className="mt-8 overflow-x-auto mb-5 w-full text-sm md:text-base">
+                    {/* Update table for mobile */}
+                    <div className="min-w-[768px]">
+                      <div className="flex justify-between border-b border-blue-800/20 text-center">
+                        <div className="py-4 px-4 text-[#1e3a5f] font-bold text-left w-1/5">
+                          Pacchetti
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
+                          Accelerated
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
+                          Standard
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
+                          Mastery
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
+                          Tailored
+                        </div>
                       </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
-                        Accelerated
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
-                        Standard
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
-                        Mastery
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
-                        Tailored
-                      </div>
-                    </div>
 
-                    <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
-                        Durata
+                      <div className="flex justify-between border-b border-blue-800/20">
+                        <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
+                          Durata
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          40 h
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          60 h
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          100 h
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          TBD
+                        </div>
                       </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        40 h
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        60 h
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        100 h
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        TBD
-                      </div>
-                    </div>
 
-                    <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
-                        Sezioni
-                        <br />
-                        Coperte
+                      <div className="flex justify-between border-b border-blue-800/20">
+                        <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
+                          Sezioni
+                          <br />
+                          Coperte
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          1 sezione +<br />1 mock test
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          2 sezioni +<br />2 mock test
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          3 sezioni +<br />4 mock test
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          TBD
+                        </div>
                       </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        1 sezione +<br />1 mock test
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        2 sezioni +<br />2 mock test
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        3 sezioni +<br />4 mock test
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        TBD
-                      </div>
-                    </div>
 
-                    <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
-                        Ideale per
+                      <div className="flex justify-between border-b border-blue-800/20">
+                        <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
+                          Ideale per
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          rafforzare i punti
+                          <br />
+                          deboli
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          consolidare le
+                          <br />
+                          conoscenze
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          una preparazione
+                          <br />
+                          completa
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          esigenze
+                          <br />
+                          specifiche
+                        </div>
                       </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        rafforzare i punti
-                        <br />
-                        deboli
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        consolidare le
-                        <br />
-                        conoscenze
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        una preparazione
-                        <br />
-                        completa
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        esigenze
-                        <br />
-                        specifiche
-                      </div>
-                    </div>
 
-                    <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
-                        Timeline
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        1-2 mesi
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        2-3 mesi
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        3-6 mesi
-                      </div>
-                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
-                        TBD
+                      <div className="flex justify-between border-b border-blue-800/20">
+                        <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
+                          Timeline
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          1-2 mesi
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          2-3 mesi
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          3-6 mesi
+                        </div>
+                        <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
+                          TBD
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -326,15 +323,15 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full bg-[#d2e6f5] p-8 md:p-12 rounded-2xl shadow-lg mb-16"
+                className="w-full bg-[#d2e6f5] p-4 md:p-8 lg:p-12 rounded-2xl shadow-lg mb-8 md:mb-16"
                 variants={fadeInUp}
               >
                 <div>
-                  <h1 className="text-4xl font-bold text-[#1e3a5f] mb-6">
+                  <h2 className="text-2xl md:text-4xl font-bold text-[#1e3a5f] mb-4 md:mb-6">
                     Corsi di gruppo
-                  </h1>
+                  </h2>
 
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <div className="flex items-start">
                       <div className="mt-1 mr-4 w-6 h-6 rounded-full bg-blue-700 flex items-center justify-center text-white">
                         ✓
@@ -367,19 +364,21 @@ export default function GmatPage() {
                   </div>
 
                   <div className="mt-8 border-t border-gray-300 pt-4">
-                    <div className="grid grid-cols-3 gap-4 font-medium">
-                      <div className="text-navy-900">Corsi</div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-medium">
+                      <div className="text-navy-900 text-center md:text-left">
+                        Corsi
+                      </div>
                       <div className="text-navy-900 text-center">Intensivo</div>
                       <div className="text-navy-900 text-center">Standard</div>
                     </div>
 
-                    <div className="mt-2 grid grid-cols-3 gap-4 bg-blue-200 p-3 rounded">
+                    <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4 bg-blue-200 p-3 rounded">
                       <div className="text-navy-900">Durata</div>
                       <div className="text-center">40 h</div>
                       <div className="text-center">60 h</div>
                     </div>
 
-                    <div className="mt-2 grid grid-cols-3 gap-4 bg-blue-200 p-3 rounded">
+                    <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4 bg-blue-200 p-3 rounded">
                       <div className="text-navy-900">Timeline</div>
                       <div className="text-center">
                         6 settimane, 3 lezioni a settimana
@@ -389,7 +388,7 @@ export default function GmatPage() {
                       </div>
                     </div>
 
-                    <div className="mt-2 grid grid-cols-3 gap-4 bg-blue-200 p-3 rounded">
+                    <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4 bg-blue-200 p-3 rounded">
                       <div className="text-navy-900">
                         Calendario e programma
                       </div>
@@ -410,53 +409,47 @@ export default function GmatPage() {
             </div>
           </div>
 
-          {/* Move Il Nostro Metodo here - directly as a new section */}
+          {/* Il Nostro Metodo Section */}
           <div className="w-full bg-[#1c3f60]">
-            <motion.section className="w-full" variants={fadeInUp}>
-              <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-                <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">
+            <div className="max-w-7xl mx-auto px-4 py-8 md:py-16">
+              <motion.section className="w-full" variants={fadeInUp}>
+                <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-4 md:mb-8">
                   Il Nostro Metodo
                 </h2>
-                <p className="text-xl text-gray-200 leading-relaxed max-w-5xl mx-auto text-center">
+                <p className="text-base md:text-xl text-gray-200 leading-relaxed max-w-5xl mx-auto text-center px-4">
                   Costruisci solide fondamenta teoriche con l&apos;aiuto di
                   insegnanti madrelingua qualificati. Il nostro approccio
                   strutturato ti guiderà passo dopo passo verso il successo nel
                   GMAT.
                 </p>
-              </div>
-            </motion.section>
-          </div>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-20 mt-8 md:mt-16">
+                  {cards1.map((card, index) => (
+                    <div
+                      key={index}
+                      className="relative w-full md:w-64 h-64 perspective-1000 max-w-sm"
+                      onMouseEnter={() => setFlippedCard(index)}
+                      onMouseLeave={() => setFlippedCard(null)}
+                    >
+                      <div
+                        className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
+                          flippedCard === index ? "rotate-y-180" : ""
+                        }`}
+                      >
+                        <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center font-bold p-4 backface-hidden">
+                          {card.icon}
+                          <p className="mt-4">{card.title}</p>
+                        </div>
 
-          <motion.section
-            className="w-full p-8 md:p-12 rounded-2xl mb-16"
-            variants={fadeInUp}
-          >
-            <div className="flex justify-center items-center gap-20">
-              {cards1.map((card, index) => (
-                <div
-                  key={index}
-                  className="relative w-64 h-64 perspective-1000"
-                  onMouseEnter={() => setFlippedCard(index)}
-                  onMouseLeave={() => setFlippedCard(null)}
-                >
-                  <div
-                    className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
-                      flippedCard === index ? "rotate-y-180" : ""
-                    }`}
-                  >
-                    <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center font-bold p-4 backface-hidden">
-                      {card.icon}
-                      <p className="mt-4">{card.title}</p>
+                        <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center p-4 backface-hidden rotate-y-180">
+                          <p className="text-sm">{card.description}</p>
+                        </div>
+                      </div>
                     </div>
-
-                    <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center p-4 backface-hidden rotate-y-180">
-                      <p className="text-sm">{card.description}</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </motion.section>
             </div>
-          </motion.section>
+          </div>
 
           <div className="w-full bg-white">
             <div className="max-w-7xl mx-auto">
