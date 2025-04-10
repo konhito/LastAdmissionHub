@@ -122,31 +122,16 @@ export default function GmatPage() {
         style={{ scaleX }}
       />
 
-      <motion.main className="bg-white text-gray-800 min-h-screen flex flex-col">
+      <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen w-full">
         <motion.div className="w-full">
-          {/* Hero Section */}
+          {/* Hero Section - Full width */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             variants={fadeInUpVariant}
-            className="w-full bg-[#1c3f60] py-16 md:py-24 relative overflow-hidden"
+            className="w-full bg-[#1c3f60] py-16 md:py-24"
           >
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              animate={{
-                backgroundPosition: ["0% 0%", "100% 100%"],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              style={{
-                backgroundImage: "url('/grid-pattern.svg')",
-                backgroundSize: "cover",
-              }}
-            />
             <div className="max-w-7xl mx-auto px-4">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -159,7 +144,7 @@ export default function GmatPage() {
             </div>
           </motion.div>
 
-          {/* Stats Section */}
+          {/* Stats Section - Full width */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -172,7 +157,7 @@ export default function GmatPage() {
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
-                    className="text-center p-6 backdrop-blur-sm bg-white/10 rounded-xl"
+                    className="text-center p-6 bg-[#1e3a5f] rounded-xl"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -187,7 +172,7 @@ export default function GmatPage() {
             </div>
           </motion.div>
 
-          {/* Keep other sections with similar pattern */}
+          {/* Content Sections - Full width */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -196,18 +181,19 @@ export default function GmatPage() {
             className="w-full bg-white"
           >
             <div className="max-w-7xl mx-auto px-4 py-16">
+              {/* Update individual sections to be full width */}
               <motion.section
-                className="w-full bg-[#f0e6d0] p-8 md:p-12 rounded-2xl shadow-lg mb-8"
+                className="w-full bg-[#e2c8a4] p-8 md:p-12 rounded-2xl shadow-lg mb-8"
                 variants={fadeInUp}
               >
                 <div className="w-full">
-                  <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-8">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8">
                     Corsi 1-to-1
                   </h2>
 
                   <div className="space-y-6 mb-10">
                     <div className="flex items-start gap-4">
-                      <div className="min-w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center text-white mt-1">
+                      <div className="min-w-8 h-8 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white mt-1">
                         <CheckCircle size={20} />
                       </div>
                       <p className="text-blue-800 text-lg">
@@ -217,7 +203,7 @@ export default function GmatPage() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="min-w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center text-white mt-1">
+                      <div className="min-w-8 h-8 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white mt-1">
                         <CheckCircle size={20} />
                       </div>
                       <p className="text-blue-800 text-lg">
@@ -227,7 +213,7 @@ export default function GmatPage() {
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="min-w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center text-white mt-1">
+                      <div className="min-w-8 h-8 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white mt-1">
                         <CheckCircle size={20} />
                       </div>
                       <p className="text-blue-800 text-lg">
@@ -240,81 +226,81 @@ export default function GmatPage() {
                   {/* Table */}
                   <div className="mt-8 overflow-x-auto mb-5">
                     <div className="flex justify-between border-b border-blue-800/20 text-center">
-                      <div className="py-4 px-4 text-blue-800 font-bold text-left w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-left w-1/5">
                         Pacchetti
                       </div>
-                      <div className="py-4 px-4 text-blue-800 font-bold text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
                         Accelerated
                       </div>
-                      <div className="py-4 px-4 text-blue-800 font-bold text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
                         Standard
                       </div>
-                      <div className="py-4 px-4 text-blue-800 font-bold text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
                         Mastery
                       </div>
-                      <div className="py-4 px-4 text-blue-800 font-bold text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] font-bold text-center w-1/5">
                         Tailored
                       </div>
                     </div>
 
                     <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-blue-800 font-medium w-1/5">
+                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
                         Durata
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         40 h
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         60 h
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         100 h
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         TBD
                       </div>
                     </div>
 
                     <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-blue-800 font-medium w-1/5">
+                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
                         Sezioni
                         <br />
                         Coperte
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         1 sezione +<br />1 mock test
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         2 sezioni +<br />2 mock test
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         3 sezioni +<br />4 mock test
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         TBD
                       </div>
                     </div>
 
                     <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-blue-800 font-medium w-1/5">
+                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
                         Ideale per
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         rafforzare i punti
                         <br />
                         deboli
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         consolidare le
                         <br />
                         conoscenze
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         una preparazione
                         <br />
                         completa
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         esigenze
                         <br />
                         specifiche
@@ -322,19 +308,19 @@ export default function GmatPage() {
                     </div>
 
                     <div className="flex justify-between border-b border-blue-800/20">
-                      <div className="py-4 px-4 bg-[#e6d7b3] text-blue-800 font-medium w-1/5">
+                      <div className="py-4 px-4 bg-[#e6d7b3] text-[#1e3a5f] font-medium w-1/5">
                         Timeline
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         1-2 mesi
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         2-3 mesi
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         3-6 mesi
                       </div>
-                      <div className="py-4 px-4 text-blue-800 text-center w-1/5">
+                      <div className="py-4 px-4 text-[#1e3a5f] text-center w-1/5">
                         TBD
                       </div>
                     </div>
@@ -343,11 +329,11 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full bg-blue-100 p-8 rounded-2xl shadow-lg mb-8"
+                className="w-full bg-[#d2e6f5] p-8 md:p-12 rounded-2xl shadow-lg mb-8"
                 variants={fadeInUp}
               >
                 <div>
-                  <h1 className="text-4xl font-bold text-navy-900 mb-6">
+                  <h1 className="text-4xl font-bold text-[#1e3a5f] mb-6">
                     Corsi di gruppo
                   </h1>
 
@@ -411,12 +397,12 @@ export default function GmatPage() {
                         Calendario e programma
                       </div>
                       <div className="text-center">
-                        <button className="bg-blue-600 text-white px-4 py-1 rounded">
+                        <button className="bg-[#1c3f60] text-white px-4 py-1 rounded">
                           SCARICA
                         </button>
                       </div>
                       <div className="text-center">
-                        <button className="bg-blue-600 text-white px-4 py-1 rounded">
+                        <button className="bg-[#1c3f60] text-white px-4 py-1 rounded">
                           SCARICA
                         </button>
                       </div>
@@ -426,7 +412,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full bg-gradient-to-br from-[#1c3f60] to-blue-900 p-12 rounded-2xl mb-8 text-white"
+                className="w-full bg-[#1c3f60] p-8 md:p-12 rounded-2xl mb-8 text-white"
                 variants={fadeInUp}
               >
                 <div className="max-w-3xl mx-auto text-center">
@@ -441,7 +427,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full p-8 rounded-2xl mb-8"
+                className="w-full p-8 md:p-12 rounded-2xl mb-8"
                 variants={fadeInUp}
               >
                 <div className="flex justify-center items-center gap-20">
@@ -457,12 +443,12 @@ export default function GmatPage() {
                           flippedCard === index ? "rotate-y-180" : ""
                         }`}
                       >
-                        <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4 backface-hidden">
+                        <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center font-bold p-4 backface-hidden">
                           {card.icon}
                           <p className="mt-4">{card.title}</p>
                         </div>
 
-                        <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center p-4 backface-hidden rotate-y-180">
+                        <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center p-4 backface-hidden rotate-y-180">
                           <p className="text-sm">{card.description}</p>
                         </div>
                       </div>
@@ -472,7 +458,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full p-8 rounded-2xl mb-8"
+                className="w-full p-8 md:p-12 rounded-2xl mb-8"
                 variants={fadeInUp}
               >
                 <div className="flex flex-col items-center">
@@ -483,7 +469,7 @@ export default function GmatPage() {
                     {tutors.map((tutor) => (
                       <div
                         key={tutor.id}
-                        className="w-40 h-56 bg-[#EADDC4] flex flex-col justify-center items-center text-[#0F355F] font-bold text-center rounded-md shadow-md uppercase"
+                        className="w-40 h-56 bg-[#e2c8a4] flex flex-col justify-center items-center text-[#1e3a5f] font-bold text-center rounded-md shadow-md uppercase"
                       >
                         <span>{tutor.name}</span>
                         <span>{tutor.description}</span>
@@ -495,7 +481,7 @@ export default function GmatPage() {
             </div>
           </motion.div>
 
-          {/* Call to Action Section */}
+          {/* Call to Action Section - Full width */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -503,10 +489,8 @@ export default function GmatPage() {
             variants={fadeInUpVariant}
             className="w-full bg-[#1c3f60]"
           >
-            <div className="max-w-7xl mx-auto px-4 py-20">
-              <div className="rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-12">
-                <CallToAction />
-              </div>
+            <div className="max-w-7xl mx-auto px-4 py-16">
+              <CallToAction />
             </div>
           </motion.div>
         </motion.div>
