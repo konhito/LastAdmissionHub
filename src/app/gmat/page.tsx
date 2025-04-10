@@ -117,31 +117,31 @@ export default function GmatPage() {
 
       <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen w-full">
         <motion.div className="w-full">
-          {/* Hero Section - Add mt-20 to account for header height */}
+          {/* Hero Section - Adjusted for immediate visibility */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             variants={fadeInUpVariant}
-            className="w-full bg-[#1c3f60] min-h-[calc(100vh-80px)] mt-18 flex items-center justify-center"
+            className="w-full bg-[#1c3f60] min-h-[50vh] mt-18 flex items-start justify-center pt-40 md:min-h-[calc(100vh-80px)] md:items-center md:mt-18 md:pt-0"
           >
             <div className="max-w-7xl mx-auto px-4 w-full">
-              <div className="flex flex-col items-center text-center py-16 md:py-24">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              <div className="flex flex-col items-center text-center">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                   The Tutoring Portal
                 </h1>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-200 italic">
+                <p className="text-lg md:text-2xl lg:text-3xl text-gray-200 italic mb-4">
                   Il metodo vincente per superare il GMAT
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Stats Section */}
-          <div className="w-full bg-[#1c3f60]">
-            <div className="max-w-7xl mx-auto px-4 py-8 md:py-16">
+          {/* Stats Section - Closer to hero on mobile */}
+          <div className="w-full bg-[#1c3f60] -mt-8 md:mt-0">
+            <div className="max-w-7xl mx-auto px-4 py-4 md:py-16">
               <motion.section
-                className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
+                className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8"
                 variants={fadeInUp}
               >
                 {stats.map((stat, index) => (
