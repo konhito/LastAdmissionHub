@@ -463,20 +463,22 @@ export default function GmatPage() {
               <TeamSection />
             </div>
           </div>
+
+          {/* Call to Action - Updated to prevent black background during animation */}
+          <div className="w-full bg-[#1c3f60]">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOptions}
+                variants={fadeInUpVariant}
+              >
+                <CallToAction />
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </motion.main>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOptions}
-        variants={fadeInUpVariant}
-        className="w-full bg-[#1c3f60]"
-      >
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-7">
-          <CallToAction />
-        </div>
-      </motion.div>
 
       <style jsx global>{`
         .perspective {
