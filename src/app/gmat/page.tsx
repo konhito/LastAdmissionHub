@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { User, Users, BookOpen, CheckCircle } from "lucide-react";
 // import { FaPuzzlePiece, FaGlobe, FaDesktop } from "react-icons/fa";
 import CallToAction from "@/components/CallToAction";
+import TeamSection from "@/components/TeamSection";
 
 const stats = [
   { label: "SUCCESS RATE", value: 99.3 },
@@ -58,14 +59,6 @@ export default function GmatPage() {
     });
     return () => intervals.forEach(clearInterval);
   }, []);
-
-  const tutors = [
-    { id: 1, name: "Tutor 1", description: "Descrizione 1" },
-    { id: 2, name: "Tutor 2", description: "Descrizione 2" },
-    { id: 3, name: "Tutor 3", description: "Descrizione 3" },
-    { id: 4, name: "Tutor 4", description: "Descrizione 4" },
-    { id: 5, name: "Tutor 5", description: "Descrizione 5" },
-  ];
 
   const cards1 = [
     {
@@ -465,27 +458,11 @@ export default function GmatPage() {
             </div>
           </motion.section>
 
-          <motion.section
-            className="w-full p-8 md:p-12 rounded-2xl mb-16"
-            variants={fadeInUp}
-          >
-            <div className="flex flex-col items-center">
-              <h2 className="text-3xl font-bold text-[#0F355F] mb-6 tracking-wide">
-                Incontra i nostri Tutors
-              </h2>
-              <div className="flex justify-center gap-6">
-                {tutors.map((tutor) => (
-                  <div
-                    key={tutor.id}
-                    className="w-40 h-56 bg-[#e2c8a4] flex flex-col justify-center items-center text-[#1e3a5f] font-bold text-center rounded-md shadow-md uppercase"
-                  >
-                    <span>{tutor.name}</span>
-                    <span>{tutor.description}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="w-full bg-white">
+            <div className="max-w-7xl mx-auto">
+              <TeamSection />
             </div>
-          </motion.section>
+          </div>
         </motion.div>
       </motion.main>
 
@@ -496,7 +473,7 @@ export default function GmatPage() {
         variants={fadeInUpVariant}
         className="w-full bg-[#1c3f60]"
       >
-        <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="max-w-7xl mx-auto px-4 py-16 md:py-7">
           <CallToAction />
         </div>
       </motion.div>
