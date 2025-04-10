@@ -1,16 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { User, Users, BookOpen, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import CallToAction from "@/components/CallToAction";
-
-const tutors = [
-  { id: 1, name: "Tutor 1", description: "Descrizione 1" },
-  { id: 2, name: "Tutor 2", description: "Descrizione 2" },
-  { id: 3, name: "Tutor 3", description: "Descrizione 3" },
-  { id: 4, name: "Tutor 4", description: "Descrizione 4" },
-  { id: 5, name: "Tutor 5", description: "Descrizione 5" },
-];
+import TeamSection from "@/components/TeamSection";
 
 const stats = [
   { label: "SUCCESS RATE", value: 99.3 },
@@ -87,25 +80,6 @@ export default function IeltsPage() {
     return () => intervals.forEach(clearInterval);
   }, []);
 
-  const cards = [
-    {
-      icon: <User size={50} className="text-[#0B3555]" />,
-      title: "TUTORS MADRELINGUA",
-      description:
-        "Insegnanti madrelingua qualificati con esperienza internazionale",
-    },
-    {
-      icon: <Users size={50} className="text-[#0B3555]" />,
-      title: "BUDDY PROGRAM",
-      description: "Supporto personalizzato per raggiungere i tuoi obiettivi",
-    },
-    {
-      icon: <BookOpen size={50} className="text-[#0B3555]" />,
-      title: "MATERIALE ESCLUSIVO",
-      description: "Accesso a risorse didattiche esclusive e aggiornate",
-    },
-  ];
-
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -148,189 +122,203 @@ export default function IeltsPage() {
           </motion.div>
 
           {/* Stats Section */}
-          <motion.section
-            className="w-full grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 p-8 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 rounded-2xl"
-            variants={fadeInUp}
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-6 backdrop-blur-sm bg-white/10 rounded-xl"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+          <div className="w-full bg-[#1c3f60]">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+              <motion.section
+                className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                variants={fadeInUp}
               >
-                <h2 className="text-3xl font-bold text-white">
-                  {Math.round(animatedValues[index])}
-                </h2>
-                <p className="text-gray-200">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.section>
-
-          {/* Features Cards */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-8 p-8 bg-gradient-to-br from-[#1c3f60] to-blue-900 rounded-2xl mb-8"
-            variants={fadeInUp}
-          >
-            {cards.map((card, index) => (
-              <motion.div
-                key={index}
-                className="relative w-64 h-64 perspective-1000"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                onMouseEnter={() => setFlippedCard(index)}
-                onMouseLeave={() => setFlippedCard(null)}
-              >
-                <div
-                  className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
-                    flippedCard === index ? "rotate-y-180" : ""
-                  }`}
-                >
-                  <div className="absolute w-full h-full bg-white/10 backdrop-blur-sm rounded-xl shadow-lg flex flex-col items-center justify-center text-white text-center font-bold p-4 backface-hidden border border-white/20">
-                    {card.icon}
-                    <p className="mt-4">{card.title}</p>
-                  </div>
-                  <div className="absolute w-full h-full bg-white/10 backdrop-blur-sm rounded-xl shadow-lg flex flex-col items-center justify-center text-white text-center p-4 backface-hidden rotate-y-180 border border-white/20">
-                    <p className="text-sm">{card.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Continue with the rest of your sections, applying similar modern styling */}
-          <div className="bg-white p-8 mt-3 rounded-lg shadow-sm w-full">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              {/* Left side content */}
-              <div className="md:w-1/2">
-                <h1 className="text-4xl font-bold text-navy-800 mb-6">
-                  Corsi 1-to-1
-                </h1>
-
-                <ul className="space-y-5">
-                  {[
-                    "Classi personalizzate sulle esigenze dello studente con tutor madrelingua",
-                    "Pratica le tue conoscenze linguistiche e affina le migliori strategie per l’IELTS",
-                    "Fai network e migliora le strategie d'esame",
-                    "Focalizzati sulle quattro sezioni dell’esame: Speaking, Reading, Listening, Writing",
-                    "Corsi della durata di 20 o 40 ore, oppure pacchetti custom per esigenze specifiche",
-                  ].map((text, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="mr-4">
-                        <CheckCircle className="w-8 h-8 text-navy-800" />
-                      </div>
-                      <p className="text-gray-700 text-lg">{text}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-[#EDE0C8] p-6 md:p-8 rounded-lg shadow-md w-full">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              {/* Left Illustration */}
-              <div className="w-full md:w-1/2">{/* img */}</div>
-
-              {/* Right Content */}
-              <div className="w-full md:w-1/2">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1F1F3E] mb-6">
-                  Corsi di gruppo
-                </h2>
-
-                <ul className="space-y-5">
-                  {[
-                    "Pratica le tue skills con discussioni e attività di gruppo (c.a. 10 persone)",
-                    "Scegli un corso intensivo di 2 mesi o di allenarti più a lungo con il corso standard di 40 ore (6 mesi)",
-                    "xx",
-                    "xx",
-                  ].map((text, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle
-                        size={24}
-                        className="text-[#0B3555] mr-3 flex-shrink-0"
-                      />
-                      <p className="text-gray-800">{text}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          {/* last */}
-          <div className="p-8 bg-[#0B3555] mt-3 rounded">
-            <h2 className="text-center text-3xl font-bold text-white mb-6">
-              Il nostro approccio
-            </h2>
-            <div className="flex justify-center mt-3 items-center gap-20">
-              {cards1.map((card, index) => (
-                <div
-                  key={index}
-                  className="relative w-64 h-64 perspective-1000"
-                  onMouseEnter={() => setFlippedCard(index)}
-                  onMouseLeave={() => setFlippedCard(null)}
-                >
-                  <div
-                    className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
-                      flippedCard === index ? "rotate-y-180" : ""
-                    }`}
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-center p-6 backdrop-blur-sm bg-white/10 rounded-xl relative overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    {/* Front of card */}
-                    <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4 backface-hidden">
-                      {card.icon}
-                      <p className="mt-4">{card.title}</p>
+                    <div className="relative z-10">
+                      <h2 className="text-3xl font-bold text-white mb-2">
+                        {Math.round(animatedValues[index])}
+                        {stat.label === "SUCCESS RATE" && "%"}
+                      </h2>
+                      <p className="text-gray-200 uppercase tracking-wider">
+                        {stat.label}
+                      </p>
                     </div>
+                  </motion.div>
+                ))}
+              </motion.section>
+            </div>
+          </div>
 
-                    {/* Back of card */}
-                    <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center p-4 backface-hidden rotate-y-180">
-                      <p className="text-sm">{card.description}</p>
+          {/* Content Sections */}
+          <div className="w-full bg-white">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+              {/* Individual Course Section */}
+              <motion.section
+                className="w-full bg-[#e2c8a4] p-8 md:p-12 rounded-2xl mb-16"
+                variants={fadeInUp}
+              >
+                <div className="w-full text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8">
+                    Corsi 1-to-1
+                  </h2>
+                </div>
+                <div className="bg-white p-8 mt-3 rounded-lg shadow-sm w-full">
+                  <div className="flex flex-col md:flex-row justify-between items-center">
+                    {/* Left side content */}
+                    <div className="md:w-1/2">
+                      <h1 className="text-4xl font-bold text-navy-800 mb-6">
+                        Corsi 1-to-1
+                      </h1>
+
+                      <ul className="space-y-5">
+                        {[
+                          "Classi personalizzate sulle esigenze dello studente con tutor madrelingua",
+                          "Pratica le tue conoscenze linguistiche e affina le migliori strategie per l’IELTS",
+                          "Fai network e migliora le strategie d'esame",
+                          "Focalizzati sulle quattro sezioni dell’esame: Speaking, Reading, Listening, Writing",
+                          "Corsi della durata di 20 o 40 ore, oppure pacchetti custom per esigenze specifiche",
+                        ].map((text, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="mr-4">
+                              <CheckCircle className="w-8 h-8 text-navy-800" />
+                            </div>
+                            <p className="text-gray-700 text-lg">{text}</p>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
-              ))}
+              </motion.section>
+
+              {/* Group Course Section */}
+              <motion.section
+                className="w-full bg-[#e2c8a4] p-8 md:p-12 rounded-2xl mb-16"
+                variants={fadeInUp}
+              >
+                <div className="w-full text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8">
+                    Corsi di gruppo
+                  </h2>
+                </div>
+                <div className="bg-[#EDE0C8] p-6 md:p-8 rounded-lg shadow-md w-full">
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    {/* Left Illustration */}
+                    <div className="w-full md:w-1/2">{/* img */}</div>
+
+                    {/* Right Content */}
+                    <div className="w-full md:w-1/2">
+                      <h2 className="text-2xl md:text-3xl font-bold text-[#1F1F3E] mb-6">
+                        Corsi di gruppo
+                      </h2>
+
+                      <ul className="space-y-5">
+                        {[
+                          "Pratica le tue skills con discussioni e attività di gruppo (c.a. 10 persone)",
+                          "Scegli un corso intensivo di 2 mesi o di allenarti più a lungo con il corso standard di 40 ore (6 mesi)",
+                          "xx",
+                          "xx",
+                        ].map((text, index) => (
+                          <li key={index} className="flex items-start">
+                            <CheckCircle
+                              size={24}
+                              className="text-[#0B3555] mr-3 flex-shrink-0"
+                            />
+                            <p className="text-gray-800">{text}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
             </div>
           </div>
-        </motion.div>
 
-        <div className="flex flex-col items-center justify-center my-2 mb-20 bg-white">
-          <h1 className="text-3xl font-bold text-[#153B5C] mb-6">
-            Incontra i nostri Tutors
-          </h1>
-          <button className="bg-[#FF5252] text-black text-lg font-light px-8 py-4 rounded-lg">
-            vedi tutoring gmat
-          </button>
-        </div>
+          {/* Il Nostro Metodo Section */}
+          <div className="w-full bg-[#1c3f60]">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+              <motion.section className="w-full" variants={fadeInUp}>
+                <div className="w-full">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">
+                    Il Nostro Metodo
+                  </h2>
+                  <div className="p-8 bg-[#0B3555] mt-3 rounded">
+                    <h2 className="text-center text-3xl font-bold text-white mb-6">
+                      Il nostro approccio
+                    </h2>
+                    <div className="flex justify-center mt-3 items-center gap-20">
+                      {cards1.map((card, index) => (
+                        <div
+                          key={index}
+                          className="relative w-64 h-64 perspective-1000"
+                          onMouseEnter={() => setFlippedCard(index)}
+                          onMouseLeave={() => setFlippedCard(null)}
+                        >
+                          <div
+                            className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
+                              flippedCard === index ? "rotate-y-180" : ""
+                            }`}
+                          >
+                            {/* Front of card */}
+                            <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center font-bold p-4 backface-hidden">
+                              {card.icon}
+                              <p className="mt-4">{card.title}</p>
+                            </div>
 
-        <div className="flex flex-col items-center bg-white p-10">
-          <h2 className="text-3xl font-bold text-[#0F355F] mb-6 tracking-wide">
-            Incontra i nostri Tutors
-          </h2>
-          <div className="flex justify-center gap-6">
-            {tutors.map((tutor) => (
-              <div
-                key={tutor.id}
-                className="w-40 h-56 bg-[#EADDC4] flex flex-col justify-center items-center text-[#0F355F] font-bold text-center rounded-md shadow-md uppercase"
-              >
-                <span>{tutor.name}</span>
-                <span>{tutor.description}</span>
-              </div>
-            ))}
+                            {/* Back of card */}
+                            <div className="absolute w-full h-full bg-[#FFF3DB] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#0B3555] text-center p-4 backface-hidden rotate-y-180">
+                              <p className="text-sm">{card.description}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
+            </div>
           </div>
-        </div>
 
-        <motion.div
-          className="w-full bg-gradient-to-r from-gray-900 to-blue-900 py-12"
-          variants={fadeInUp}
-        >
-          <motion.div
-            className="max-w-5xl mx-auto px-4"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <CallToAction />
-          </motion.div>
+          {/* Team Section */}
+          <div className="w-full bg-white">
+            <div className="max-w-7xl mx-auto">
+              <TeamSection />
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="w-full bg-[#1c3f60]">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOptions}
+                variants={fadeInUpVariant}
+              >
+                <CallToAction />
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </motion.main>
+
+      <style jsx global>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+        .transform-style-preserve-3d {
+          transform-style: preserve-3d;
+        }
+        .backface-hidden {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+      `}</style>
     </>
   );
 }
