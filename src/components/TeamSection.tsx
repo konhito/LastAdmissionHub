@@ -1,5 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
+});
 
 const TeamSection = () => {
   const teamMembers = [
@@ -32,10 +38,16 @@ const TeamSection = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title text-center font-Montserrat font-bold text-5xl text-[#1c3f60] mb-4">
-          Il nostro Team
-        </h2>
-        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+        <div className="text-center mb-12">
+          <h2
+            className={`${montserrat.className} text-xl sm:text-2xl md:text-4xl font-bold text-[#1e3a5f] whitespace-nowrap`}
+          >
+            Il nostro Team
+          </h2>
+        </div>
+        <p
+          className={`${montserrat.className} text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-12`}
+        >
           Sappiamo cosa significa affrontare un’application: ci siamo passati
           anche noi. I membri del nostro team hanno studiato in prestigiose
           Business School internazionali come LBS, HEC, ESCP e Bocconi, ed hanno

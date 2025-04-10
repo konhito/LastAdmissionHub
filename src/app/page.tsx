@@ -32,13 +32,14 @@ const libreFranklin = Libre_Franklin({
   weight: ["400", "700", "800", "900"],
 });
 
+// Update sectionStyles with responsive classes
 const sectionStyles = {
-  wrapper: "w-full py-12",
-  container: "max-w-7xl mx-auto px-4",
-  content: `flex flex-col md:flex-row items-center justify-between gap-12 min-h-[300px] rounded-lg p-8`,
-  textContainer: "max-w-2xl text-left", // Changed from text-center
-  heading: `${montserrat.className} text-5xl font-bold text-[#1e3a5f] mb-6`,
-  paragraph: `${montserrat.className} text-xl text-[#1e3a5f] leading-relaxed`, // Removed mx-auto
+  wrapper: "w-full py-8 md:py-12 lg:py-16",
+  container: "max-w-7xl mx-auto px-4 md:px-6",
+  content: `flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[250px] md:min-h-[300px] rounded-lg p-4 md:p-8`,
+  textContainer: "max-w-2xl text-left mt-6 md:mt-0",
+  heading: `${montserrat.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6`,
+  paragraph: `${montserrat.className} text-base sm:text-lg md:text-xl text-[#1e3a5f] leading-relaxed mb-4`,
 };
 
 export default function Home() {
@@ -202,14 +203,16 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
               >
                 {/* Title Group with Libre Franklin */}
-                <div className={`${libreFranklin.className} text-right pt-30`}>
+                <div
+                  className={`${libreFranklin.className} text-right pt-16 md:pt-30`}
+                >
                   {" "}
                   {/* Added text-right */}
-                  <h1 className="text-6xl md:text-7xl font-black leading-tight mb-4">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4">
                     DREAM BIG
                   </h1>
                   <h2
-                    className="text-4xl md:text-7xl font-bold mb-4 text-transparent bg-clip-text"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text"
                     style={
                       {
                         WebkitTextStroke: "2px white",
@@ -219,7 +222,7 @@ export default function Home() {
                   >
                     ACT NOW
                   </h2>
-                  <h3 className="text-6xl md:text-7xl font-black leading-tight">
+                  <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
                     ACHIEVE MORE
                   </h3>
                 </div>
@@ -371,7 +374,7 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          className="py-20 bg-[#14365a]"
+          className="py-12 md:py-20 lg:py-24 bg-[#14365a]"
           variants={fadeInUpVariant}
           viewport={{ once: true }}
         >
@@ -410,7 +413,7 @@ export default function Home() {
               {[...logos, ...logos, ...logos].map((logo, index) => (
                 <div
                   key={`logo-${index}`}
-                  className="flex-shrink-0 mx-8 flex items-center justify-center"
+                  className="flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center"
                   style={{ minWidth: "180px" }}
                 >
                   <Image
@@ -418,7 +421,7 @@ export default function Home() {
                     alt={logo.name}
                     width={120}
                     height={60}
-                    className="object-contain h-16 w-auto"
+                    className="object-contain h-12 md:h-16 w-auto"
                     priority
                   />
                 </div>
