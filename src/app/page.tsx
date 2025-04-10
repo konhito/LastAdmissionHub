@@ -32,14 +32,14 @@ const libreFranklin = Libre_Franklin({
   weight: ["400", "700", "800", "900"],
 });
 
-// Update sectionStyles with responsive classes
+// Update sectionStyles with consistent text alignment
 const sectionStyles = {
   wrapper: "w-full py-8 md:py-12 lg:py-16",
   container: "max-w-7xl mx-auto px-4 md:px-6",
   content: `flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[250px] md:min-h-[300px] rounded-lg p-4 md:p-8`,
-  textContainer: "max-w-2xl text-left mt-6 md:mt-0",
-  heading: `${montserrat.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6`,
-  paragraph: `${montserrat.className} text-base sm:text-lg md:text-xl text-[#1e3a5f] leading-relaxed mb-4`,
+  textContainer: "max-w-2xl text-center md:text-left mt-6 md:mt-0", // Added text-center for mobile
+  heading: `${montserrat.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6 text-center md:text-left`, // Added text-center for mobile
+  paragraph: `${montserrat.className} text-base sm:text-lg md:text-xl text-[#1e3a5f] leading-relaxed mb-4 text-center md:text-left`, // Added text-center for mobile
 };
 
 export default function Home() {

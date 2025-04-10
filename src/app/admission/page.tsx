@@ -218,10 +218,8 @@ export default function HomePage() {
                       />
                     </div>
                     <div className="w-2/3">
-                      <h2 className="text-5xl font-bold text-[#1e3a5f] text-left">
-                        Un percorso
-                        <br />
-                        <span className="text-center">completo:</span>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left">
+                        Un percorso completo:
                       </h2>
                     </div>
                   </div>
@@ -265,10 +263,8 @@ export default function HomePage() {
                       />
                     </div>
                     <div className="w-2/3">
-                      <h2 className="text-5xl font-bold text-[#1e3a5f] text-left">
-                        Altre
-                        <br />
-                        risorse:
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left">
+                        Altre risorse:
                       </h2>
                     </div>
                   </div>
