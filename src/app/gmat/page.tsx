@@ -414,91 +414,92 @@ export default function GmatPage() {
                   </div>
                 </div>
               </motion.section>
-
-              <motion.section
-                className="w-full bg-[#1c3f60] p-8 md:p-12 rounded-2xl mb-16 text-white"
-                variants={fadeInUp}
-              >
-                <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-3xl font-bold mb-6">Il Nostro Metodo</h2>
-                  <p className="text-xl text-gray-200 leading-relaxed">
-                    Costruisci solide fondamenta teoriche con l&apos;aiuto di
-                    insegnanti madrelingua qualificati. Il nostro approccio
-                    strutturato ti guiderà passo dopo passo verso il successo
-                    nel GMAT.
-                  </p>
-                </div>
-              </motion.section>
-
-              <motion.section
-                className="w-full p-8 md:p-12 rounded-2xl mb-16"
-                variants={fadeInUp}
-              >
-                <div className="flex justify-center items-center gap-20">
-                  {cards1.map((card, index) => (
-                    <div
-                      key={index}
-                      className="relative w-64 h-64 perspective-1000"
-                      onMouseEnter={() => setFlippedCard(index)}
-                      onMouseLeave={() => setFlippedCard(null)}
-                    >
-                      <div
-                        className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
-                          flippedCard === index ? "rotate-y-180" : ""
-                        }`}
-                      >
-                        <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center font-bold p-4 backface-hidden">
-                          {card.icon}
-                          <p className="mt-4">{card.title}</p>
-                        </div>
-
-                        <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center p-4 backface-hidden rotate-y-180">
-                          <p className="text-sm">{card.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.section>
-
-              <motion.section
-                className="w-full p-8 md:p-12 rounded-2xl mb-16"
-                variants={fadeInUp}
-              >
-                <div className="flex flex-col items-center">
-                  <h2 className="text-3xl font-bold text-[#0F355F] mb-6 tracking-wide">
-                    Incontra i nostri Tutors
-                  </h2>
-                  <div className="flex justify-center gap-6">
-                    {tutors.map((tutor) => (
-                      <div
-                        key={tutor.id}
-                        className="w-40 h-56 bg-[#e2c8a4] flex flex-col justify-center items-center text-[#1e3a5f] font-bold text-center rounded-md shadow-md uppercase"
-                      >
-                        <span>{tutor.name}</span>
-                        <span>{tutor.description}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.section>
             </div>
           </div>
 
-          {/* Call to Action Section - Full width */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            variants={fadeInUpVariant}
-            className="w-full bg-[#1c3f60]"
+          {/* Move Il Nostro Metodo here - directly as a new section */}
+          <div className="w-full bg-[#1c3f60]">
+            <motion.section className="w-full" variants={fadeInUp}>
+              <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+                <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">
+                  Il Nostro Metodo
+                </h2>
+                <p className="text-xl text-gray-200 leading-relaxed max-w-5xl mx-auto text-center">
+                  Costruisci solide fondamenta teoriche con l&apos;aiuto di
+                  insegnanti madrelingua qualificati. Il nostro approccio
+                  strutturato ti guiderà passo dopo passo verso il successo nel
+                  GMAT.
+                </p>
+              </div>
+            </motion.section>
+          </div>
+
+          <motion.section
+            className="w-full p-8 md:p-12 rounded-2xl mb-16"
+            variants={fadeInUp}
           >
-            <div className="max-w-7xl mx-auto px-4 py-16">
-              <CallToAction />
+            <div className="flex justify-center items-center gap-20">
+              {cards1.map((card, index) => (
+                <div
+                  key={index}
+                  className="relative w-64 h-64 perspective-1000"
+                  onMouseEnter={() => setFlippedCard(index)}
+                  onMouseLeave={() => setFlippedCard(null)}
+                >
+                  <div
+                    className={`w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
+                      flippedCard === index ? "rotate-y-180" : ""
+                    }`}
+                  >
+                    <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center font-bold p-4 backface-hidden">
+                      {card.icon}
+                      <p className="mt-4">{card.title}</p>
+                    </div>
+
+                    <div className="absolute w-full h-full bg-[#e2c8a4] rounded-lg shadow-lg flex flex-col items-center justify-center text-[#1e3a5f] text-center p-4 backface-hidden rotate-y-180">
+                      <p className="text-sm">{card.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </motion.div>
+          </motion.section>
+
+          <motion.section
+            className="w-full p-8 md:p-12 rounded-2xl mb-16"
+            variants={fadeInUp}
+          >
+            <div className="flex flex-col items-center">
+              <h2 className="text-3xl font-bold text-[#0F355F] mb-6 tracking-wide">
+                Incontra i nostri Tutors
+              </h2>
+              <div className="flex justify-center gap-6">
+                {tutors.map((tutor) => (
+                  <div
+                    key={tutor.id}
+                    className="w-40 h-56 bg-[#e2c8a4] flex flex-col justify-center items-center text-[#1e3a5f] font-bold text-center rounded-md shadow-md uppercase"
+                  >
+                    <span>{tutor.name}</span>
+                    <span>{tutor.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
         </motion.div>
       </motion.main>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        variants={fadeInUpVariant}
+        className="w-full bg-[#1c3f60]"
+      >
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <CallToAction />
+        </div>
+      </motion.div>
 
       <style jsx global>{`
         .perspective {
