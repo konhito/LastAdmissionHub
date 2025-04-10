@@ -124,27 +124,27 @@ export default function GmatPage() {
 
       <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen w-full">
         <motion.div className="w-full">
-          {/* Hero Section - Full width */}
+          {/* Hero Section - Add mt-20 to account for header height */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             variants={fadeInUpVariant}
-            className="w-full bg-[#1c3f60] py-16 md:py-24"
+            className="w-full bg-[#1c3f60] min-h-[calc(100vh-80px)] mt-18 flex items-center justify-center"
           >
-            <div className="max-w-7xl mx-auto px-4">
-              <div className="flex flex-col items-center text-center">
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <div className="max-w-7xl mx-auto px-4 w-full">
+              <div className="flex flex-col items-center text-center py-16 md:py-24">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                   The Tutoring Portal
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-200 italic">
+                <p className="text-xl md:text-2xl lg:text-3xl text-gray-200 italic">
                   Il metodo vincente per superare il GMAT
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Stats Section - Full width */}
+          {/* Stats Section - Keep consistent spacing */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -152,45 +152,49 @@ export default function GmatPage() {
             variants={fadeInUpVariant}
             className="w-full bg-[#1c3f60]"
           >
-            <div className="max-w-7xl mx-auto px-4 py-16">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+              <motion.section
+                className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                variants={fadeInUp}
+              >
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
-                    className="text-center p-6 bg-[#1e3a5f] rounded-xl"
+                    className="text-center p-6 backdrop-blur-sm bg-white/10 rounded-xl relative overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h2 className="text-3xl font-bold text-white">
-                      {Math.round(animatedValues[index])}
-                      {stat.label === "SUCCESS RATE" && "%"}
-                    </h2>
-                    <p className="text-gray-200">{stat.label}</p>
+                    <div className="relative z-10">
+                      <h2 className="text-3xl font-bold text-white mb-2">
+                        {Math.round(animatedValues[index])}
+                        {stat.label === "SUCCESS RATE" && "%"}
+                      </h2>
+                      <p className="text-gray-200 uppercase tracking-wider">
+                        {stat.label}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.section>
             </div>
           </motion.div>
 
           {/* Content Sections - Full width */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            variants={fadeInUpVariant}
-            className="w-full bg-white"
-          >
-            <div className="max-w-7xl mx-auto px-4 py-16">
-              {/* Update individual sections to be full width */}
+          <div className="w-full bg-white">
+            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
               <motion.section
-                className="w-full bg-[#e2c8a4] p-8 md:p-12 rounded-2xl shadow-lg mb-8"
+                className="w-full bg-[#e2c8a4] p-8 md:p-12 rounded-2xl mb-16"
                 variants={fadeInUp}
               >
-                <div className="w-full">
+                {/* Section Title */}
+                <div className="w-full text-center mb-12">
                   <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8">
                     Corsi 1-to-1
                   </h2>
+                </div>
 
+                {/* Content Grid */}
+                <div className="w-full max-w-6xl mx-auto">
                   <div className="space-y-6 mb-10">
                     <div className="flex items-start gap-4">
                       <div className="min-w-8 h-8 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white mt-1">
@@ -223,8 +227,8 @@ export default function GmatPage() {
                     </div>
                   </div>
 
-                  {/* Table */}
-                  <div className="mt-8 overflow-x-auto mb-5">
+                  {/* Table - Full width */}
+                  <div className="mt-8 overflow-x-auto mb-5 w-full">
                     <div className="flex justify-between border-b border-blue-800/20 text-center">
                       <div className="py-4 px-4 text-[#1e3a5f] font-bold text-left w-1/5">
                         Pacchetti
@@ -329,7 +333,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full bg-[#d2e6f5] p-8 md:p-12 rounded-2xl shadow-lg mb-8"
+                className="w-full bg-[#d2e6f5] p-8 md:p-12 rounded-2xl shadow-lg mb-16"
                 variants={fadeInUp}
               >
                 <div>
@@ -412,7 +416,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full bg-[#1c3f60] p-8 md:p-12 rounded-2xl mb-8 text-white"
+                className="w-full bg-[#1c3f60] p-8 md:p-12 rounded-2xl mb-16 text-white"
                 variants={fadeInUp}
               >
                 <div className="max-w-3xl mx-auto text-center">
@@ -427,7 +431,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full p-8 md:p-12 rounded-2xl mb-8"
+                className="w-full p-8 md:p-12 rounded-2xl mb-16"
                 variants={fadeInUp}
               >
                 <div className="flex justify-center items-center gap-20">
@@ -458,7 +462,7 @@ export default function GmatPage() {
               </motion.section>
 
               <motion.section
-                className="w-full p-8 md:p-12 rounded-2xl mb-8"
+                className="w-full p-8 md:p-12 rounded-2xl mb-16"
                 variants={fadeInUp}
               >
                 <div className="flex flex-col items-center">
@@ -479,7 +483,7 @@ export default function GmatPage() {
                 </div>
               </motion.section>
             </div>
-          </motion.div>
+          </div>
 
           {/* Call to Action Section - Full width */}
           <motion.div

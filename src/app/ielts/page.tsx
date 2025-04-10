@@ -40,7 +40,26 @@ const cards1 = [
   },
 ];
 
-export default function IELTSPage() {
+const fadeInUpVariant = {
+  hidden: {
+    opacity: 0,
+    y: 60,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const viewportOptions = {
+  once: true,
+  margin: "-100px",
+};
+
+export default function IeltsPage() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -106,55 +125,24 @@ export default function IELTSPage() {
         style={{ scaleX }}
       />
 
-      <main className="bg-white text-gray-800 min-h-screen flex flex-col items-center">
-        <motion.div
-          className="w-full max-w-5xl mb-12"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.2,
-              },
-            },
-          }}
-        >
+      <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen w-full">
+        <motion.div className="w-full">
           {/* Hero Section */}
           <motion.div
-            className="w-full bg-gradient-to-r from-gray-900 to-blue-900 mb-6 mt-20 rounded-2xl py-16 md:py-24 relative overflow-hidden"
-            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeInUpVariant}
+            className="w-full bg-[#1c3f60] min-h-[calc(100vh-80px)] mt-18 flex items-center justify-center"
           >
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              animate={{
-                backgroundPosition: ["0% 0%", "100% 100%"],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              style={{
-                backgroundImage: "url('/grid-pattern.svg')",
-                backgroundSize: "cover",
-              }}
-            />
-            <div className="container mx-auto px-4 md:px-8 relative z-10">
-              <div className="flex flex-col items-center text-center">
-                <motion.h1
-                  className="text-4xl md:text-5xl font-bold text-white mb-4"
-                  animate={{ scale: [0.95, 1] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  The English Portal
-                </motion.h1>
-                <motion.h2
-                  className="text-xl md:text-2xl text-gray-200 italic"
-                  animate={{ opacity: [0, 1] }}
-                  transition={{ delay: 0.2 }}
-                >
-                  La chiave vincente per preparare l&apos;IELTS
-                </motion.h2>
+            <div className="max-w-7xl mx-auto px-4 w-full">
+              <div className="flex flex-col items-center text-center py-16 md:py-24">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+                  The IELTS Portal
+                </h1>
+                <p className="text-xl md:text-2xl lg:text-3xl text-gray-200 italic">
+                  La tua preparazione perfetta per l&apos;IELTS
+                </p>
               </div>
             </div>
           </motion.div>
@@ -342,7 +330,7 @@ export default function IELTSPage() {
             <CallToAction />
           </motion.div>
         </motion.div>
-      </main>
+      </motion.main>
     </>
   );
 }
