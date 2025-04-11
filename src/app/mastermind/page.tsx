@@ -71,7 +71,7 @@ export default function MastermindPage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="w-full bg-[#1c3f60] min-h-[50vh] mt-20 flex items-start justify-center pt-40 md:min-h-[calc(100vh-80px)] md:items-center md:mt-0 md:pt-0"
+            className="w-full bg-[#1c3f60] min-h-[50vh] mt-18 flex items-start justify-center pt-40 md:min-h-[calc(100vh-80px)] md:items-center md:mt-0 md:pt-0"
           >
             <div className="max-w-7xl mx-auto px-4 w-full">
               <div className="flex flex-col items-center text-center">
