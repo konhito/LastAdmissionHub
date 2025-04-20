@@ -6,6 +6,7 @@ import Image from "next/image";
 import admissionimag from "@/public/admissionimag.jpg";
 import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png";
+import { useRouter } from "next/navigation";
 
 import TestimonialSlider from "@/components/TestimonialSlider";
 
@@ -68,6 +69,8 @@ const viewportOptions = {
 };
 
 export default function HomePage() {
+  const router = useRouter();
+
   // Updated cards with fixed spacing and proper formatting
   const cards = [
     {
@@ -249,12 +252,13 @@ export default function HomePage() {
                   </div>
                   <motion.div className="flex flex-col gap-6 items-center">
                     {[
-                      "TUTORING GMAT",
-                      "TUTORING IELTS",
-                      "PERCORSO MASTERMIND",
-                    ].map((text) => (
+                      { text: "TUTORING GMAT", path: "/gmat" },
+                      { text: "TUTORING IELTS", path: "/ielts" },
+                      { text: "ELITE PATH", path: "/mastermind" },
+                    ].map(({ text, path }) => (
                       <motion.button
                         key={text}
+                        onClick={() => router.push(path)}
                         className="w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md hover:scale-105 transition-all duration-300"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -296,18 +300,34 @@ export default function HomePage() {
                     </div>
                   </div>
                   <motion.div className="flex flex-col gap-6 items-center">
-                    {["IL NOSTRO BLOG", "ACADEMYPRO", "YOUTUBE"].map((text) => (
+                    {[
+                      {
+                        text: "IL NOSTRO BLOG",
+                        path: "/blog",
+                        comingSoon: false,
+                      },
+                      { text: "ACADEMYPRO", path: "#", comingSoon: true },
+                      { text: "YOUTUBE", path: "#", comingSoon: true },
+                    ].map(({ text, path, comingSoon }) => (
                       <motion.button
                         key={text}
-                        className="w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md hover:scale-105 transition-all duration-300"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        onClick={() => !comingSoon && router.push(path)}
+                        className={`w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md transition-all duration-300 relative ${
+                          !comingSoon && "hover:scale-105"
+                        }`}
+                        whileHover={!comingSoon ? { scale: 1.05 } : {}}
+                        whileTap={!comingSoon ? { scale: 0.95 } : {}}
                         variants={fadeInUpVariant}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewportOptions}
                       >
                         {text}
+                        {comingSoon && (
+                          <span className="absolute -top-2 -right-2 bg-[#e2c8a4] text-[#1e3a5f] text-xs px-2 py-1 rounded-full">
+                            Coming Soon
+                          </span>
+                        )}
                       </motion.button>
                     ))}
                   </motion.div>
