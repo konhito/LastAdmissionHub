@@ -81,7 +81,7 @@ const Header = () => {
             <span
               className={`${montserrat.className} text-2xl font-semibold text-white`}
             >
-              The AdmissionHub
+              The Admission Hub
             </span>
           </Link>
 
