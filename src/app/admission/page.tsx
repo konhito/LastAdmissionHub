@@ -289,7 +289,19 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
-
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeInUpVariant}
+          className="w-full bg-[#1c3f60] py-20"
+        >
+          <motion.div className="max-w-5xl mx-auto px-4">
+            <div className="rounded-2xl backdrop-blur-lg border-white/20 ">
+              <CallToAction />
+            </div>
+          </motion.div>
+        </motion.div>
         {/* Testimonial Section - "Dicono di Noi" */}
 
         <motion.section
@@ -302,19 +314,6 @@ export default function HomePage() {
       </motion.div>
 
       {/* Call to Action Section - Contained Width */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView="visible"
-        viewport={viewportOptions}
-        variants={fadeInUpVariant}
-        className="w-full bg-[#1c3f60] py-20"
-      >
-        <motion.div className="max-w-5xl mx-auto px-4">
-          <div className="rounded-2xl backdrop-blur-lg border-white/20 ">
-            <CallToAction />
-          </div>
-        </motion.div>
-      </motion.div>
     </motion.main>
   );
 }
