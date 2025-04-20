@@ -215,8 +215,8 @@ export default function Home() {
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text"
                     style={
                       {
-                        WebkitTextStroke: "2px white",
-                        "--text-stroke": "2px white",
+                        WebkitTextStroke: "4px white",
+                        "--text-stroke": "4px white",
                       } as React.CSSProperties
                     }
                   >
