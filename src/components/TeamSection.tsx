@@ -40,7 +40,7 @@ const TeamSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2
-            className={`${montserrat.className} text-xl sm:text-2xl md:text-4xl font-bold text-[#1e3a5f] whitespace-nowrap`}
+            className={`${montserrat.className} text-xl sm:text-2xl md:text-5xl font-bold text-[#1e3a5f] whitespace-nowrap`}
           >
             Il nostro Team
           </h2>

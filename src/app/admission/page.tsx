@@ -159,7 +159,7 @@ export default function HomePage() {
             className="w-full"
           >
             <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1e3a5f] mb-8 md:mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-center text-[#1e3a5f] mb-8 md:mb-16">
                 Application Toolkit
               </h2>
               <motion.div

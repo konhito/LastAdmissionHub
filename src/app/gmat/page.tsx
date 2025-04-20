@@ -175,7 +175,7 @@ export default function GmatPage() {
               >
                 {/* Section Title */}
                 <div className="w-full text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8">
+                  <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-8">
                     Corsi 1-to-1
                   </h2>
                 </div>
@@ -327,7 +327,7 @@ export default function GmatPage() {
                 variants={fadeInUp}
               >
                 <div>
-                  <h2 className="text-2xl md:text-4xl font-bold text-[#1e3a5f] mb-4 md:mb-6">
+                  <h2 className="text-2xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6">
                     Corsi di gruppo
                   </h2>
 
@@ -429,7 +429,7 @@ export default function GmatPage() {
           <div className="w-full bg-[#1c3f60]">
             <div className="max-w-7xl mx-auto px-4 py-8 md:py-16">
               <motion.section className="w-full" variants={fadeInUp}>
-                <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-4 md:mb-8">
+                <h2 className="text-2xl md:text-5xl font-bold text-white text-center mb-4 md:mb-8">
                   Il Nostro Metodo
                 </h2>
                 <p className="text-base md:text-xl text-gray-200 leading-relaxed max-w-5xl mx-auto text-center px-4">
