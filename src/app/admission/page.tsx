@@ -313,7 +313,7 @@ export default function HomePage() {
                       },
                       {
                         text: "YOUTUBE",
-                        path: "https://www.youtube.com/@lastadmission",
+                        path: "https://www.youtube.com/",
                         comingSoon: false,
                       },
                     ].map(({ text, path, comingSoon }) => (
