@@ -303,15 +303,28 @@ export default function HomePage() {
                     {[
                       {
                         text: "IL NOSTRO BLOG",
-                        path: "/blog",
+                        path: "#",
+                        comingSoon: true,
+                      },
+                      {
+                        text: "ACADEMYPRO",
+                        path: "#",
+                        comingSoon: true,
+                      },
+                      {
+                        text: "YOUTUBE",
+                        path: "https://www.youtube.com/@lastadmission",
                         comingSoon: false,
                       },
-                      { text: "ACADEMYPRO", path: "#", comingSoon: true },
-                      { text: "YOUTUBE", path: "#", comingSoon: true },
                     ].map(({ text, path, comingSoon }) => (
                       <motion.button
                         key={text}
-                        onClick={() => !comingSoon && router.push(path)}
+                        onClick={() =>
+                          !comingSoon &&
+                          (path.startsWith("http")
+                            ? window.open(path, "_blank")
+                            : router.push(path))
+                        }
                         className={`w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md transition-all duration-300 relative ${
                           !comingSoon && "hover:scale-105"
                         }`}
