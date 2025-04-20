@@ -22,7 +22,7 @@ const Header = () => {
 
   const navigationItems = [
     {
-      title: "APPLICATION PREP",
+      title: "APPLICATION PORTAL",
       href: "#",
       isDropdown: true,
       dropdownItems: [
