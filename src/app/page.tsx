@@ -374,7 +374,7 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          className="py-12 md:py-20 lg:py-24 bg-[#14365a]"
+          className="py-12 md:py-20 lg:py-24 bg-[#1c3f5e]"
           variants={fadeInUpVariant}
           viewport={{ once: true }}
         >

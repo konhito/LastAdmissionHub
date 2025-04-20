@@ -75,7 +75,7 @@ export default function HomePage() {
   ];
 
   return (
-    <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen flex flex-col">
+    <motion.main className="bg-[#1c3f5e] text-gray-800 min-h-screen flex flex-col">
       <motion.div
         className="w-full"
         initial="hidden"
@@ -130,7 +130,7 @@ export default function HomePage() {
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeInUpVariant}
-          className="w-full bg-[#14365a] py-20 relative z-10"
+          className="w-full bg-[#1c3f5e] py-20 relative z-10"
         >
           <div className="max-w-5xl mx-auto px-4 text-center">
             <motion.p
@@ -177,7 +177,7 @@ export default function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="absolute inset-0 bg-[#1e3a5f]/90 rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-10 z-20">
+                    <div className="absolute inset-0 bg-[#1c3f5e] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-10 z-20">
                       <h3 className="text-base md:text-xl font-bold mt-2 px-2 md:px-4 leading-tight">
                         {card.title}
                       </h3>
