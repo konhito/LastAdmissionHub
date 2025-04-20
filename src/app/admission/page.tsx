@@ -159,14 +159,13 @@ export default function HomePage() {
               className="text-white text-xl md:text-2xl leading-relaxed"
               variants={fadeInUpVariant}
             >
-              ??Lorem ipsum dolor sit amet, consectetur adipisci elit, sed
-              eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrum exercitationem ullam corporis
-              suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
-              Quis aute iure reprehenderit in voluptate velit esse cillum dolore
-              eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
+              Pensato per accompagnarti in ogni fase del processo di ammissione,
+              l’Admission Portal raccoglie le soluzioni più efficaci per
+              costruire una candidatura competitiva. Attraverso un percorso
+              personalizzato, riceverai il supporto continuo di un team esperto,
+              pronto a guidarti con strategia, metodo e attenzione. Che tu stia
+              puntando a un MBA o un Master, il nostro obiettivo è aiutarti a
+              distinguerti — davvero.
             </motion.p>
           </div>
         </motion.div>
@@ -199,7 +198,7 @@ export default function HomePage() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="absolute inset-0 bg-[#1c3f5e] rounded-lg shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-10 z-20">
+                    <div className="absolute inset-0 bg-[#1c3f5e]  shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-10 z-20">
                       <h3 className="text-base md:text-xl font-bold mt-2 px-2 md:px-4 leading-tight">
                         {card.title}
                       </h3>
