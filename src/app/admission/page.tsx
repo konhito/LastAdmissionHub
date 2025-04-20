@@ -45,6 +45,26 @@ const staggerContainer = {
   },
 };
 
+// First, add this smoother animation variant at the top with other variants
+const smoothHeadingAnimation = {
+  hidden: { 
+    opacity: 0,
+    y: 20,
+    transition: {
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
+
 export default function HomePage() {
   // Updated cards with fixed spacing and proper formatting
   const cards = [
@@ -218,9 +238,12 @@ export default function HomePage() {
                       />
                     </div>
                     <div className="w-2/3">
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left">
+                      <motion.h2
+                        variants={smoothHeadingAnimation}
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left"
+                      >
                         Un percorso completo:
-                      </h2>
+                      </motion.h2>
                     </div>
                   </div>
                   <motion.div className="flex flex-col gap-6 items-center">
@@ -263,9 +286,12 @@ export default function HomePage() {
                       />
                     </div>
                     <div className="w-2/3">
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left">
+                      <motion.h2
+                        variants={smoothHeadingAnimation}
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left"
+                      >
                         Altre risorse:
-                      </h2>
+                      </motion.h2>
                     </div>
                   </div>
                   <motion.div className="flex flex-col gap-6 items-center">
