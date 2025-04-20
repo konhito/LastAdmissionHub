@@ -46,7 +46,7 @@ const TeamSection = () => {
           </h2>
         </div>
         <p
-          className={`${montserrat.className} text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-12`}
+          className={`${montserrat.className} text-sm sm:text-base md:text-lg text-gray-600 max-w-5xl mx-auto mb-12 px-4`}
         >
           Sappiamo cosa significa affrontare un’application: ci siamo passati
           anche noi. I membri del nostro team hanno studiato in prestigiose
