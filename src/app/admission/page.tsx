@@ -197,12 +197,12 @@ export default function HomePage() {
                   <motion.div
                     key={index}
                     variants={fadeInUpVariant}
-                    className="w-full relative h-48 md:h-64"
+                    className="w-full relative aspect-square max-w-[300px] mx-auto" // Added max-width and center alignment
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="absolute inset-0 bg-[#1c3f5e]  shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-10 z-20">
-                      <h3 className="text-base md:text-xl font-bold mt-2 px-2 md:px-4 leading-tight">
+                    <div className="absolute inset-0 bg-[#1c3f5e] rounded-2xl shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-6">
+                      <h3 className="text-sm md:text-base lg:text-lg font-bold mt-2 px-2 leading-tight">
                         {card.title}
                       </h3>
                     </div>
