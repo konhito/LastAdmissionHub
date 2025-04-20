@@ -263,7 +263,7 @@ export default function Home() {
                   />
                 </motion.div>
                 <div className={sectionStyles.textContainer}>
-                  <h2 className={sectionStyles.heading}>
+                  <h2 className={`${sectionStyles.heading} whitespace-nowrap`}>
                     Una strategia personalizzata
                   </h2>
                   <p className={sectionStyles.paragraph}>
