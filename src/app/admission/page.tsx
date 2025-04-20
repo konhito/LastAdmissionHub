@@ -9,30 +9,24 @@ import assets2 from "@/public/asset3.png";
 
 import TestimonialSlider from "@/components/TestimonialSlider";
 
-// Update the animation variant back to original
+// Update animation variants at the top of your file
 const fadeInUpVariant = {
   hidden: {
     opacity: 0,
-    y: 60,
+    y: 30,
     transition: {
-      duration: 0.8,
-      ease: "easeOut",
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
-      ease: "easeOut",
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
-};
-
-// Reset viewport options to original
-const viewportOptions = {
-  once: true,
-  margin: "-100px",
 };
 
 const staggerContainer = {
@@ -40,29 +34,37 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+      ease: [0.22, 1, 0.36, 1],
+      duration: 0.8,
     },
   },
 };
 
-// First, add this smoother animation variant at the top with other variants
 const smoothHeadingAnimation = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     y: 20,
     transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.2,
-      ease: [0.22, 1, 0.36, 1]
-    }
-  }
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Update viewport options
+const viewportOptions = {
+  once: true,
+  margin: "0px 0px -200px 0px",
 };
 
 export default function HomePage() {
