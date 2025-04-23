@@ -31,14 +31,16 @@ const fadeInUpVariant = {
 };
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+  },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.3,
-      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
       duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -51,6 +53,21 @@ const smoothHeadingAnimation = {
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
     },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const buttonAnimation = {
+  hidden: {
+    opacity: 0,
+    y: 20,
   },
   visible: {
     opacity: 1,
@@ -250,7 +267,12 @@ export default function HomePage() {
                       </motion.h2>
                     </div>
                   </div>
-                  <motion.div className="flex flex-col gap-6 items-center">
+                  <motion.div
+                    className="flex flex-col gap-6 items-center"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                  >
                     {[
                       { text: "TUTORING GMAT", path: "/gmat" },
                       { text: "TUTORING IELTS", path: "/ielts" },
@@ -260,12 +282,9 @@ export default function HomePage() {
                         key={text}
                         onClick={() => router.push(path)}
                         className="w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md hover:scale-105 transition-all duration-300"
+                        variants={buttonAnimation}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        variants={fadeInUpVariant}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={viewportOptions}
                       >
                         {text}
                       </motion.button>
@@ -299,7 +318,12 @@ export default function HomePage() {
                       </motion.h2>
                     </div>
                   </div>
-                  <motion.div className="flex flex-col gap-6 items-center">
+                  <motion.div
+                    className="flex flex-col gap-6 items-center"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                  >
                     {[
                       {
                         text: "IL NOSTRO BLOG",
@@ -313,7 +337,7 @@ export default function HomePage() {
                       },
                       {
                         text: "YOUTUBE",
-                        path: "https://www.youtube.com/",
+                        path: "https://www.youtube.com/@lastadmission",
                         comingSoon: false,
                       },
                     ].map(({ text, path, comingSoon }) => (
@@ -328,12 +352,9 @@ export default function HomePage() {
                         className={`w-full max-w-md py-3 bg-gradient-to-r from-[#00395a] to-[#005280] text-white font-bold rounded-full text-center shadow-md transition-all duration-300 relative ${
                           !comingSoon && "hover:scale-105"
                         }`}
+                        variants={buttonAnimation}
                         whileHover={!comingSoon ? { scale: 1.05 } : {}}
                         whileTap={!comingSoon ? { scale: 0.95 } : {}}
-                        variants={fadeInUpVariant}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={viewportOptions}
                       >
                         {text}
                         {comingSoon && (
