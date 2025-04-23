@@ -421,7 +421,12 @@ export default function Home() {
                     alt={logo.name}
                     width={120}
                     height={60}
-                    className="object-contain h-12 md:h-16 w-auto"
+                    className={`object-contain h-12 md:h-16 w-auto ${
+                      logo.name === "Imperial College Business School" ||
+                      logo.name === "SDA Bocconi"
+                        ? "scale-70" // This will make these logos 30% smaller
+                        : ""
+                    }`}
                     priority
                   />
                 </div>
