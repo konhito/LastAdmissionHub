@@ -60,7 +60,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-sm leading-relaxed mb-4">
-              Il punto di riferimento per l'ammissione a Business School e
+              Il punto di riferimento per l&apos;ammissione a Business School e
               università internazionali.
               <br />
               GMAT, IELTS, application, orientamento e carriera: tutto in un
