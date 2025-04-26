@@ -44,20 +44,19 @@ const Footer = () => {
   return (
     <footer className={`${montserrat.className} bg-[#1c3f60] text-white py-12`}>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Description Column */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
               <Image
                 src={logo}
                 alt="AdmissionHub Logo"
-                width={40}
-                height={40}
-                className="w-10 h-10"
+                width={36}
+                height={36}
+                className="w-9 h-9"
               />
-              <div className="flex flex-col">
-                <span className="font-bold text-xl ">TheAdmissionHub</span>
-              </div>
+              <span className="font-bold text-lg whitespace-nowrap">
+                The Admission Hub
+              </span>
             </Link>
             <p className="text-sm leading-relaxed mb-4">
               Il punto di riferimento per l&apos;ammissione a Business School e
@@ -96,14 +95,16 @@ const Footer = () => {
 
           {/* Service Columns */}
           {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-[#d9c498] font-bold mb-4">{section.title}</h3>
-              <ul className="space-y-2">
+            <div key={section.title} className="md:px-6">
+              <h3 className="text-[#d9c498] font-bold mb-6 text-lg">
+                {section.title}
+              </h3>
+              <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm hover:text-[#d9c498] transition-colors"
+                      className="text-sm hover:text-[#d9c498] transition-colors block"
                     >
                       {link.name}
                     </Link>
@@ -113,16 +114,15 @@ const Footer = () => {
             </div>
           ))}
         </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-white/20 pt-8">
-          <div className="text-sm text-gray-400 text-center">
-            <p className="mb-4">
-              © 2025 The Admission Hub. Tutti i diritti riservati.
-            </p>
-            <p className="mb-2">P.IVA: IT02478090562</p>
-            <p>Via Alessandro Astesani, 20161, Milano (MI), Italia</p>
-          </div>
+        {/* Bottom Section with increased spacing */}
+        <div className="mt-12 mb-8 border-t border-white/20" />{" "}
+        {/* Changed from border-t to div with border and margins */}
+        <div className="text-sm text-gray-400 text-center">
+          <p className="mb-4">
+            © 2025 The Admission Hub. Tutti i diritti riservati.
+          </p>
+          <p className="mb-2">P.IVA: IT02478090562</p>
+          <p>Via Alessandro Astesani, 20161, Milano (MI), Italia</p>
         </div>
       </div>
     </footer>

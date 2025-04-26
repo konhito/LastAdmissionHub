@@ -166,13 +166,14 @@ export default function GmatPage() {
             </div>
           </div>
 
-          {/* Content Sections - Full width */}
-          <div className="w-full bg-white">
-            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-              <motion.section
-                className="w-full bg-[#e2c8a4] p-8 md:p-12 rounded-2xl mb-16"
-                variants={fadeInUp}
-              >
+          {/* Content Sections - Update these sections */}
+          <div className="w-full">
+            {/* Remove the white background wrapper */}
+            <motion.section
+              className="w-full bg-[#e2c8a4] py-16 md:py-24"
+              variants={fadeInUp}
+            >
+              <div className="max-w-7xl mx-auto px-4">
                 {/* Section Title */}
                 <div className="w-full text-center mb-12">
                   <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-8">
@@ -320,12 +321,14 @@ export default function GmatPage() {
                     </div>
                   </div>
                 </div>
-              </motion.section>
+              </div>
+            </motion.section>
 
-              <motion.section
-                className="w-full bg-[#d2e6f5] p-4 md:p-8 lg:p-12 rounded-2xl shadow-lg mb-8 md:mb-16"
-                variants={fadeInUp}
-              >
+            <motion.section
+              className="w-full bg-[#d2e6f5] py-16 md:py-24"
+              variants={fadeInUp}
+            >
+              <div className="max-w-7xl mx-auto px-4">
                 <div>
                   <h2 className="text-2xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6">
                     Corsi di gruppo
@@ -421,8 +424,8 @@ export default function GmatPage() {
                     </div>
                   </div>
                 </div>
-              </motion.section>
-            </div>
+              </div>
+            </motion.section>
           </div>
 
           {/* Il Nostro Metodo Section */}

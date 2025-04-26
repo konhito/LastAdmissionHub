@@ -151,20 +151,19 @@ export default function IeltsPage() {
           </div>
 
           {/* Content Sections */}
-          <div className="w-full bg-white">
-            <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-              <motion.section
-                className="w-full bg-[#e2c8a4] p-4 md:p-8 lg:p-12 rounded-2xl mb-8 md:mb-16"
-                variants={fadeInUp}
-              >
-                {/* Section Title */}
+          <div className="w-full">
+            {/* Individual Course Section */}
+            <motion.section
+              className="w-full bg-[#e2c8a4] py-16 md:py-24"
+              variants={fadeInUp}
+            >
+              <div className="max-w-7xl mx-auto px-4">
                 <div className="w-full text-center mb-12">
                   <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-8">
                     Corsi 1-to-1
                   </h2>
                 </div>
 
-                {/* Content Grid */}
                 <div className="w-full max-w-6xl mx-auto">
                   <div className="space-y-6 mb-10">
                     <div className="flex items-start gap-4">
@@ -303,12 +302,15 @@ export default function IeltsPage() {
                     </div>
                   </div>
                 </div>
-              </motion.section>
+              </div>
+            </motion.section>
 
-              <motion.section
-                className="w-full bg-[#d2e6f5] p-4 md:p-8 lg:p-12 rounded-2xl shadow-lg mb-8 md:mb-16"
-                variants={fadeInUp}
-              >
+            {/* Group Course Section */}
+            <motion.section
+              className="w-full bg-[#d2e6f5] py-16 md:py-24"
+              variants={fadeInUp}
+            >
+              <div className="max-w-7xl mx-auto px-4">
                 <div>
                   <h2 className="text-2xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6">
                     Corsi di gruppo
@@ -405,8 +407,8 @@ export default function IeltsPage() {
                     </div>
                   </div>
                 </div>
-              </motion.section>
-            </div>
+              </div>
+            </motion.section>
           </div>
 
           {/* Il Nostro Metodo Section - Adjusted card sizes */}
