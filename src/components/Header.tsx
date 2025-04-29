@@ -33,7 +33,7 @@ const Header = () => {
       ],
     },
     { title: "CAREER PORTAL", href: "/career" },
-    { title: "CONTACTS", href: "/CONTACTS" },
+    { title: "CONTACTS", href: "/CONTACT" },
     { title: "CALL GRATUITA", href: "/contact", isButton: true },
   ];
 
