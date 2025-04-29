@@ -10,10 +10,11 @@ const CallToAction = () => {
         </h2>
         <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-200">
           Prenota una call gratuita con i nostri esperti e scopri come possiamo
-          aiutarti a raggiungere le migliori Business Schools.
+          aiutarti a raggiungere le migliori Business Schools
         </p>
         <Link
-          href="/contact"
+          href="https://outlook.office.com/book/CallConoscitiva@theadmissionhub.com/"
+          target="_blank"
           className="bg-[#d9c498] text-[#1c3f60] text-2xl font-bold py-4 px-16 rounded-lg transition-all inline-block hover:scale-105"
         >
           PRENOTA UNA CALL GRATUITA

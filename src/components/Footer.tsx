@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 import logo from "@/public/logo.png";
 import { Montserrat } from "next/font/google";
 
@@ -43,10 +43,14 @@ const Footer = () => {
 
   return (
     <footer className={`${montserrat.className} bg-[#1c3f60] text-white py-12`}>
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6">
+      <div className="max-w-7xl mx-auto px-[10%]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+          {/* Logo Section */}
+          <div className="text-center">
+            <Link
+              href="/"
+              className="inline-flex flex-col items-center gap-2 mb-6"
+            >
               <Image
                 src={logo}
                 alt="AdmissionHub Logo"
@@ -54,48 +58,48 @@ const Footer = () => {
                 height={36}
                 className="w-9 h-9"
               />
-              <span className="font-bold text-lg whitespace-nowrap">
+              <span className="font-normal text-lg whitespace-nowrap">
                 The Admission Hub
               </span>
             </Link>
-            <p className="text-sm leading-relaxed mb-4">
+            <p className="text-sm leading-relaxed mb-4 text-center">
               Il punto di riferimento per l&apos;ammissione a Business School e
               università internazionali.
               <br />
               GMAT, IELTS, application, orientamento e carriera: tutto in un
               unico hub.
             </p>
-            <div className="flex space-x-4 mt-6">
+            <div className="flex justify-center space-x-4 mt-6">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/theadmissionhub"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#d9c498] hover:text-white transition-colors"
               >
                 <FaLinkedin size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/theadmissionhub"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#d9c498] hover:text-white transition-colors"
               >
                 <FaInstagram size={20} />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@lastadmission"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#d9c498] hover:text-white transition-colors"
               >
                 <FaYoutube size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-[#d9c498] hover:text-white transition-colors"
-              >
-                <FaFacebook size={20} />
               </a>
             </div>
           </div>
 
           {/* Service Columns */}
           {footerSections.map((section) => (
-            <div key={section.title} className="md:px-6">
+            <div key={section.title} className="text-center">
               <h3 className="text-[#d9c498] font-bold mb-6 text-lg">
                 {section.title}
               </h3>
@@ -114,9 +118,9 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        {/* Bottom Section with increased spacing */}
-        <div className="mt-12 mb-8 border-t border-white/20" />{" "}
-        {/* Changed from border-t to div with border and margins */}
+
+        {/* Bottom Section */}
+        <div className="mt-12 mb-8 border-t border-white/20" />
         <div className="text-sm text-gray-400 text-center">
           <p className="mb-4">
             © 2025 The Admission Hub. Tutti i diritti riservati.

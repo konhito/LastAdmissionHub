@@ -7,8 +7,15 @@ import admissionimag from "@/public/admissionimag.jpg";
 import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png";
 import { useRouter } from "next/navigation";
+import { Montserrat } from "next/font/google";
 
 import TestimonialSlider from "@/components/TestimonialSlider";
+
+// Add the font configuration after imports and before animations
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800"],
+});
 
 // Update animation variants at the top of your file
 const fadeInUpVariant = {
@@ -214,12 +221,14 @@ export default function HomePage() {
                   <motion.div
                     key={index}
                     variants={fadeInUpVariant}
-                    className="w-full relative aspect-square max-w-[300px] mx-auto" // Added max-width and center alignment
+                    className="w-full relative aspect-square max-w-[300px] mx-auto"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="absolute inset-0 bg-[#1c3f5e] rounded-2xl shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-6">
-                      <h3 className="text-sm md:text-base lg:text-lg font-bold mt-2 px-2 leading-tight">
+                      <h3
+                        className={`${montserrat.className} text-base sm:text-lg md:text-base lg:text-lg font-bold mt-2 px-2 leading-tight`}
+                      >
                         {card.title}
                       </h3>
                     </div>
@@ -276,7 +285,7 @@ export default function HomePage() {
                     {[
                       { text: "TUTORING GMAT", path: "/gmat" },
                       { text: "TUTORING IELTS", path: "/ielts" },
-                      { text: "ELITE PATH", path: "/mastermind" },
+                      { text: "TAH Academy", path: "/mastermind" },
                     ].map(({ text, path }) => (
                       <motion.button
                         key={text}
