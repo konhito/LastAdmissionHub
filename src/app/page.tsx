@@ -18,6 +18,7 @@ import insedLogo from "@/public/logos/INSEAD.png";
 import lbsLogo from "@/public/logos/LondonBusinessSchool.png";
 import lseLogo from "@/public/logos/LSE.png";
 import bocconiLogo from "@/public/logos/SDAbocconi.png";
+import HomeHeader from "@/components/HomeHeader";
 
 // import StatsSection from "@/components/StatsSection";
 import { Montserrat, Libre_Franklin } from "next/font/google";
@@ -142,7 +143,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Progress Bar */}
+      <HomeHeader />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-[#d9c498] origin-[0%] z-50"
         style={{ scaleX }}
