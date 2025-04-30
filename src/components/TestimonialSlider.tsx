@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
 import StarRating from "./StarRating";
 
-const IMAGE_SIZE = 128; // Increased from 96
+// const IMAGE_SIZE = 128; // Increased from 96
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -147,18 +147,7 @@ export default function TestimonialSlider() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.5 }}
-            >
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/20">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  width={IMAGE_SIZE}
-                  height={IMAGE_SIZE}
-                  className="object-cover w-full h-full scale-125" // Added scale-125 for better coverage
-                  priority
-                />
-              </div>
-            </motion.div>
+            ></motion.div>
 
             {/* Content Container with Fixed Height */}
             <div className="flex-1 flex flex-col justify-center w-full max-w-2xl h-[300px]">

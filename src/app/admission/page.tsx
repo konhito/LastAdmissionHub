@@ -231,7 +231,7 @@ export default function AdmissionPage() {
                       >
                         <div className="absolute inset-0 bg-[#1c3f5e] rounded-2xl shadow-lg flex flex-col items-center justify-center text-white text-center p-4 md:p-6">
                           <h3
-                            className={`${montserrat.className} text-base sm:text-lg md:text-base lg:text-lg font-bold mt-2 px-2 leading-tight`}
+                            className={`${montserrat.className} text-xl sm:text-lg md:text-base lg:text-lg font-bold mt-2 px-2 leading-tight`}
                           >
                             {card.title}
                           </h3>
@@ -262,12 +262,12 @@ export default function AdmissionPage() {
                     >
                       {/* Updated image position and styling to match reference */}
                       <div className="flex mb-6">
-                        <div className="w-1/3">
+                        <div className="w-1/4">
                           <Image
                             src={assets1}
                             alt="Complete Path Asset"
-                            width={120}
-                            height={120}
+                            width={80}
+                            height={80}
                             className="object-contain"
                           />
                         </div>
@@ -313,12 +313,12 @@ export default function AdmissionPage() {
                     >
                       {/* Updated image position and styling to match reference */}
                       <div className="flex mb-6">
-                        <div className="w-1/3">
+                        <div className="w-1/4">
                           <Image
                             src={assets2}
                             alt="Other Resources Asset"
-                            width={120}
-                            height={120}
+                            width={80}
+                            height={80}
                             className="object-contain"
                           />
                         </div>
