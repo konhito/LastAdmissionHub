@@ -313,7 +313,7 @@ export default function AdmissionPage() {
                     >
                       {/* Updated image position and styling to match reference */}
                       <div className="flex mb-6">
-                        <div className="w-1/4">
+                        <div className="w-1/4 flex justify-center items-center">
                           <Image
                             src={assets2}
                             alt="Other Resources Asset"
@@ -325,7 +325,7 @@ export default function AdmissionPage() {
                         <div className="w-2/3">
                           <motion.h2
                             variants={smoothHeadingAnimation}
-                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] text-left"
+                            className="text-2xl text-center sm:text-3xl md:text-4xl lg:text-5xl pt-4 font-bold text-[#1e3a5f] "
                           >
                             Altre risorse:
                           </motion.h2>
