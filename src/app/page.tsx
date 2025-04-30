@@ -54,6 +54,22 @@ export default function Home() {
   const [hideGlobe, setHideGlobe] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showGlobeSection, setShowGlobeSection] = useState(true);
+  const [strokeWidth, setStrokeWidth] = useState("5px");
+
+  useEffect(() => {
+    const handleResize = () => {
+      setStrokeWidth(window.innerWidth < 768 ? "3px" : "5px");
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Business school logos
   const logos = [
@@ -216,8 +232,8 @@ export default function Home() {
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text"
                     style={
                       {
-                        WebkitTextStroke: "5px white",
-                        "--text-stroke": "5px white",
+                        WebkitTextStroke: `${strokeWidth} white`,
+                        "--text-stroke": `${strokeWidth} white`,
                       } as React.CSSProperties
                     }
                   >
@@ -230,7 +246,7 @@ export default function Home() {
 
                 {/* Subtitle with Montserrat */}
                 <p
-                  className={`${montserrat.className} text-base md:text-lg mt-8 tracking-widest font-medium text-right`}
+                  className={`${montserrat.className} text-sm sm:text-base md:text-lg mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
                 >
                   BUSINESS SCHOOL | GMAT | IELTS | CAREER
                 </p>
