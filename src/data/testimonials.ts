@@ -6,41 +6,88 @@ interface Testimonial {
   rating: number;
 }
 
+// Placeholder image for all testimonials
+const PLACEHOLDER_IMAGE = "/images/placeholder-profile.jpg";
+
 export const testimonials: Testimonial[] = [
   {
-    name: "Alice Rossi",
-    school: "HEC Paris, Class of 2024",
+    name: "Martina Leoni",
+    school: "HEC Paris, Class of 2025",
     feedback:
-      "Il supporto di The Admission Hub è stato fondamentale per il mio ingresso a HEC Paris.",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Mi hanno aiutata a strutturare un'application solida, valorizzando davvero il mio profilo. Provenendo da giurisprudenza, non sapevo come impostare la mia candidatura per una business school.",
+    image: PLACEHOLDER_IMAGE,
     rating: 5,
   },
   {
-    name: "Marco Bianchi",
+    name: "Luca Bernardi",
     school: "INSEAD, Class of 2024",
     feedback:
-      "Un team incredibile che mi ha guidato verso il successo. La loro esperienza e dedizione hanno fatto la differenza nel mio percorso.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Il loro approccio è stato chiaro, strategico e adattato perfettamente ai miei obiettivi. Avevo già esperienza internazionale, ma non sapevo come comunicarla in modo efficace.",
+    image: PLACEHOLDER_IMAGE,
     rating: 4.9,
   },
   {
-    name: "Giulia Verdi",
-    school: "London Business School, Class of 2024",
+    name: "Chiara Giordano",
+    school: "London Business School, Class of 2025",
     feedback:
-      "Grazie a The Admission Hub ho potuto trasformare il mio sogno in realtà. Il loro supporto è stato fondamentale per la mia ammissione a LBS.",
-    image:
-      "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Essere seguita da chi conosce bene le dinamiche di selezione fa tutta la differenza. I feedback sugli essay e la simulazione dei colloqui sono stati decisivi.",
+    image: PLACEHOLDER_IMAGE,
     rating: 5,
   },
   {
-    name: "Luca Neri",
+    name: "Edoardo Vitali",
     school: "SDA Bocconi, Class of 2024",
     feedback:
-      "Un percorso personalizzato che mi ha permesso di raggiungere i miei obiettivi. Professionalità e competenza al massimo livello.",
-    image:
-      "https://images.unsplash.com/photo-1589386417686-0d34b5903d23?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Mi hanno guidato passo dopo passo, aiutandomi a presentare il mio percorso in modo coerente. Volevo passare da ingegneria a management e avevo bisogno di costruire una narrativa forte.",
+    image: PLACEHOLDER_IMAGE,
+    rating: 5,
+  },
+  {
+    name: "Francesca D'Alessio",
+    school: "Cambridge Judge, Class of 2025",
+    feedback:
+      "La revisione dei miei essay è stata impeccabile. Senza TAH non avrei ottenuto lo stesso risultato, soprattutto perché venivo da un contesto non business.",
+    image: PLACEHOLDER_IMAGE,
+    rating: 4.9,
+  },
+  {
+    name: "Gabriele Rizzi",
+    school: "ESCP Business School, Class of 2025",
+    feedback:
+      "Il supporto costante e la chiarezza del metodo mi hanno dato sicurezza in ogni fase. Con un lavoro full time, avere una guida organizzata è stato essenziale.",
+    image: PLACEHOLDER_IMAGE,
+    rating: 5,
+  },
+  {
+    name: "Alessia Grimaldi",
+    school: "ESADE, Class of 2025",
+    feedback:
+      "TAH è stato molto più di un servizio: è stato un alleato nel mio percorso di ammissione. Hanno saputo adattare il percorso ai miei tempi e obiettivi professionali.",
+    image: PLACEHOLDER_IMAGE,
+    rating: 5,
+  },
+  {
+    name: "Matteo Sanna",
+    school: "IE Business School, Class of 2025",
+    feedback:
+      "Ho apprezzato la personalizzazione del percorso e la preparazione tecnica dei mentor. Il piano di studio per il GMAT è stato costruito davvero su misura.",
+    image: PLACEHOLDER_IMAGE,
+    rating: 4.9,
+  },
+  {
+    name: "Federica Colombo",
+    school: "Bocconi University, Class of 2024",
+    feedback:
+      "Ogni sessione era focalizzata e concreta. Un supporto davvero professionale, che mi ha aiutata anche a chiarire i miei obiettivi di carriera.",
+    image: PLACEHOLDER_IMAGE,
+    rating: 5,
+  },
+  {
+    name: "Davide Longo",
+    school: "Oxford Saïd, Class of 2023",
+    feedback:
+      "Mi hanno aiutato a raccontare la mia storia nel modo giusto, con grande attenzione ai dettagli. La parte più utile? La definizione della personal statement e le simulazioni di interview.",
+    image: PLACEHOLDER_IMAGE,
     rating: 5,
   },
 ];
