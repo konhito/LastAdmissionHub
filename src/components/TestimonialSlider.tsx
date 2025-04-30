@@ -66,11 +66,11 @@ export default function TestimonialSlider() {
     }),
   };
 
-  const imageVariants = {
-    enter: { opacity: 0, scale: 0.5 },
-    center: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.5 },
-  };
+  // const imageVariants = {
+  //   enter: { opacity: 0, scale: 0.5 },
+  //   center: { opacity: 1, scale: 1 },
+  //   exit: { opacity: 0, scale: 0.5 },
+  // };
 
   const textVariants = {
     enter: { opacity: 0, y: 20 },
@@ -136,39 +136,28 @@ export default function TestimonialSlider() {
               x: { type: "spring", stiffness: 200, damping: 30 },
               opacity: { duration: 0.6 },
             }}
-            // Add min-height and proper spacing
-            className="flex flex-col items-center gap-6 relative w-full min-h-[400px]"
+            className="flex flex-col items-center justify-center relative w-full min-h-[300px]"
           >
-            {/* Profile Image with Fade Effect */}
-            <motion.div
-              className="w-32 h-32 mx-auto relative" // Increased from w-24 h-24
-              variants={imageVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.5 }}
-            ></motion.div>
-
-            {/* Content Container with Fixed Height */}
-            <div className="flex-1 flex flex-col justify-center w-full max-w-2xl h-[300px]">
-              {/* Name and School with Slide Effect */}
+            {/* Content Container */}
+            <div className="flex flex-col items-center justify-center w-full max-w-2xl">
+              {/* Name and School */}
               <motion.div
-                className="text-center mb-4"
+                className="text-center mb-6"
                 variants={textVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <h3 className="text-2xl font-bold text-white mb-1">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   {testimonial.name}
                 </h3>
                 <p className="text-gray-200">{testimonial.school}</p>
               </motion.div>
 
-              {/* Feedback Text with Slide Effect - Fixed height container */}
+              {/* Rating and Feedback */}
               <motion.div
-                className="flex-1 flex flex-col items-center justify-center px-4"
+                className="flex flex-col items-center justify-center px-4 w-full"
                 variants={textVariants}
                 initial="enter"
                 animate="center"
@@ -177,9 +166,9 @@ export default function TestimonialSlider() {
               >
                 <StarRating
                   rating={testimonial.rating || 4.7}
-                  className="mb-4"
+                  className="mb-6"
                 />
-                <p className="text-gray-100 text-center text-lg max-h-[200px] overflow-y-auto">
+                <p className="text-gray-100 text-center text-lg max-w-2xl">
                   &quot;{testimonial.feedback}&quot;
                 </p>
               </motion.div>
