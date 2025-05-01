@@ -184,52 +184,47 @@ export default function Home() {
 
         {/* Dream Big section */}
         <motion.section
-          className="w-full py-24 relative overflow-hidden bg-[#1c3f60] min-h-screen dream-big-section"
+          className="w-full py-12 md:py-24 relative overflow-hidden bg-[#1c3f60] min-h-[80vh] md:min-h-screen dream-big-section"
           initial={{ opacity: 0 }}
           animate={{ opacity: hideGlobe ? 1 : 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Background Image Layer - Updated positioning and size */}
-          <div className="absolute bottom-0 left-0 right-0 w-full  h-[100%] z-0">
+          {/* Background Image Layer */}
+          <div className="absolute bottom-0 left-0 right-0 w-full h-[100%] z-0">
             <Image
               src={asset1}
               alt="Dream Big Background"
               fill
-              className="object-cover object-bottom scale-150 transform translate-y-[30%]"
+              className="object-cover object-bottom scale-110 md:scale-150 transform translate-y-[15%] md:translate-y-[30%]"
               style={{
                 objectPosition: "50% 50%",
               }}
               priority
-              quality={100}
+              quality={90}
             />
             <div className="absolute inset-0 bg-gradient-to-l from-[#1c3f60] via-[#1c3f60]/30 to-transparent" />
           </div>
 
-          {/* Content Layer - Updated positioning */}
+          {/* Content Layer */}
           <motion.div
-            className="max-w-7xl mx-auto relative z-10 px-4 h-full flex flex-col justify-end"
+            className="max-w-7xl mx-auto relative z-10 px-4 h-full flex flex-col justify-center md:justify-end"
             variants={fadeInUpVariant}
             viewport={{ once: true }}
           >
-            <div className="text-white md:w-1/2 ml-auto pb-24">
-              {" "}
-              {/* Added ml-auto and pb-24 */}
+            <div className="text-white md:w-1/2 ml-auto pt-10 pb-8 md:pb-24 pr-3 md:pr-0">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                {/* Title Group with Libre Franklin */}
                 <div
-                  className={`${libreFranklin.className} text-right pt-16 md:pt-30`}
+                  className={`${libreFranklin.className} text-right pt-0 md:pt-16`}
                 >
-                  {" "}
-                  {/* Added text-right */}
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4">
+                  <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-2 md:mb-4">
                     DREAM BIG
                   </h1>
                   <h2
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 text-transparent bg-clip-text"
+                    className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-2 md:mb-4 text-transparent bg-clip-text"
                     style={
                       {
                         WebkitTextStroke: `${strokeWidth} white`,
@@ -239,14 +234,13 @@ export default function Home() {
                   >
                     ACT NOW
                   </h2>
-                  <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
+                  <h3 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
                     ACHIEVE MORE
                   </h3>
                 </div>
 
-                {/* Subtitle with Montserrat */}
                 <p
-                  className={`${montserrat.className} text-sm sm:text-base md:text-lg mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
+                  className={`${montserrat.className} text-xs sm:text-sm md:text-lg mt-3 md:mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
                 >
                   BUSINESS SCHOOL | GMAT | IELTS | CAREER
                 </p>
@@ -256,7 +250,6 @@ export default function Home() {
         </motion.section>
 
         <motion.section className="py-0">
-          {/* First section */}
           <div className={sectionStyles.wrapper + " bg-[#e2c8a4]"}>
             <div className={sectionStyles.container}>
               <motion.div
@@ -302,7 +295,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Second section */}
           <div className={sectionStyles.wrapper + " bg-white"}>
             <div className={sectionStyles.container}>
               <motion.div
