@@ -4,7 +4,8 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import CallToAction from "@/components/CallToAction";
 import TeamSection from "@/components/TeamSection";
-import Header from "@/components/Header";
+
+import HomeHeader from "@/components/HomeHeader";
 
 const stats = [
   { label: "SUCCESS RATE", value: 99.3 },
@@ -95,7 +96,8 @@ export default function IeltsPage() {
 
   return (
     <>
-      <Header />
+      <HomeHeader />
+
       <div className="">
         <motion.div
           className="fixed top-0 left-0 right-0 h-1 bg-[#d9c498] origin-[0%] z-50"

@@ -5,7 +5,8 @@ import { User, Users, BookOpen, CheckCircle } from "lucide-react";
 // import { FaPuzzlePiece, FaGlobe, FaDesktop } from "react-icons/fa";
 import CallToAction from "@/components/CallToAction";
 import TeamSection from "@/components/TeamSection";
-import Header from "@/components/Header";
+
+import HomeHeader from "@/components/HomeHeader";
 
 const stats = [
   { label: "SUCCESS RATE", value: 99.3 },
@@ -111,7 +112,8 @@ export default function GmatPage() {
 
   return (
     <>
-      <Header />
+      <HomeHeader />
+
       <div className="">
         <motion.div
           className="fixed top-0 left-0 right-0 h-1 bg-[#d9c498] origin-[0%] z-50"
@@ -120,13 +122,13 @@ export default function GmatPage() {
 
         <motion.main className="bg-[#1c3f60] text-gray-800 min-h-screen w-full">
           <motion.div className="w-full">
-            {/* Hero Section - Adjusted for immediate visibility */}
+            {/* Hero Section - Removed margin top and adjusted padding */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={viewportOptions}
               variants={fadeInUpVariant}
-              className="w-full bg-[#1c3f60] min-h-[50vh] mt-18 flex items-start justify-center pt-40 md:min-h-[calc(100vh-80px)] md:items-center md:mt-18 md:pt-0"
+              className="w-full bg-[#1c3f60] min-h-[50vh] flex items-start justify-center pt-24 md:min-h-[calc(100vh-80px)] md:items-center md:pt-0"
             >
               <div className="max-w-7xl mx-auto px-4 w-full">
                 <div className="flex flex-col items-center text-center">
@@ -140,8 +142,8 @@ export default function GmatPage() {
               </div>
             </motion.div>
 
-            {/* Stats Section - Closer to hero on mobile */}
-            <div className="w-full bg-[#1c3f60] -mt-8 md:mt-0">
+            {/* Stats Section - Adjusted margin */}
+            <div className="w-full bg-[#1c3f60] mt-0">
               <div className="max-w-7xl mx-auto px-4 py-4 md:py-16">
                 <motion.section
                   className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8"

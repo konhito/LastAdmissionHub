@@ -240,7 +240,7 @@ export default function Home() {
                 </div>
 
                 <p
-                  className={`${montserrat.className} text-xs sm:text-sm md:text-lg mt-3 md:mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
+                  className={`${libreFranklin.className} text-xs sm:text-sm md:text-lg mt-3 md:mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
                 >
                   BUSINESS SCHOOL | GMAT | IELTS | CAREER
                 </p>

@@ -8,9 +8,9 @@ import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png";
 import { useRouter } from "next/navigation";
 import { Montserrat } from "next/font/google";
-import Header from "@/components/Header";
 
 import TestimonialSlider from "@/components/TestimonialSlider";
+import HomeHeader from "@/components/HomeHeader";
 
 // Add the font configuration after imports and before animations
 const montserrat = Montserrat({
@@ -24,7 +24,7 @@ const fadeInUpVariant = {
     opacity: 0,
     y: 30,
     transition: {
-      duration: 1,
+      duration: 1.5, // Increased from 1 to 1.5
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -32,7 +32,7 @@ const fadeInUpVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1,
+      duration: 1.5, // Increased from 1 to 1.5
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -126,7 +126,7 @@ export default function AdmissionPage() {
 
   return (
     <>
-      <Header />
+      <HomeHeader />
       <div className="">
         <motion.main className="bg-[#1c3f5e] text-gray-800 min-h-screen flex flex-col">
           <motion.div
@@ -187,7 +187,7 @@ export default function AdmissionPage() {
             >
               <div className="max-w-5xl mx-auto px-4 text-center">
                 <motion.p
-                  className="text-white text-xl md:text-2xl leading-relaxed"
+                  className={`${montserrat.className} text-white text-xl md:text-2xl leading-relaxed font-normal`} // Added font-normal for regular weight
                   variants={fadeInUpVariant}
                 >
                   Pensato per accompagnarti in ogni fase del processo di

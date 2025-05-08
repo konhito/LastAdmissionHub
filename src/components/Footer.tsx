@@ -15,28 +15,26 @@ const Footer = () => {
     {
       title: "SERVIZI",
       links: [
-        { name: "Tutoring Portal", href: "/tutoring" },
-        { name: "English Portal", href: "/english" },
         { name: "Admission Portal", href: "/admission" },
-        { name: "Percorso Elite", href: "/elite" },
+        { name: "GMAT", href: "/gmat" },
+        { name: "IELTS", href: "/ielts" },
+        { name: "TAH Academy", href: "/mastermind" },
         { name: "Career Portal", href: "/career" },
       ],
     },
     {
       title: "RISORSE",
       links: [
-        { name: "Accademy Pro", href: "/academy" },
-        { name: "Guide", href: "/guide" },
-        { name: "Community", href: "/community" },
-        { name: "Blog", href: "/blog" },
-        { name: "Risorse Gratuite", href: "/resources" },
+        { name: "AcademyPro", href: "/coming-soon" },
+        { name: "Guide GMAT", href: "/gmat-guide" },
+        { name: "Blog", href: "/coming-soon" },
       ],
     },
     {
       title: "CONTATTI",
       links: [
-        { name: "Prenota una Call Gratuita", href: "/booking" },
-        { name: "Dove siamo", href: "/location" },
+        { name: "Prenota una call gratuita", href: "/contact" },
+        { name: "Dove siamo", href: "/contact#location" },
       ],
     },
   ];
