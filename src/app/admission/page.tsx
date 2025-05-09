@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { Montserrat } from "next/font/google";
 
 import TestimonialSlider from "@/components/TestimonialSlider";
-import HomeHeader from "@/components/HomeHeader";
+import Header from "@/components/Header";
 
 // Add the font configuration after imports and before animations
 const montserrat = Montserrat({
@@ -126,7 +126,7 @@ export default function AdmissionPage() {
 
   return (
     <>
-      <HomeHeader />
+      <Header />
       <div className="">
         <motion.main className="bg-[#1c3f5e] text-gray-800 min-h-screen flex flex-col">
           <motion.div
@@ -191,7 +191,7 @@ export default function AdmissionPage() {
                   variants={fadeInUpVariant}
                 >
                   Pensato per accompagnarti in ogni fase del processo di
-                  ammissione, l’Admission Portal raccoglie le soluzioni più
+                  ammissione, l'Admission Portal raccoglie le soluzioni più
                   efficaci per costruire una candidatura competitiva. Attraverso
                   un percorso personalizzato, riceverai il supporto continuo di
                   un team esperto, pronto a guidarti con strategia, metodo e

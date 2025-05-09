@@ -365,7 +365,7 @@ export default function Home() {
                     Un supporto costante
                   </h2>
                   <p className={sectionStyles.paragraph}>
-                    Gestire un’application per un MBA o un Master richiede
+                    Gestire un'application per un MBA o un Master richiede
                     attenzione ai dettagli, rispetto di deadline precise e
                     coerenza tra tutti gli elementi del profilo. Ti
                     accompagniamo nel tuo percorso, adattando strategie e

@@ -11,7 +11,7 @@ import {
   FaLaptop,
 } from "react-icons/fa";
 
-import HomeHeader from "@/components/HomeHeader";
+import Header from "@/components/Header";
 
 export default function CareerPage() {
   const { scrollYProgress } = useScroll();
@@ -103,7 +103,7 @@ export default function CareerPage() {
 
   return (
     <>
-      <HomeHeader />
+      <Header />
 
       <div className="">
         <motion.div
