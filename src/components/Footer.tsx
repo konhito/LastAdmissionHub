@@ -26,15 +26,21 @@ const Footer = () => {
       title: "RISORSE",
       links: [
         { name: "AcademyPro", href: "/coming-soon" },
-        { name: "Guide GMAT", href: "/gmat-guide" },
+        { name: "Guide GMAT", href: "/gmat" },
         { name: "Blog", href: "/coming-soon" },
       ],
     },
     {
       title: "CONTATTI",
       links: [
-        { name: "Prenota una call gratuita", href: "/contact" },
-        { name: "Dove siamo", href: "/contact#location" },
+        {
+          name: "Prenota una call gratuita",
+          href: "https://outlook.office.com/book/CallConoscitiva@theadmissionhub.com/",
+        },
+        {
+          name: "Dove siamo",
+          href: "https://maps.app.goo.gl/aEfEJqNLVwsvzxN37",
+        },
       ],
     },
   ];
@@ -52,9 +58,9 @@ const Footer = () => {
               <Image
                 src={logo}
                 alt="AdmissionHub Logo"
-                width={36}
-                height={36}
-                className="w-9 h-9"
+                width={200}
+                height={200}
+                className="w-20 h-20"
               />
               <span className="font-normal text-lg whitespace-nowrap">
                 The Admission Hub
@@ -69,7 +75,7 @@ const Footer = () => {
             </p>
             <div className="flex justify-center space-x-4 mt-6">
               <a
-                href="https://www.linkedin.com/company/theadmissionhub"
+                href="https://www.linkedin.com/company/the-admission-hub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#d9c498] hover:text-white transition-colors"
@@ -85,7 +91,7 @@ const Footer = () => {
                 <FaInstagram size={20} />
               </a>
               <a
-                href="https://www.youtube.com/@lastadmission"
+                href="http://www.youtube.com/@TheAdmissionHub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#d9c498] hover:text-white transition-colors"

@@ -32,8 +32,12 @@ const HomeHeader = () => {
       ],
     },
     { title: "CAREER PORTAL", href: "/career" },
-    { title: "CONTACTS", href: "/CONTACT" },
-    { title: "CALL GRATUITA", href: "/contact", isButton: true },
+    { title: "CONTATTI", href: "/CONTACT" },
+    {
+      title: "CALL GRATUITA",
+      href: "https://outlook.office.com/book/CallConoscitiva@theadmissionhub.com/",
+      isButton: true,
+    },
   ];
 
   const handleNavigation = (href: string) => {

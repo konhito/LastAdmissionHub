@@ -8,9 +8,9 @@ import TeamSection from "@/components/TeamSection";
 import CallToAction from "@/components/CallToAction";
 import Image from "next/image";
 import asset1 from "@/public/asset1 (2).svg"; // Make sure this matches your file extension
-import firstone from "@/public/First_sec_1.svg";
-import secondone from "@/public/asset3.svg";
-import thirdone from "@/public/asset4.svg";
+import firstone from "@/public/1 (1).png";
+import secondone from "@/public/2 (1).png";
+import thirdone from "@/public/3 (1).png";
 import hecLogo from "@/public/logos/HECparis.png";
 import essecLogo from "@/public/logos/essec.png";
 import imperialLogo from "@/public/logos/ImperialBusinessCollegeSchool.png";
@@ -240,7 +240,7 @@ export default function Home() {
                 </div>
 
                 <p
-                  className={`${libreFranklin.className} text-xs sm:text-sm md:text-lg mt-3 md:mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
+                  className={`${montserrat.className} text-xs sm:text-sm md:text-lg mt-3 md:mt-8 tracking-widest font-medium text-right whitespace-nowrap overflow-hidden`}
                 >
                   BUSINESS SCHOOL | GMAT | IELTS | CAREER
                 </p>
