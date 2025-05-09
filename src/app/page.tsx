@@ -33,14 +33,16 @@ const libreFranklin = Libre_Franklin({
   weight: ["400", "700", "800", "900"],
 });
 
-// Update sectionStyles with consistent text alignment
+// Update sectionStyles with new layout classes
 const sectionStyles = {
-  wrapper: "w-full py-8 md:py-12 lg:py-16",
-  container: "max-w-7xl mx-auto px-4 md:px-6",
-  content: `flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[250px] md:min-h-[300px] rounded-lg p-4 md:p-8`,
-  textContainer: "max-w-2xl text-center md:text-left mt-6 md:mt-0", // Added text-center for mobile
-  heading: `${montserrat.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6 text-center md:text-left`, // Added text-center for mobile
-  paragraph: `${montserrat.className} text-base sm:text-lg md:text-xl text-[#1e3a5f] leading-relaxed mb-4 text-center md:text-left`, // Added text-center for mobile
+  wrapper: "w-full",
+  container: "max-w-[1400px] mx-auto", // Increased max width for better spacing
+  content: `flex flex-col md:flex-row items-center justify-between md:gap-16 min-h-[250px] md:min-h-[300px]`, // Increased gap
+  textContainer:
+    "max-w-2xl w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0 px-4 md:px-8", // Added width and padding
+  heading: `${montserrat.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e3a5f] mb-4 md:mb-6 text-center md:text-left`,
+  paragraph: `${montserrat.className} text-base sm:text-lg md:text-xl text-[#1e3a5f] leading-relaxed mb-4 text-center md:text-left`,
+  imageContainer: "w-full md:w-1/2 flex justify-start", // New class for image container
 };
 
 export default function Home() {
@@ -145,17 +147,17 @@ export default function Home() {
     };
   }, []);
 
-  const floatingAnimation = {
-    initial: { y: 0 },
-    animate: {
-      y: [0, -20, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
+  // const floatingAnimation = {
+  //   initial: { y: 0 },
+  //   animate: {
+  //     y: [0, -20, 0],
+  //     transition: {
+  //       duration: 4,
+  //       repeat: Infinity,
+  //       ease: "easeInOut",
+  //     },
+  //   },
+  // };
 
   return (
     <>
@@ -249,29 +251,24 @@ export default function Home() {
           </motion.div>
         </motion.section>
 
-        <motion.section className="py-0">
-          <div className={sectionStyles.wrapper + " bg-[#e2c8a4]"}>
+        <motion.section className="py-3">
+          <div className={sectionStyles.wrapper + " bg-white"}>
             <div className={sectionStyles.container}>
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
                 className={sectionStyles.content}
               >
-                <motion.div
-                  className="flex-shrink-0"
-                  variants={floatingAnimation}
-                  animate="animate"
-                  initial="initial"
-                >
+                <div className={sectionStyles.imageContainer}>
                   <Image
                     src={firstone}
                     alt="Strategy Illustration"
-                    width={580}
-                    height={580}
+                    width={680} // Increased size
+                    height={680} // Increased size
                     className="object-contain"
                     priority
                   />
-                </motion.div>
+                </div>
                 <div className={sectionStyles.textContainer}>
                   <h2 className={`${sectionStyles.heading} `}>
                     Una strategia personalizzata
@@ -300,8 +297,18 @@ export default function Home() {
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
-                className={sectionStyles.content}
+                className={`${sectionStyles.content} flex-col md:flex-row-reverse`} // Added flex-row-reverse
               >
+                <div className={sectionStyles.imageContainer}>
+                  <Image
+                    src={secondone}
+                    alt="Team Collaboration Illustration"
+                    width={680}
+                    height={680}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
                 <div className={sectionStyles.textContainer}>
                   <h2 className={sectionStyles.heading}>
                     Un lavoro di squadra
@@ -318,39 +325,19 @@ export default function Home() {
                     formazione accademica e professionale
                   </p>
                 </div>
-                <motion.div
-                  className="flex-shrink-0"
-                  variants={floatingAnimation}
-                  animate="animate"
-                  initial="initial"
-                >
-                  <Image
-                    src={secondone}
-                    alt="Team Collaboration Illustration"
-                    width={580}
-                    height={580}
-                    className="object-contain"
-                    priority
-                  />
-                </motion.div>
               </motion.div>
             </div>
           </div>
 
           {/* Third section */}
-          <div className={sectionStyles.wrapper + " bg-[#d2e6f5]"}>
+          <div className={sectionStyles.wrapper + " bg-white"}>
             <div className={sectionStyles.container}>
               <motion.div
                 variants={fadeInUpVariant}
                 viewport={{ once: true }}
                 className={sectionStyles.content}
               >
-                <motion.div
-                  className="flex-shrink-0"
-                  variants={floatingAnimation}
-                  animate="animate"
-                  initial="initial"
-                >
+                <motion.div className="flex-shrink-0">
                   <Image
                     src={thirdone}
                     alt="Support Illustration"
