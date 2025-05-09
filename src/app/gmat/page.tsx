@@ -5,7 +5,6 @@ import { User, Users, BookOpen, CheckCircle } from "lucide-react";
 // import { FaPuzzlePiece, FaGlobe, FaDesktop } from "react-icons/fa";
 import CallToAction from "@/components/CallToAction";
 import TeamSection from "@/components/TeamSection";
-
 import Header from "@/components/Header";
 
 const stats = [

@@ -191,7 +191,7 @@ export default function AdmissionPage() {
                   variants={fadeInUpVariant}
                 >
                   Pensato per accompagnarti in ogni fase del processo di
-                  ammissione, l’Admission Portal raccoglie le soluzioni più
+                  ammissione, l&apos;Admission Portal raccoglie le soluzioni più
                   efficaci per costruire una candidatura competitiva. Attraverso
                   un percorso personalizzato, riceverai il supporto continuo di
                   un team esperto, pronto a guidarti con strategia, metodo e

@@ -66,6 +66,8 @@ const Header = () => {
     };
   }, []);
 
+  console.log("HEADER STANDARD RENDERED");
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-600 bg-[#1c3f5e] mb-4">
       <nav className="container mx-auto px-4 py-4">
