@@ -42,6 +42,8 @@ const HomeHeader = () => {
     router.push(href);
   };
 
+  console.log("HEADER HOME RENDERED");
+
   return (
     <header
       className={`${montserrat.className} bg-[#1c3f60] text-white relative z-50`}
