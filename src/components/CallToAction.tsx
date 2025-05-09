@@ -17,7 +17,7 @@ const CallToAction = () => {
           Fai il primo passo verso i tuoi obiettivi
         </h2>
         <p
-          className={`${montserrat.className} max-w-2xl mx-auto mb-8 text-lg text-gray-200`}
+          className={`${montserrat.className} max-w-2xl text-xl mx-auto mb-12  text-gray-200`}
         >
           Prenota una call gratuita con i nostri esperti e scopri come possiamo
           aiutarti a raggiungere le migliori Business Schools

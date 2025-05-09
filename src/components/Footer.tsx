@@ -15,9 +15,9 @@ const Footer = () => {
     {
       title: "SERVIZI",
       links: [
+        { name: "Tutoring Portal", href: "/gmat" },
+        { name: "English Portal", href: "/ielts" },
         { name: "Admission Portal", href: "/admission" },
-        { name: "GMAT", href: "/gmat" },
-        { name: "IELTS", href: "/ielts" },
         { name: "TAH Academy", href: "/mastermind" },
         { name: "Career Portal", href: "/career" },
       ],
@@ -40,6 +40,10 @@ const Footer = () => {
         {
           name: "Dove siamo",
           href: "https://maps.app.goo.gl/aEfEJqNLVwsvzxN37",
+        },
+        {
+          name: "Contatti",
+          href: "/contact",
         },
       ],
     },
