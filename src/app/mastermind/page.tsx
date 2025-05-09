@@ -7,7 +7,7 @@ import CallToAction from "@/components/CallToAction";
 import TeamSection from "@/components/TeamSection";
 import assets1 from "@/public/asset5.png";
 import assets2 from "@/public/asset3.png"; // Update with correct path
-import HomeHeader from "@/components/HomeHeader";
+import Header from "@/components/Header";
 
 const stats = [
   { label: "SUCCESS RATE", value: 95 },
@@ -59,7 +59,7 @@ export default function MastermindPage() {
 
   return (
     <>
-      <HomeHeader />
+      <Header />
 
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-[#d9c498] origin-[0%] z-50"

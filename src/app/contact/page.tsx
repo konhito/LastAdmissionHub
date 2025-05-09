@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
 
-import HomeHeader from "@/components/HomeHeader";
+import Header from "@/components/Header";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,7 +18,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <HomeHeader />
+      <Header />
 
       <div className="">
         <div className="min-h-screen bg-[#1c3f60] py-24">
