@@ -56,7 +56,7 @@ const TeamSection = () => {
         <p
           className={`${montserrat.className} text-[20px] text-[#1e3a5f] max-w-6xl mx-auto mb-12 px-2 text-justify`}
         >
-          Sappiamo cosa significa affrontare un'application: ci siamo passati
+          Sappiamo cosa significa affrontare un&aposapplication: ci siamo passati
           anche noi. I membri del nostro team hanno studiato in prestigiose
           Business School internazionali come LBS, HEC, ESCP e Bocconi, ed hanno
           approfondito le dinamiche e le sfide di questi percorsi. I nostri
