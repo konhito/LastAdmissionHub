@@ -119,7 +119,7 @@ const HomeHeader = () => {
             <span className="text-xl md:text-2xl font-normal">
               The Admission Hub
             </span>
-          </a>
+          </Link>
         </div>
       </div>
 
