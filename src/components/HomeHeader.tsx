@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from 'next/link';
 import Image from "next/image";
 import logo from "@/public/logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -107,7 +108,7 @@ const HomeHeader = () => {
       {/* Top Section with Logo */}
       <div className={`container mx-auto px-4 py-1 transition-all duration-300 transform ${scrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}>
         <div className="flex justify-between items-center md:justify-center">
-          <a href="/#dreamBig" onClick={handleLogoClick} className="flex items-center gap-4">
+          <Link href="/#dreamBig" onClick={handleLogoClick} className="flex items-center gap-4">
             <Image
               src={logo}
               alt="The Admission Hub Logo"
