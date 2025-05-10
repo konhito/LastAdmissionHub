@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo.png";
@@ -17,7 +17,45 @@ const montserrat = Montserrat({
 const HomeHeader = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+
+  // Aggiungo un effetto per rilevare lo scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > window.innerHeight * 0.1) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Aggiungiamo un effetto per controllare se dobbiamo scrollare alla sezione dreamBig
+  useEffect(() => {
+    // Controllo se c'è un parametro scrollTo=dreamBig nell'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const scrollToSection = urlParams.get("scrollTo");
+    
+    if (scrollToSection === "dreamBig") {
+      // Rimuovo il parametro dall'URL senza ricaricare la pagina
+      window.history.replaceState({}, document.title, window.location.pathname);
+      
+      // Piccolo ritardo per assicurarsi che la pagina sia caricata
+      setTimeout(() => {
+        const dreamBigSection = document.getElementById("dreamBig");
+        if (dreamBigSection) {
+          dreamBigSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 500);
+    }
+  }, []);
 
   const navigationItems = [
     {
@@ -46,16 +84,31 @@ const HomeHeader = () => {
     router.push(href);
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Se siamo già nella home page, scorro direttamente alla sezione
+    if (window.location.pathname === "/" || window.location.pathname === "") {
+      const dreamBigSection = document.getElementById("dreamBig");
+      if (dreamBigSection) {
+        dreamBigSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Se siamo in un'altra pagina, navigo alla home con un parametro speciale
+      window.location.href = "/?scrollTo=dreamBig";
+    }
+  };
+
   console.log("HEADER HOME RENDERED");
 
   return (
     <header
-      className={`${montserrat.className} bg-[#1c3f60] text-white relative z-50`}
+      className={`${montserrat.className} bg-[#1c3f60] text-white fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
     >
       {/* Top Section with Logo */}
-      <div className="container mx-auto px-4 py-1">
+      <div className={`container mx-auto px-4 py-1 transition-all duration-300 transform ${scrolled ? "h-0 opacity-0 overflow-hidden" : "h-auto opacity-100"}`}>
         <div className="flex justify-between items-center md:justify-center">
-          <Link href="/" className="flex items-center gap-4">
+          <a href="/#dreamBig" onClick={handleLogoClick} className="flex items-center gap-4">
             <Image
               src={logo}
               alt="The Admission Hub Logo"
@@ -66,8 +119,16 @@ const HomeHeader = () => {
             <span className="text-xl md:text-2xl font-normal">
               The Admission Hub
             </span>
-          </Link>
+          </a>
+        </div>
+      </div>
 
+      {/* White Line */}
+      <div className="w-full h-[1px] bg-white" />
+
+      {/* Desktop Navigation */}
+      <nav className={`container mx-auto px-4 py-2 transition-all duration-300 ${scrolled ? "py-1" : "py-2"}`}>
+        <div className="flex items-center justify-between md:justify-center">
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-white"
@@ -76,76 +137,70 @@ const HomeHeader = () => {
           >
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
-        </div>
-      </div>
-
-      {/* White Line */}
-      <div className="w-full h-[1px] bg-white" />
-
-      {/* Desktop Navigation */}
-      <nav className="hidden md:block container mx-auto px-4 py-2">
-        <div className="flex items-center justify-center gap-8">
-          {navigationItems.map((item) =>
-            item.isDropdown ? (
-              <div
-                key={item.title}
-                className="relative group"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
-              >
-                <button className="text-white hover:text-[#d9c498] flex items-center gap-1 transition-colors">
-                  {item.title}
-                  <svg
-                    className={`w-4 h-4 transition-transform ${
-                      isDropdownOpen ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <AnimatePresence>
-                  {isDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute top-full left-0 mt-2 w-48 rounded-lg bg-white shadow-lg py-2 z-50"
+        
+          <div className="hidden md:flex items-center justify-center gap-8">
+            {navigationItems.map((item) =>
+              item.isDropdown ? (
+                <div
+                  key={item.title}
+                  className="relative group"
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                  <button className="text-white hover:text-[#d9c498] flex items-center gap-1 transition-colors">
+                    {item.title}
+                    <svg
+                      className={`w-4 h-4 transition-transform ${
+                        isDropdownOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      {item.dropdownItems?.map((dropItem) => (
-                        <button
-                          key={dropItem.title}
-                          onClick={() => handleNavigation(dropItem.href)}
-                          className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-50 hover:text-[#d9c498]"
-                        >
-                          {dropItem.title}
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ) : (
-              <button
-                key={item.title}
-                onClick={() => handleNavigation(item.href)}
-                className={
-                  item.isButton
-                    ? "bg-[#d9c498] font-bold text-[#1c3f60] px-6 py-2 rounded-full hover:bg-[#e6d4a7] transition-colors"
-                    : "text-white hover:text-[#d9c498] transition-colors"
-                }
-              >
-                {item.title}
-              </button>
-            )
-          )}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute top-full left-0 mt-2 w-48 rounded-lg bg-white shadow-lg py-2 z-50"
+                      >
+                        {item.dropdownItems?.map((dropItem) => (
+                          <button
+                            key={dropItem.title}
+                            onClick={() => handleNavigation(dropItem.href)}
+                            className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-50 hover:text-[#d9c498]"
+                          >
+                            {dropItem.title}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <button
+                  key={item.title}
+                  onClick={() => handleNavigation(item.href)}
+                  className={
+                    item.isButton
+                      ? "bg-[#d9c498] font-bold text-[#1c3f60] px-6 py-2 rounded-full hover:bg-[#e6d4a7] transition-colors"
+                      : "text-white hover:text-[#d9c498] transition-colors"
+                  }
+                >
+                  {item.title}
+                </button>
+              )
+            )}
+          </div>
         </div>
       </nav>
 

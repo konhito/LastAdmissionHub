@@ -130,7 +130,7 @@ export default function Home() {
     let position = scrollPosition;
 
     const animate = () => {
-      position -= 0.1; // Adjust speed as needed
+      position -= 0.2; // Velocità doppia (era 0.1)
       if (position <= -100) {
         position = 0;
       }
@@ -168,7 +168,7 @@ export default function Home() {
       />
 
       <motion.div
-        className="bg-white text-gray-800 min-h-screen"
+        className="bg-white text-gray-800 min-h-screen pt-[60px]"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
@@ -186,6 +186,7 @@ export default function Home() {
 
         {/* Dream Big section */}
         <motion.section
+          id="dreamBig"
           className="w-full py-12 md:py-24 relative overflow-hidden bg-[#1c3f60] min-h-[80vh] md:min-h-screen dream-big-section"
           initial={{ opacity: 0 }}
           animate={{ opacity: hideGlobe ? 1 : 0 }}
@@ -251,7 +252,7 @@ export default function Home() {
           </motion.div>
         </motion.section>
 
-        <motion.section className="py-3">
+        <motion.section>
           <div className={sectionStyles.wrapper + " bg-white"}>
             <div className={sectionStyles.container}>
               <motion.div
@@ -417,11 +418,16 @@ export default function Home() {
                     alt={logo.name}
                     width={120}
                     height={60}
-                    className={`object-contain h-12 md:h-16 w-auto ${
-                      logo.name === "Imperial College Business School" ||
-                      logo.name === "SDA Bocconi"
-                        ? "scale-70" // This will make these logos 30% smaller
-                        : ""
+                    className={`object-contain w-auto ${
+                      logo.name === "Imperial College Business School"
+                        ? "h-5 md:h-7" // Più piccolo per Imperial
+                        : logo.name === "SDA Bocconi"
+                        ? "h-5 md:h-7" // Più piccolo per Bocconi
+                        : logo.name === "HEC Paris"
+                        ? "h-5 md:h-7" // Più piccolo per HEC
+                        : logo.name === "ESSEC Business School"
+                        ? "h-10 md:h-12" // Dimensione standard per ESSEC
+                        : "h-11 md:h-14" // Dimensione standard per altri
                     }`}
                     priority
                   />

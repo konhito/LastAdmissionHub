@@ -2,6 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 
+// Importiamo direttamente le immagini
+import eugeniaImg from '../public/eugenia.png';
+import francescaAdmissionImg from '../public/francesca_admission.png';
+import giulioImg from '../public/giulio.png';
+import lucaImg from '../public/luca.png';
+import francescaCareerImg from '../public/francesca_career.png';
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "700", "800"],
@@ -10,28 +17,29 @@ const montserrat = Montserrat({
 const TeamSection = () => {
   const teamMembers = [
     {
-      name: "Alice Rossi",
-      role: "Consulente",
-      imageSrc:
-        "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Eugenia",
+      role: "Founder",
+      image: eugeniaImg,
     },
     {
-      name: "Marco Bianchi",
-      role: "Mentore",
-      imageSrc:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Francesca",
+      role: "Admission",
+      image: francescaAdmissionImg,
     },
     {
-      name: "Giulia Verdi",
-      role: "Coordinatrice",
-      imageSrc:
-        "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Giulio",
+      role: "GMAT",
+      image: giulioImg,
     },
     {
-      name: "Luca Neri",
-      role: "Specialista",
-      imageSrc:
-        "https://images.unsplash.com/photo-1589386417686-0d34b5903d23?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Luca",
+      role: "IELTS",
+      image: lucaImg,
+    },
+    {
+      name: "Francesca",
+      role: "Career",
+      image: francescaCareerImg,
     },
   ];
 
@@ -42,13 +50,13 @@ const TeamSection = () => {
           <h2
             className={`${montserrat.className} text-3xl sm:text-2xl md:text-5xl font-bold text-[#1e3a5f] whitespace-nowrap`}
           >
-            Il nostro Team
+            Il nostro team
           </h2>
         </div>
         <p
-          className={`${montserrat.className} text-sm sm:text-base md:text-lg text-gray-600 max-w-6xl mx-auto mb-12 px-2 text-justify`}
+          className={`${montserrat.className} text-[20px] text-[#1e3a5f] max-w-6xl mx-auto mb-12 px-2 text-justify`}
         >
-          Sappiamo cosa significa affrontare un’application: ci siamo passati
+          Sappiamo cosa significa affrontare un'application: ci siamo passati
           anche noi. I membri del nostro team hanno studiato in prestigiose
           Business School internazionali come LBS, HEC, ESCP e Bocconi, ed hanno
           approfondito le dinamiche e le sfide di questi percorsi. I nostri
@@ -57,16 +65,16 @@ const TeamSection = () => {
           un supporto continuativo e personalizzato.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {teamMembers.map((member, index) => (
             <div key={index} className="text-center">
               <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <Image
-                  src={member.imageSrc}
+                  src={member.image}
                   alt={`${member.name}'s photo`}
-                  layout="fill" // Fill the parent container
-                  objectFit="cover" // Cover the area without distortion
-                  className="rounded-full" // Make the image circular
+                  width={192}
+                  height={192}
+                  className="rounded-full object-cover"
                 />
               </div>
               <h3 className="text-xl text-gray-900 font-bold">{member.name}</h3>
